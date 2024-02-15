@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  max-width: 100vw;
+}
+
+body {
+  background-color: rgba(237, 237, 237, 0.568627451);
+  font-family: "Roboto", sans-serif;
+}
+
+.intro {
+  font-family: "Roboto", sans-serif;
+}
+
+.daysBox {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.day {
+  padding: 10px;
+}
+
+.navBoxWrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  background-color: #ffffff;
+  height: 50px;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+}
+.navBoxWrap .logoBox {
+  background-color: inherit;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 10px;
+  color: #616161;
+}
+.navBoxWrap .menuBox {
+  background-color: inherit;
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+}
+.navBoxWrap .menuBox:hover,
+.navBoxWrap .logoBox:hover {
+  color: rgba(202, 202, 202, 0.568627451);
+}
+.navBoxWrap .closeIcon {
+  display: block;
+  position: absolute;
+  top: 16px;
+  right: 5px;
+  height: 30px;
+  width: 30px;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.navBoxWrap .closeIcon .line {
+  position: absolute;
+  display: block;
+  background: #616161;
+  width: 10px;
+  height: 0.15rem;
+  border-radius: 0.2rem;
+  left: 0;
+  transition: all 0.6s cubic-bezier(0.5, 0.1, 0, 1.2);
+}
+.navBoxWrap .closeIcon .line-1 {
+  top: 0;
+}
+.navBoxWrap .closeIcon .line-2 {
+  top: 7px;
+  width: 18px;
+  transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+  background-color: #cdbd0e;
+}
+.navBoxWrap .closeIcon .line-3 {
+  top: 14px;
+}
+.navBoxWrap .closeIcon .line-1.on {
+  top: 0px;
+  width: 22px;
+  transform: translateX(-11px) rotate(-45deg) translateY(12px);
+  background-color: #616161;
+}
+.navBoxWrap .closeIcon .line-2.on {
+  opacity: 0;
+}
+.navBoxWrap .closeIcon .line-3.on {
+  top: 14px;
+  width: 22px;
+  transform: translateX(-8px) rotate(45deg) translateY(-8px);
+  background-color: #cdbd0e;
+}
+
+.hamburgerMenuWrap {
+  font-family: "Roboto", sans-serif;
+  font-size: 4rem;
+  color: #ffffff;
+}
+.hamburgerMenuWrap .hamburgerMenu {
+  padding: 30px;
+}
+.hamburgerMenuWrap .hamburgerMenu .link {
+  text-decoration: none;
+  color: white;
+  font-size: 1.4rem;
+}
+.hamburgerMenuWrap .hamburgerMenu.on {
+  background-color: #133051;
+  position: absolute;
+  top: 50px;
+  right: -100%;
+  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+  transform: translateX(-100%);
+  width: 100%;
+  height: 100%;
+  height: calc(100% - 50px);
+}
+.hamburgerMenuWrap .hamburgerMenu.off {
+  background-color: #133051;
+  position: absolute;
+  top: 50px;
+  right: -100%;
+  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
+.bodyWrap {
+  font-size: 2rem;
+  margin: 10px;
+}
+
+@media screen and (min-width: 300px) {
+  .hamburgerMenu.on {
+    background-color: rgba(202, 202, 202, 0.568627451);
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    width: 100%;
+    height: calc(100% - 50px);
+  }
+}
+@media screen and (min-width: 500px) {
+  .hamburgerMenuWrap {
+    font-family: "Roboto", sans-serif;
+    font-size: 4rem;
+    color: #ffffff;
+  }
+  .hamburgerMenuWrap .hamburgerMenu {
+    padding: 30px;
+  }
+  .hamburgerMenuWrap .hamburgerMenu .link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.4rem;
+  }
+  .hamburgerMenuWrap .hamburgerMenu.on {
+    background-color: #133051;
+    position: absolute;
+    top: 50px;
+    right: -40%;
+    transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+    transform: translateX(-100%);
+    width: 40%;
+    height: 100%;
+    height: calc(100% - 50px);
+  }
+  .hamburgerMenuWrap .hamburgerMenu.off {
+    background-color: #133051;
+    position: absolute;
+    top: 50px;
+    right: -40%;
+    transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+    width: 40%;
+    height: calc(100% - 50px);
+  }
+}/*# sourceMappingURL=App.css.map */
