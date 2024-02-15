@@ -11,9 +11,19 @@ const Interface = () => {
       : setState({ ...state, hamburger: true });
   };
 
+  const getAddress = () => {
+    let address = window.location.href;
+    setState({ ...state, address });
+  };
+
   return (
     <>
-      <Nav menuToggle={menuToggle} hamburger={state.hamburger} />
+      <Nav
+        menuToggle={menuToggle}
+        hamburger={state.hamburger}
+        getAddress={getAddress}
+        address={state.address}
+      />
       <HomeBody />
     </>
   );

@@ -3,12 +3,15 @@
 * {
   font-size: 62.5%;
   box-sizing: border-box;
-  max-width: 100vw;
+  width: 100%;
 }
-
+p {
+  font: inherit;
+}
 body {
-  background-color: #ededed91;
+  background-color: #f7f7f7;
   font-family: "Roboto", sans-serif;
+  width: 100%;
 }
 .intro {
   font-family: "Roboto", sans-serif;
@@ -40,68 +43,104 @@ body {
     font-weight: 600;
     padding: 10px;
     color: #616161;
+    .logoImage {
+      width: 25px;
+      height: auto;
+    }
   }
-  .menuBox {
-    background-color: inherit;
-    font-family: "Roboto", sans-serif;
-    padding: 10px;
-  }
+
   .menuBox:hover,
   .logoBox:hover {
-    color: #cacaca91;
+    color: #cdbd0e;
   }
-  .closeIcon {
-    display: block;
+  .rightNavBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
     position: absolute;
-    top: 16px;
+    align-items: center;
+    top: 0px;
     right: 5px;
-    height: 30px;
-    width: 30px;
-    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
-
-    .line {
-      position: absolute;
-      display: block;
-      background: #616161;
-      width: 10px;
-      height: 0.15rem;
-      border-radius: 0.2rem;
-      left: 0;
-      transition: all 0.6s cubic-bezier(0.5, 0.1, 0, 1.2);
-    }
-
-    .line-1 {
-      top: 0;
-    }
-
-    .line-2 {
+    width: auto;
+    height: 100%;
+    .menuBox {
+      background-color: inherit;
+      font-family: "Roboto", sans-serif;
+      margin: 7px 3px 7px 5px;
+      width: 40px;
+      position: relative;
       top: 7px;
-      width: 18px;
-      transform: translateX(0px);
-      -webkit-transform: translateX(0px);
-      background-color: #cdbd0e;
-    }
+      right: 6px;
+      .closeIcon {
+        height: 30px;
+        width: 30px;
+        transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 
-    .line-3 {
-      top: 14px;
-    }
+        .line {
+          position: absolute;
+          display: block;
+          background: #616161;
+          width: 10px;
+          height: 0.15rem;
+          border-radius: 0.2rem;
+          left: 0;
+          transition: all 0.6s cubic-bezier(0.5, 0.1, 0, 1.2);
+        }
 
-    .line-1.on {
-      top: 0px;
-      width: 22px;
-      transform: translateX(-11px) rotate(-45deg) translateY(12px);
-      background-color: #616161;
-    }
+        .line-1 {
+          top: 0;
+        }
 
-    .line-2.on {
-      opacity: 0;
-    }
+        .line-2 {
+          top: 7px;
+          width: 18px;
+          transform: translateX(0px);
+          -webkit-transform: translateX(0px);
+          background-color: #cdbd0e;
+        }
 
-    .line-3.on {
-      top: 14px;
-      width: 22px;
-      transform: translateX(-8px) rotate(45deg) translateY(-8px);
-      background-color: #cdbd0e;
+        .line-3 {
+          top: 14px;
+        }
+
+        .line-1.on {
+          top: 0px;
+          width: 22px;
+          transform: translateX(-11px) rotate(-45deg) translateY(12px);
+          background-color: #616161;
+        }
+
+        .line-2.on {
+          opacity: 0;
+        }
+
+        .line-3.on {
+          top: 14px;
+          width: 22px;
+          transform: translateX(-8px) rotate(45deg) translateY(-8px);
+          background-color: #cdbd0e;
+        }
+      }
+    }
+    .loginBox {
+      background-color: inherit;
+      position: relative;
+      padding: 10px;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      .link {
+        text-decoration: none;
+        color: #616161;
+        font-size: 1.4rem;
+      }
+      .link.loggedIn {
+        text-decoration: none;
+        color: #cdbd0e;
+        font-size: 1.4rem;
+      }
     }
   }
 }
@@ -110,18 +149,26 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 4rem;
   color: #ffffff;
+  position: fixed;
+  top: 50px;
+  height: 100vh;
+  z-index: 100;
   .hamburgerMenu {
+    background-color: #133051;
     padding: 30px;
+
     .link {
       text-decoration: none;
       color: white;
       font-size: 1.4rem;
     }
+    .link:hover {
+      color: #cdbd0e;
+      font-weight: 500;
+    }
   }
   .hamburgerMenu.on {
-    background-color: #133051;
     position: absolute;
-    top: 50px;
     right: -100%;
     transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
     transform: translateX(-100%);
@@ -130,12 +177,123 @@ body {
     height: calc(100% - 50px);
   }
   .hamburgerMenu.off {
-    background-color: #133051;
     position: absolute;
-    top: 50px;
     right: -100%;
     transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
     width: 100%;
+    height: calc(100% - 50px);
+  }
+}
+.hamburgerMenuWrap.tools {
+  margin: 0px;
+
+  .hamburgerMenu.tools {
+    background-color: transparent;
+    padding: 0px;
+
+    .toolBarMenuBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc(100%);
+      background-color: transparent;
+      width: calc(50% - 10px);
+      .toolBarMenu {
+        height: 100%;
+        width: calc(100% - 40px);
+        font-size: 1.4rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1.5fr;
+        grid-gap: 20px;
+        margin: 30px;
+
+        .toolBox {
+          border-radius: 20px;
+          color: #133051;
+          height: 100%;
+          width: 100%;
+          border: 1px solid #adadad;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font: inherit;
+        }
+        .toolBox:hover {
+          // border: 1px solid #cdbd0e;
+        }
+        .toolBox.one {
+          grid-column-start: 1;
+          grid-column-end: 3;
+          grid-row-start: 1;
+          grid-row-end: 2;
+          background-color: #d1d0d0;
+        }
+        .toolBox.two {
+          grid-column-start: 1;
+          grid-column-end: 3;
+          grid-row-start: 2;
+          grid-row-end: 3;
+          background-color: #ffffff;
+        }
+        .toolBox.three {
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 3;
+          grid-row-end: 4;
+          background-color: #d1d0d0;
+        }
+        .toolBox.four {
+          grid-column-start: 2;
+          grid-column-end: 3;
+          grid-row-start: 3;
+          grid-row-end: 4;
+          background-color: #7797bb;
+        }
+        .toolBox.five {
+          grid-column-start: 1;
+          grid-column-end: 3;
+          grid-row-start: 4;
+          grid-row-end: 5;
+          background-color: #323232;
+          color: #ffffff;
+        }
+        .toolBox.six {
+          grid-column-start: 1;
+          grid-column-end: 3;
+          grid-row-start: 5;
+          grid-row-end: 6;
+          background-color: #ffffff;
+        }
+      }
+      .signOutBox {
+        margin: 30px;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        width: calc(100% - 40px);
+        padding: 10px;
+        color: #3e3e3e;
+        font-weight: 800;
+        .link {
+          display: flex;
+          color: #616161;
+          align-self: center;
+        }
+      }
+      .signOutBox:hover {
+        .link {
+          color: #cdbd0e;
+        }
+      }
+    }
+  }
+  .hamburgerMenu.tools.on {
+    right: -100%;
+    transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
     height: calc(100% - 50px);
   }
 }
@@ -143,50 +301,10 @@ body {
 .bodyWrap {
   font-size: 2rem;
   margin: 10px;
+  width: calc(100% - 20px);
 }
 @media screen and (min-width: 300px) {
-  .hamburgerMenu.on {
-    background-color: #cacaca91;
-    position: absolute;
-    top: 50px;
-    right: 0px;
-    width: 100%;
-    height: calc(100% - 50px);
-  }
 }
 
 @media screen and (min-width: 500px) {
-  .hamburgerMenuWrap {
-    font-family: "Roboto", sans-serif;
-    font-size: 4rem;
-    color: #ffffff;
-    .hamburgerMenu {
-      padding: 30px;
-      .link {
-        text-decoration: none;
-        color: white;
-        font-size: 1.4rem;
-      }
-    }
-    .hamburgerMenu.on {
-      background-color: #133051;
-      position: absolute;
-      top: 50px;
-      right: -40%;
-      transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
-      transform: translateX(-100%);
-      width: 40%;
-      height: 100%;
-      height: calc(100% - 50px);
-    }
-    .hamburgerMenu.off {
-      background-color: #133051;
-      position: absolute;
-      top: 50px;
-      right: -40%;
-      transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
-      width: 40%;
-      height: calc(100% - 50px);
-    }
-  }
 }
