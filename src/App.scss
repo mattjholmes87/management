@@ -13,17 +13,17 @@ body {
   font-family: "Roboto", sans-serif;
   width: 100%;
 }
-.intro {
-  font-family: "Roboto", sans-serif;
-}
-.daysBox {
-  display: flex;
-  flex-direction: row;
-  padding: 10px;
-}
-.day {
-  padding: 10px;
-}
+// .intro {
+//   font-family: "Roboto", sans-serif;
+// }
+// .daysBox {
+//   display: flex;
+//   flex-direction: row;
+//   padding: 10px;
+// }
+// .day {
+//   padding: 10px;
+// }
 
 .navBoxWrap {
   display: flex;
@@ -218,9 +218,6 @@ body {
           justify-content: center;
           align-items: center;
           font: inherit;
-        }
-        .toolBox:hover {
-          // border: 1px solid #cdbd0e;
         }
         .toolBox.one {
           grid-column-start: 1;

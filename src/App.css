@@ -15,20 +15,6 @@ body {
   width: 100%;
 }
 
-.intro {
-  font-family: "Roboto", sans-serif;
-}
-
-.daysBox {
-  display: flex;
-  flex-direction: row;
-  padding: 10px;
-}
-
-.day {
-  padding: 10px;
-}
-
 .navBoxWrap {
   display: flex;
   flex-direction: row;
