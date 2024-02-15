@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Nav from "./Nav";
+import NavBar from "./NavBar";
 import HomeBody from "./HomeBody";
 
 const Interface = () => {
@@ -18,7 +18,7 @@ const Interface = () => {
 
   return (
     <>
-      <Nav
+      <NavBar
         menuToggle={menuToggle}
         hamburger={state.hamburger}
         getAddress={getAddress}
