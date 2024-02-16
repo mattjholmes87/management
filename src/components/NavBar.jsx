@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import ToolBar from "./ToolBar";
 import logo from "../images/logo.png";
+import Login from "./Login";
 
 const Nav = ({ menuToggle, hamburger, getAddress }) => {
   return (
@@ -23,7 +24,7 @@ const Nav = ({ menuToggle, hamburger, getAddress }) => {
                     : ""
                 }`}
                 onClick={() => {
-                  getAddress();
+                  menuToggle();
                 }}
               >
                 {window.location.href === "http://localhost:3000/login"
@@ -55,12 +56,17 @@ const Nav = ({ menuToggle, hamburger, getAddress }) => {
         </div>
       </div>
       {window.location.href === "http://localhost:3000/login" ? (
-        <ToolBar
+        <Login
           hamburger={hamburger}
           getAddress={getAddress}
           menuToggle={menuToggle}
         />
       ) : (
+        // <ToolBar
+        // hamburger={hamburger}
+        // getAddress={getAddress}
+        // menuToggle={menuToggle}
+        // />
         <NavLinks hamburger={hamburger} getAddress={getAddress} />
       )}
     </>
