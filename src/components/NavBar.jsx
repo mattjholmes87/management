@@ -12,19 +12,13 @@ const Nav = ({ menuToggle, hamburger, getAddress, login }) => {
           <img src={logo} className="logoImage" alt="logo" />
         </div>
         <div className="rightNavBox">
-          <div className="loginBox">
-            {" "}
-            <p>
-              <Link
-                to="/login"
-                className={`link ${login ? "loggedIn" : ""}`}
-                onClick={() => {
-                  menuToggle("login");
-                }}
-              >
-                {login ? "Logged In" : "Login"}
-              </Link>
-            </p>
+          <div
+            className={`loginDropDown ${login ? "on" : "off"}`}
+            onClick={() => {
+              menuToggle("login");
+            }}
+          >
+            Login
           </div>
           <div
             className="menuBox"
@@ -68,6 +62,7 @@ const Nav = ({ menuToggle, hamburger, getAddress, login }) => {
               hamburger={hamburger}
               getAddress={getAddress}
               menuToggle={menuToggle}
+              login={login}
             />
           }
         />

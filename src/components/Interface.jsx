@@ -12,6 +12,7 @@ const Interface = () => {
     let copyState = { ...state };
     copyState[input] = !copyState[input];
     setState(copyState);
+    console.log(state);
   };
 
   const getAddress = () => {
@@ -28,7 +29,7 @@ const Interface = () => {
         address={state.address}
         login={state.login}
       />
-      <HomeBody />
+      <HomeBody login={state.login} />
     </>
   );
 };

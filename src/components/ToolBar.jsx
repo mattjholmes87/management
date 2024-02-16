@@ -20,6 +20,7 @@ const ToolBar = ({ hamburger, menuToggle, login }) => {
               className="link"
               onClick={() => {
                 menuToggle("login");
+                menuToggle("hamburger");
               }}
             >
               Sign Out

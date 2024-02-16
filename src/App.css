@@ -25,6 +25,7 @@ body {
   align-items: center;
   position: sticky;
   top: 0px;
+  z-index: 101;
 }
 .navBoxWrap .logoBox {
   background-color: inherit;
@@ -276,9 +277,13 @@ body {
   font-size: 2rem;
   font-family: "Roboto", sans-serif;
   width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
+  position: relative;
+  transition: transform 1s cubic-bezier(0.325, 1, 0.22, 1);
+  transform: translateY(-100%);
 }
 .loginBoxWrap .loginBox {
   font-size: 5rem;
@@ -300,6 +305,19 @@ body {
 }
 .loginBoxWrap .signUpBox h2 {
   font-size: 1.2rem;
+}
+
+.loginBoxWrap.on {
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  position: relative;
+  transition: transform 1s cubic-bezier(0.325, 1, 0.22, 1);
+  transform: translateY(0%);
 }
 
 .bodyWrap {
