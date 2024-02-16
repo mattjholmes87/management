@@ -1,11 +1,9 @@
 import React from "react";
-import Login from "./Login";
 
-const HomeBody = ({ login }) => {
+const HomeBody = () => {
   return (
     <>
       <div className="bodyWrap">
-        <Login login={login} />
         <div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

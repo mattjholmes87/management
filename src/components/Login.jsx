@@ -1,10 +1,10 @@
 import React from "react";
 import Input from "./Input";
 
-const Login = ({ login }) => {
+const Login = ({ signUp }) => {
   return (
     <>
-      <div className={`loginBoxWrap ${login ? "on" : "off"}`}>
+      <div className={`loginBoxWrap ${signUp ? "on" : "off"}`}>
         <div className="loginBox">
           <div className="loginSection">
             <h2>Login</h2>

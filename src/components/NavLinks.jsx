@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavLinks = ({ hamburger, getAddress, menuToggle, login }) => {
+const NavLinks = ({ hamburger, getAddress }) => {
   return (
-    <div className="hamburgerMenuWrap">
+    <div className={`hamburgerMenuWrap ${hamburger ? "on" : "off"}`}>
       <div className={`hamburgerMenu ${hamburger ? "on" : "off"}`}>
         <div>
           <p>
@@ -40,14 +40,8 @@ const NavLinks = ({ hamburger, getAddress, menuToggle, login }) => {
             </Link>
           </p>
           <p>
-            <Link
-              to="/login"
-              className={`link ${login ? "loggedIn" : ""}`}
-              onClick={() => {
-                menuToggle("login");
-              }}
-            >
-              {login ? "Logged In" : "Login"}
+            <Link to="/login" className="link">
+              Login
             </Link>
           </p>
         </div>

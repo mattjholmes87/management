@@ -5,7 +5,7 @@ import HomeBody from "./HomeBody";
 const Interface = () => {
   const [state, setState] = useState({
     hamburger: false,
-    login: false,
+    signUp: false,
   });
 
   const menuToggle = (input) => {
@@ -27,9 +27,9 @@ const Interface = () => {
         hamburger={state.hamburger}
         getAddress={getAddress}
         address={state.address}
-        login={state.login}
+        signUp={state.signUp}
       />
-      <HomeBody login={state.login} />
+      <HomeBody />
     </>
   );
 };

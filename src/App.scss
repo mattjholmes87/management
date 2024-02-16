@@ -124,10 +124,12 @@ body {
         }
       }
     }
-    .loginBox {
+    .loginDropDown {
       background-color: inherit;
       position: relative;
-      padding: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 2rem;
       width: 100px;
       display: flex;
       align-items: center;
@@ -148,18 +150,22 @@ body {
 }
 
 //Hamburger Menu (logged out)
+.hamburgerMenuWrap.off {
+  // width: 0px;
+  color: #133051;
+}
 .hamburgerMenuWrap {
   font-family: "Roboto", sans-serif;
   font-size: 4rem;
   color: #ffffff;
-  position: fixed;
+  position: absolute;
   top: 50px;
   height: 100vh;
   z-index: 100;
   .hamburgerMenu {
     background-color: #133051;
     padding: 30px;
-
+    width: 100vw;
     .link {
       text-decoration: none;
       color: white;
@@ -172,7 +178,7 @@ body {
   }
   .hamburgerMenu.on {
     position: absolute;
-    right: -100%;
+    left: 100%;
     transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
     transform: translateX(-100%);
     width: 100%;
@@ -192,7 +198,8 @@ body {
 //Hamburger Menu (logged in)
 .hamburgerMenuWrap.tools {
   margin: 0px;
-
+  width: 50%;
+  left: 50%;
   .hamburgerMenu.tools {
     background-color: transparent;
     padding: 0px;
@@ -203,7 +210,7 @@ body {
       justify-content: space-between;
       height: calc(100%);
       background-color: transparent;
-      width: calc(50% - 10px);
+      width: calc(100% - 10px);
       .toolBarMenu {
         height: 100%;
         width: calc(100% - 40px);
@@ -292,28 +299,41 @@ body {
     }
   }
   .hamburgerMenu.tools.on {
-    right: -100%;
-    transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
-    transform: translateX(-50%);
     width: 100%;
     height: 100%;
     height: calc(100% - 50px);
+    transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+    transform: translateX(-100%);
+  }
+  .hamburgerMenu.tools.off {
+    width: 100%;
+    height: 100%;
+    height: calc(100% - 50px);
+    transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+    right: -100%;
   }
 }
 
+.hamburgerMenuWrap.tools.off {
+  // width: 0px;
+  right: 200%;
+  color: #133051;
+}
 //Login / Sign-Up Menu
 
 .loginBoxWrap {
   font-size: 2rem;
+  background-color: #ffffff;
   font-family: "Roboto", sans-serif;
   width: 100%;
-  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
-  position: relative;
+  position: absolute;
   transition: transform 1s cubic-bezier(0.325, 1, 0.22, 1);
-  transform: translateY(-100%);
+  transform: translateY(-150%);
 
   .loginBox {
     h2 {
@@ -324,7 +344,7 @@ body {
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
-    margin: 20px;
+    margin-top: 20px;
   }
   .signUpBox {
     h2 {
@@ -334,7 +354,8 @@ body {
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 

@@ -106,32 +106,38 @@ body {
   transform: translateX(-8px) rotate(45deg) translateY(-8px);
   background-color: #cdbd0e;
 }
-.navBoxWrap .rightNavBox .loginBox {
+.navBoxWrap .rightNavBox .loginDropDown {
   background-color: inherit;
   position: relative;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 2rem;
   width: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 400;
 }
-.navBoxWrap .rightNavBox .loginBox .link {
+.navBoxWrap .rightNavBox .loginDropDown .link {
   text-decoration: none;
   color: #616161;
   font-size: 1.4rem;
 }
-.navBoxWrap .rightNavBox .loginBox .link.loggedIn {
+.navBoxWrap .rightNavBox .loginDropDown .link.loggedIn {
   text-decoration: none;
   color: #cdbd0e;
   font-size: 1.4rem;
+}
+
+.hamburgerMenuWrap.off {
+  color: #133051;
 }
 
 .hamburgerMenuWrap {
   font-family: "Roboto", sans-serif;
   font-size: 4rem;
   color: #ffffff;
-  position: fixed;
+  position: absolute;
   top: 50px;
   height: 100vh;
   z-index: 100;
@@ -139,6 +145,7 @@ body {
 .hamburgerMenuWrap .hamburgerMenu {
   background-color: #133051;
   padding: 30px;
+  width: 100vw;
 }
 .hamburgerMenuWrap .hamburgerMenu .link {
   text-decoration: none;
@@ -151,7 +158,7 @@ body {
 }
 .hamburgerMenuWrap .hamburgerMenu.on {
   position: absolute;
-  right: -100%;
+  left: 100%;
   transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
   transform: translateX(-100%);
   width: 100%;
@@ -169,6 +176,8 @@ body {
 
 .hamburgerMenuWrap.tools {
   margin: 0px;
+  width: 50%;
+  left: 50%;
 }
 .hamburgerMenuWrap.tools .hamburgerMenu.tools {
   background-color: transparent;
@@ -180,7 +189,7 @@ body {
   justify-content: space-between;
   height: 100%;
   background-color: transparent;
-  width: calc(50% - 10px);
+  width: calc(100% - 10px);
 }
 .hamburgerMenuWrap.tools .hamburgerMenu.tools .toolBarMenuBox .toolBarMenu {
   height: 100%;
@@ -265,25 +274,38 @@ body {
   color: #cdbd0e;
 }
 .hamburgerMenuWrap.tools .hamburgerMenu.tools.on {
-  right: -100%;
-  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
-  transform: translateX(-50%);
   width: 100%;
   height: 100%;
   height: calc(100% - 50px);
+  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+  transform: translateX(-100%);
+}
+.hamburgerMenuWrap.tools .hamburgerMenu.tools.off {
+  width: 100%;
+  height: 100%;
+  height: calc(100% - 50px);
+  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+  right: -100%;
+}
+
+.hamburgerMenuWrap.tools.off {
+  right: 200%;
+  color: #133051;
 }
 
 .loginBoxWrap {
   font-size: 2rem;
+  background-color: #ffffff;
   font-family: "Roboto", sans-serif;
   width: 100%;
-  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
-  position: relative;
+  position: absolute;
   transition: transform 1s cubic-bezier(0.325, 1, 0.22, 1);
-  transform: translateY(-100%);
+  transform: translateY(-150%);
 }
 .loginBoxWrap .loginBox {
   font-size: 5rem;
@@ -291,7 +313,7 @@ body {
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 2;
-  margin: 20px;
+  margin-top: 20px;
 }
 .loginBoxWrap .loginBox h2 {
   font-size: 1.2rem;
@@ -301,7 +323,8 @@ body {
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .loginBoxWrap .signUpBox h2 {
   font-size: 1.2rem;

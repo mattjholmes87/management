@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ToolBar = ({ hamburger, menuToggle, login }) => {
+const ToolBar = ({ hamburger, menuToggle, signUp }) => {
   return (
-    <div className="hamburgerMenuWrap tools">
+    <div className={`hamburgerMenuWrap tools ${hamburger ? "on" : "off"}`}>
       <div className={`hamburgerMenu tools ${hamburger ? "on" : "off"}`}>
         <div className="toolBarMenuBox">
           <div className="toolBarMenu">
@@ -19,7 +19,7 @@ const ToolBar = ({ hamburger, menuToggle, login }) => {
               to="/"
               className="link"
               onClick={() => {
-                menuToggle("login");
+                menuToggle("signUp");
                 menuToggle("hamburger");
               }}
             >
