@@ -22,14 +22,16 @@ const Interface = () => {
 
   return (
     <>
-      <NavBar
-        menuToggle={menuToggle}
-        hamburger={state.hamburger}
-        getAddress={getAddress}
-        address={state.address}
-        signUp={state.signUp}
-      />
-      <HomeBody />
+      <div className="masterWrap">
+        <NavBar
+          menuToggle={menuToggle}
+          hamburger={state.hamburger}
+          getAddress={getAddress}
+          address={state.address}
+          signUp={state.signUp}
+        />
+        <HomeBody />
+      </div>
     </>
   );
 };
