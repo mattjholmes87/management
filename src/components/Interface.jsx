@@ -3,12 +3,15 @@ import NavBar from "./NavBar";
 import HomeBody from "./HomeBody";
 
 const Interface = () => {
-  const [state, setState] = useState({ holder: true, hamburger: false });
+  const [state, setState] = useState({
+    hamburger: false,
+    login: false,
+  });
 
-  const menuToggle = () => {
-    state.hamburger
-      ? setState({ ...state, hamburger: false })
-      : setState({ ...state, hamburger: true });
+  const menuToggle = (input) => {
+    let copyState = { ...state };
+    copyState[input] = !copyState[input];
+    setState(copyState);
   };
 
   const getAddress = () => {
@@ -23,6 +26,7 @@ const Interface = () => {
         hamburger={state.hamburger}
         getAddress={getAddress}
         address={state.address}
+        login={state.login}
       />
       <HomeBody />
     </>

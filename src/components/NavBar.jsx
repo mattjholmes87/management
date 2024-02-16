@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import ToolBar from "./ToolBar";
 import logo from "../images/logo.png";
 
-const Nav = ({ menuToggle, hamburger, getAddress }) => {
+const Nav = ({ menuToggle, hamburger, getAddress, login }) => {
   return (
     <>
       <div className="navBoxWrap">
         <div className="logoBox">
-          <img src={logo} className="logoImage" />
+          <img src={logo} className="logoImage" alt="logo" />
         </div>
         <div className="rightNavBox">
           <div className="loginBox">
@@ -17,25 +17,19 @@ const Nav = ({ menuToggle, hamburger, getAddress }) => {
             <p>
               <Link
                 to="/login"
-                className={`link ${
-                  window.location.href === "http://localhost:3000/login"
-                    ? "loggedIn"
-                    : ""
-                }`}
+                className={`link ${login ? "loggedIn" : ""}`}
                 onClick={() => {
-                  getAddress();
+                  menuToggle("login");
                 }}
               >
-                {window.location.href === "http://localhost:3000/login"
-                  ? "Logged In"
-                  : "Login"}
+                {login ? "Logged In" : "Login"}
               </Link>
             </p>
           </div>
           <div
             className="menuBox"
             onClick={() => {
-              menuToggle();
+              menuToggle("hamburger");
             }}
           >
             <div className="closeIcon">
@@ -54,15 +48,30 @@ const Nav = ({ menuToggle, hamburger, getAddress }) => {
           </div>
         </div>
       </div>
-      {window.location.href === "http://localhost:3000/login" ? (
-        <ToolBar
-          hamburger={hamburger}
-          getAddress={getAddress}
-          menuToggle={menuToggle}
+
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <ToolBar
+              hamburger={hamburger}
+              login={login}
+              getAddress={getAddress}
+              menuToggle={menuToggle}
+            />
+          }
         />
-      ) : (
-        <NavLinks hamburger={hamburger} getAddress={getAddress} />
-      )}
+        <Route
+          path="/"
+          element={
+            <NavLinks
+              hamburger={hamburger}
+              getAddress={getAddress}
+              menuToggle={menuToggle}
+            />
+          }
+        />
+      </Routes>
     </>
   );
 };

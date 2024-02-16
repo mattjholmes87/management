@@ -1,9 +1,11 @@
 import React from "react";
+import Login from "./Login";
 
 const HomeBody = () => {
   return (
     <>
       <div className="bodyWrap">
+        <Login />
         <div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
