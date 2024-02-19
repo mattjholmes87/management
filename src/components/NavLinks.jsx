@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const NavLinks = ({ hamburger, getAddress }) => {
   return (
     <div className={`hamburgerMenuWrap ${hamburger ? "on" : "off"}`}>
-      <div className={`hamburgerMenu ${hamburger ? "on" : "off"}`}>
+      <div className={`hamburgerMenu`}>
         <div>
           <p>
             <Link
