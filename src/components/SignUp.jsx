@@ -4,7 +4,7 @@ import Input from "./Input";
 const Login = ({ signUp }) => {
   return (
     <>
-      <div className={`loginBoxWrap ${signUp ? "on" : "off"}`}>
+      <div className={`signupBoxWrap ${signUp ? "on" : "off"}`}>
         <div className="loginBox">
           <div className="loginSection">
             <h2>Login</h2>

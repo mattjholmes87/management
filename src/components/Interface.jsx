@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import HomeBody from "./HomeBody";
 
 const Interface = () => {
+  const [scrollPosition, setScrollPosition] = useState();
   const [state, setState] = useState({
     hamburger: false,
     signUp: false,
@@ -12,7 +13,7 @@ const Interface = () => {
     let copyState = { ...state };
     copyState[input] = !copyState[input];
     setState(copyState);
-    console.log(state);
+    console.log(state, scrollPosition);
   };
 
   const getAddress = () => {
@@ -20,18 +21,30 @@ const Interface = () => {
     setState({ ...state, address });
   };
 
+  const handleScroll = () => {
+    const position = window.scrollY;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
   return (
     <>
-      <div className="masterWrap">
-        <NavBar
-          menuToggle={menuToggle}
-          hamburger={state.hamburger}
-          getAddress={getAddress}
-          address={state.address}
-          signUp={state.signUp}
-        />
-        <HomeBody />
-      </div>
+      <NavBar
+        menuToggle={menuToggle}
+        hamburger={state.hamburger}
+        getAddress={getAddress}
+        address={state.address}
+        signUp={state.signUp}
+        scrollPosition={state.scrollPosition}
+      />
+      <HomeBody />
     </>
   );
 };

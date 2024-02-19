@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import ToolBar from "./ToolBar";
 import logo from "../images/logo.png";
-import Login from "./Login";
+import SignUp from "./SignUp";
 
 const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
   return (
@@ -13,14 +13,30 @@ const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
           <img src={logo} className="logoImage" alt="logo" />
         </div>
         <div className="rightNavBox">
-          <div
-            className={`loginDropDown ${signUp ? "on" : "off"}`}
-            onClick={() => {
-              menuToggle("signUp");
-            }}
-          >
-            <h2>Sign Up</h2>
-          </div>
+          <Routes>
+            <Route
+              path="/login"
+              element={
+                <div className="loginDropDown">
+                  <h2>Welcome back.</h2>
+                </div>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <div
+                  className={`loginDropDown ${signUp ? "on" : "off"}`}
+                  onClick={() => {
+                    menuToggle("signUp");
+                  }}
+                >
+                  <h2>Sign Up</h2>
+                </div>
+              }
+            />
+          </Routes>
+
           <div
             className="menuBox"
             onClick={() => {
@@ -43,7 +59,13 @@ const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
           </div>
         </div>
       </div>
-      <Login signUp={signUp} hamburger={hamburger} />
+      <Routes>
+        <Route path="/login" element={""} />
+        <Route
+          path="/"
+          element={<SignUp signUp={signUp} hamburger={hamburger} />}
+        />
+      </Routes>
 
       <Routes>
         <Route
