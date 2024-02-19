@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+@mixin standardBorder() {
+  border-color: #eeeeee;
+}
+
 * {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -30,7 +34,9 @@ body {
   align-items: center;
   position: fixed;
   top: 0px;
-  z-index: 1;
+  z-index: 2;
+  border-bottom: 1px solid;
+  @include standardBorder();
 
   .logoBox {
     background-color: inherit;
@@ -152,6 +158,10 @@ body {
   top: 50px;
   width: 100%;
   color: #ffffff;
+  z-index: 0;
+  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+  transform: translateX(100%);
+  right: 0%;
   .hamburgerMenu {
     font-family: "Roboto", sans-serif;
     font-size: 4rem;
@@ -172,102 +182,178 @@ body {
   transform: translateX(0%);
   left: 0%;
 }
-.hamburgerMenuWrap.off {
-  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
-  transform: translateX(100%);
-  right: 0%;
-}
 
 //Toolbar Menu (logged in)
 
 .toolbarWrap {
-  background-color: rgb(197, 197, 197);
-  height: calc(100vh - 50px);
+  background-color: #ffffff;
+  height: calc(100% - 50px);
   position: fixed;
-  width: 50%;
+  width: 100%;
   top: 50px;
+  background-color: #ffffff;
+  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+  transform: translateX(100%);
+  right: 0%;
+
   .toolbarMenu {
-    height: calc(100% - 20px);
-    width: calc(100% - 20px);
+    height: calc(100%);
+    width: calc(100%);
     font-size: 1.4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1.5fr auto;
-    grid-gap: 10px;
-    margin: 10px;
+    grid-template-rows: auto 1fr 1fr 1fr auto auto auto auto auto auto;
 
     .toolBox {
-      border-radius: 10px;
       color: #133051;
       height: 100%;
       width: 100%;
-      border: 1px solid #adadad;
+      border: 1px solid;
+      @include standardBorder();
+      border-top: 0px;
+      border-right: 0px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      font: inherit;
+      font-size: 1.2rem;
+      padding: 10px;
+      color: #616161;
+      font-weight: 600;
+      font-family: "Roboto", sans-serif;
+
+      div {
+        padding: 5px;
+        font: inherit;
+        color: white;
+        text-align: center;
+        width: 80%;
+      }
+      img {
+        color: #ffffff;
+        max-height: 10vh;
+        padding: 10px;
+      }
+    }
+    .toolBox:hover {
+      border-left: 2px solid #cdbd0e;
+      background-color: #f7f7f7;
+      div {
+        padding: 5px;
+        color: #3e3e3e;
+      }
     }
     .toolBox.one {
       grid-column-start: 1;
       grid-column-end: 3;
       grid-row-start: 1;
       grid-row-end: 2;
-      background-color: #d1d0d0;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
     }
     .toolBox.two {
       grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+    .toolBox.three {
+      grid-column-start: 2;
       grid-column-end: 3;
       grid-row-start: 2;
       grid-row-end: 3;
-      background-color: #ffffff;
     }
-    .toolBox.three {
+    .toolBox.four {
       grid-column-start: 1;
       grid-column-end: 2;
       grid-row-start: 3;
       grid-row-end: 4;
-      background-color: #d1d0d0;
     }
-    .toolBox.four {
+    .toolBox.five {
       grid-column-start: 2;
       grid-column-end: 3;
       grid-row-start: 3;
       grid-row-end: 4;
-      background-color: #7797bb;
     }
-    .toolBox.five {
+    .toolBox.six {
       grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 4;
+      grid-row-end: 5;
+    }
+    .toolBox.seven {
+      grid-column-start: 2;
       grid-column-end: 3;
       grid-row-start: 4;
       grid-row-end: 5;
-      background-color: #323232;
-      color: #ffffff;
     }
-    .toolBox.six {
+    .toolBox.eight {
       grid-column-start: 1;
       grid-column-end: 3;
       grid-row-start: 5;
       grid-row-end: 6;
-      background-color: #ffffff;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
     }
-    .signOutBox {
+    .toolBox.nine {
       grid-column-start: 1;
       grid-column-end: 3;
       grid-row-start: 6;
       grid-row-end: 7;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+    }
+    .toolBox.ten {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 8;
+      grid-row-end: 9;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+    }
+    .toolBox.eleven {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 9;
+      grid-row-end: 10;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+    }
+    .toolBox.twelve {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 10;
+      grid-row-end: 11;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+    }
+    .toolBox.thirteen {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 11;
+      grid-row-end: 12;
       font-size: 2rem;
       padding: 10px;
       color: #3e3e3e;
-      font-weight: 800;
+      font-weight: 600;
+      border-bottom: none;
+
       .link {
         display: flex;
         color: #616161;
         align-self: center;
+        text-decoration: none;
       }
     }
-    .signOutBox:hover {
+    .toolBox.fourteen:hover {
       .link {
-        color: #cdbd0e;
+        text-decoration: none;
       }
     }
   }
@@ -276,13 +362,8 @@ body {
   background-color: #ffffff;
   transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
   transform: translateX(0%);
-  left: 50%;
-}
-.toolbarWrap.off {
-  background-color: #ffffff;
-  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
-  transform: translateX(100%);
   right: 0%;
+  overflow-y: auto;
 }
 
 //Sign-Up Menu
@@ -301,6 +382,9 @@ body {
   top: 50px;
   transition: transform 1.5s cubic-bezier(0.325, 1, 0.22, 1);
   transform: translateY(-150%);
+  z-index: 1;
+  border-bottom: 1px solid;
+  @include standardBorder();
 
   .loginBox {
     h2 {
@@ -366,5 +450,17 @@ body {
 @media screen and (min-width: 300px) {
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
+  .toolbarWrap {
+    background-color: #ffffff;
+    height: calc(100% - 50px);
+    position: fixed;
+    width: 50%;
+    max-width: 400px;
+    top: 50px;
+    background-color: #ffffff;
+    transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+    transform: translateX(100%);
+    right: 0%;
+  }
 }

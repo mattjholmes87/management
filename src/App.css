@@ -30,7 +30,9 @@ body {
   align-items: center;
   position: fixed;
   top: 0px;
-  z-index: 1;
+  z-index: 2;
+  border-bottom: 1px solid;
+  border-color: #eeeeee;
 }
 .navBoxWrap .logoBox {
   background-color: inherit;
@@ -141,6 +143,10 @@ body {
   top: 50px;
   width: 100%;
   color: #ffffff;
+  z-index: 0;
+  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+  transform: translateX(100%);
+  right: 0%;
 }
 .hamburgerMenuWrap .hamburgerMenu {
   font-family: "Roboto", sans-serif;
@@ -163,114 +169,180 @@ body {
   left: 0%;
 }
 
-.hamburgerMenuWrap.off {
+.toolbarWrap {
+  background-color: #ffffff;
+  height: calc(100% - 50px);
+  position: fixed;
+  width: 100%;
+  top: 50px;
+  background-color: #ffffff;
   transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
   transform: translateX(100%);
   right: 0%;
 }
-
-.toolbarWrap {
-  background-color: rgb(197, 197, 197);
-  height: calc(100vh - 50px);
-  position: fixed;
-  width: 50%;
-  top: 50px;
-}
 .toolbarWrap .toolbarMenu {
-  height: calc(100% - 20px);
-  width: calc(100% - 20px);
+  height: 100%;
+  width: 100%;
   font-size: 1.4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1.5fr auto;
-  grid-gap: 10px;
-  margin: 10px;
+  grid-template-rows: auto 1fr 1fr 1fr auto auto auto auto auto auto;
 }
 .toolbarWrap .toolbarMenu .toolBox {
-  border-radius: 10px;
   color: #133051;
   height: 100%;
   width: 100%;
-  border: 1px solid #adadad;
+  border: 1px solid;
+  border-color: #eeeeee;
+  border-top: 0px;
+  border-right: 0px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
+  padding: 10px;
+  color: #616161;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+}
+.toolbarWrap .toolbarMenu .toolBox div {
+  padding: 5px;
   font: inherit;
+  color: white;
+  text-align: center;
+  width: 80%;
+}
+.toolbarWrap .toolbarMenu .toolBox img {
+  color: #ffffff;
+  max-height: 10vh;
+  padding: 10px;
+}
+.toolbarWrap .toolbarMenu .toolBox:hover {
+  border-left: 2px solid #cdbd0e;
+  background-color: #f7f7f7;
+}
+.toolbarWrap .toolbarMenu .toolBox:hover div {
+  padding: 5px;
+  color: #3e3e3e;
 }
 .toolbarWrap .toolbarMenu .toolBox.one {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 2;
-  background-color: #d1d0d0;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
 .toolbarWrap .toolbarMenu .toolBox.two {
   grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.toolbarWrap .toolbarMenu .toolBox.three {
+  grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
-  background-color: #ffffff;
 }
-.toolbarWrap .toolbarMenu .toolBox.three {
+.toolbarWrap .toolbarMenu .toolBox.four {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
-  background-color: #d1d0d0;
 }
-.toolbarWrap .toolbarMenu .toolBox.four {
+.toolbarWrap .toolbarMenu .toolBox.five {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 4;
-  background-color: #7797bb;
 }
-.toolbarWrap .toolbarMenu .toolBox.five {
+.toolbarWrap .toolbarMenu .toolBox.six {
   grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+.toolbarWrap .toolbarMenu .toolBox.seven {
+  grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 5;
-  background-color: #323232;
-  color: #ffffff;
 }
-.toolbarWrap .toolbarMenu .toolBox.six {
+.toolbarWrap .toolbarMenu .toolBox.eight {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 5;
   grid-row-end: 6;
-  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
-.toolbarWrap .toolbarMenu .signOutBox {
+.toolbarWrap .toolbarMenu .toolBox.nine {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 6;
   grid-row-end: 7;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+.toolbarWrap .toolbarMenu .toolBox.ten {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 8;
+  grid-row-end: 9;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+.toolbarWrap .toolbarMenu .toolBox.eleven {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 9;
+  grid-row-end: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+.toolbarWrap .toolbarMenu .toolBox.twelve {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 10;
+  grid-row-end: 11;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+.toolbarWrap .toolbarMenu .toolBox.thirteen {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 11;
+  grid-row-end: 12;
   font-size: 2rem;
   padding: 10px;
   color: #3e3e3e;
-  font-weight: 800;
+  font-weight: 600;
+  border-bottom: none;
 }
-.toolbarWrap .toolbarMenu .signOutBox .link {
+.toolbarWrap .toolbarMenu .toolBox.thirteen .link {
   display: flex;
   color: #616161;
   align-self: center;
+  text-decoration: none;
 }
-.toolbarWrap .toolbarMenu .signOutBox:hover .link {
-  color: #cdbd0e;
+.toolbarWrap .toolbarMenu .toolBox.fourteen:hover .link {
+  text-decoration: none;
 }
 
 .toolbarWrap.on {
   background-color: #ffffff;
   transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
   transform: translateX(0%);
-  left: 50%;
-}
-
-.toolbarWrap.off {
-  background-color: #ffffff;
-  transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
-  transform: translateX(100%);
   right: 0%;
+  overflow-y: auto;
 }
 
 .signupBoxWrap {
@@ -287,6 +359,9 @@ body {
   top: 50px;
   transition: transform 1.5s cubic-bezier(0.325, 1, 0.22, 1);
   transform: translateY(-150%);
+  z-index: 1;
+  border-bottom: 1px solid;
+  border-color: #eeeeee;
 }
 .signupBoxWrap .loginBox {
   font-size: 5rem;
@@ -333,4 +408,19 @@ body {
   position: absolute;
   top: 50px;
   z-index: -1;
+}
+
+@media screen and (min-width: 600px) {
+  .toolbarWrap {
+    background-color: #ffffff;
+    height: calc(100% - 50px);
+    position: fixed;
+    width: 50%;
+    max-width: 400px;
+    top: 50px;
+    background-color: #ffffff;
+    transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
+    transform: translateX(100%);
+    right: 0%;
+  }
 }/*# sourceMappingURL=App.css.map */

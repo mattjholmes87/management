@@ -2,15 +2,15 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import ToolBar from "./ToolBar";
-import logo from "../images/logo.png";
 import SignUp from "./SignUp";
+import pencil from "../images/icons/label-svgrepo-com.svg";
 
 const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
   return (
     <>
       <div className="navBoxWrap">
         <div className="logoBox">
-          <img src={logo} className="logoImage" alt="logo" />
+          <img src={pencil} className="logoImage" alt="logo" />
         </div>
         <div className="rightNavBox">
           <Routes>
