@@ -18,7 +18,7 @@ const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
         <div className="rightNavBox">
           <Routes>
             <Route
-              path="/login"
+              path={"/login"}
               element={
                 <div className="loginDropDown">
                   <h2>Welcome back.</h2>

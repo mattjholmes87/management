@@ -13,7 +13,6 @@ body {
   background-color: #fbfbfb;
   font-family: "Roboto", sans-serif;
   width: 100%;
-  overflow-x: hidden;
 }
 
 .masterWrap {
@@ -59,6 +58,7 @@ body {
   align-items: center;
   color: #202020;
   font-size: 2rem;
+  max-width: 100px;
 }
 .navBoxWrap .menuBox:hover,
 .navBoxWrap .logoBox:hover {
@@ -464,8 +464,11 @@ body {
   z-index: -1;
 }
 
+.multiColorHeader {
+  max-height: 200px;
+}
 .multiColorHeader p span {
-  font-size: 15vw;
+  font-size: clamp(1px, 8vw, 75px);
 }
 .multiColorHeader p span:nth-child(4n) {
   color: #c45fa0;
@@ -478,6 +481,133 @@ body {
 }
 .multiColorHeader p span:nth-child(4n-3) {
   color: #e6594e;
+}
+
+.overviewWrap {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 200px) 1fr;
+  grid-gap: 5px;
+  width: 100%;
+  min-width: 700px;
+  height: calc(100vh - 50px);
+  font-family: "Roboto", sans-serif;
+  color: #616161;
+  font-weight: 600;
+}
+.overviewWrap .outerBox {
+  padding: 5px;
+  font-size: 1.2rem;
+}
+.overviewWrap .outerBox.one {
+  grid-row: 1/span 1;
+  grid-column: 1/span 1;
+}
+.overviewWrap .outerBox.two {
+  grid-row: 1/span 1;
+  grid-column: 2/span 1;
+  display: flex;
+  justify-content: end;
+}
+.overviewWrap .outerBox.two .userCardWrap {
+  position: static;
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  font-size: 2rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 50px;
+  background-color: #ffffff;
+}
+.overviewWrap .outerBox.two .userCardWrap .userCardDetails {
+  width: 100%;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.overviewWrap .outerBox.two .userCardWrap .userCardPic {
+  border-radius: 50%;
+  min-width: 50px;
+  max-width: 100px;
+  min-height: 100px;
+  height: 100px;
+  border: 1px solid;
+  border-color: #eeeeee;
+  background: linear-gradient(to top, #f39a2c 50%, #ffffff 50%);
+}
+.overviewWrap .outerBox.three {
+  grid-row: 2/span 1;
+  grid-column: 1/span 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto repeat(6, minmax(0, 50px)) auto;
+  grid-gap: 10px;
+}
+.overviewWrap .outerBox.three .innerBox {
+  border: 1px solid;
+  border-color: #eeeeee;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.overviewWrap .outerBox.three .innerBox.one {
+  grid-row: 1/span 1;
+  grid-column: 1/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.two {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.three {
+  grid-row: 3/span 1;
+  grid-column: 1/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.four {
+  grid-row: 4/span 1;
+  grid-column: 1/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.five {
+  grid-row: 5/span 1;
+  grid-column: 1/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.six {
+  grid-row: 6/span 1;
+  grid-column: 1/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.seven {
+  grid-row: 7/span 1;
+  grid-column: 1/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.eight {
+  grid-row: 8/span 1;
+  grid-column: 1/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.nine {
+  grid-row: 1/span 8;
+  grid-column: 2/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.ten {
+  grid-row: 1/span 4;
+  grid-column: 3/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.eleven {
+  grid-row: 5/span 4;
+  grid-column: 3/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.two:hover,
+.overviewWrap .outerBox.three .innerBox.three:hover,
+.overviewWrap .outerBox.three .innerBox.four:hover,
+.overviewWrap .outerBox.three .innerBox.five:hover,
+.overviewWrap .outerBox.three .innerBox.six:hover,
+.overviewWrap .outerBox.three .innerBox.seven:hover {
+  border-left: 2px solid #f0d043;
+  background-color: #f7f7f7;
 }
 
 @media screen and (min-width: 600px) {
