@@ -21,6 +21,10 @@ body {
 .masterWrap {
   height: 100%;
 }
+.routesPosition {
+  position: absolute;
+  top: 50px;
+}
 
 // Top Nav Bar Style
 
@@ -46,14 +50,23 @@ body {
     padding: 10px;
     color: #616161;
     .logoImage {
-      width: 25px;
+      width: 45px;
       height: auto;
+      padding-right: 20px;
+    }
+    a {
+      text-decoration: none;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: #202020;
+      font-size: 2rem;
     }
   }
 
   .menuBox:hover,
   .logoBox:hover {
-    color: #cdbd0e;
+    color: #f0d043;
   }
   .rightNavBox {
     display: flex;
@@ -81,7 +94,7 @@ body {
         .line {
           position: absolute;
           display: block;
-          background: #616161;
+          background: #4a5699;
           width: 10px;
           height: 0.15rem;
           border-radius: 0.2rem;
@@ -98,7 +111,7 @@ body {
           width: 18px;
           transform: translateX(0px);
           -webkit-transform: translateX(0px);
-          background-color: #cdbd0e;
+          background-color: #f0d043;
         }
 
         .line-3 {
@@ -109,7 +122,7 @@ body {
           top: 0px;
           width: 22px;
           transform: translateX(-11px) rotate(-45deg) translateY(12px);
-          background-color: #616161;
+          background-color: #e6594e;
         }
 
         .line-2.on {
@@ -120,7 +133,7 @@ body {
           top: 14px;
           width: 22px;
           transform: translateX(-8px) rotate(45deg) translateY(-8px);
-          background-color: #cdbd0e;
+          background-color: #f0d043;
         }
       }
     }
@@ -142,7 +155,7 @@ body {
       }
       .link.loggedIn {
         text-decoration: none;
-        color: #cdbd0e;
+        color: #f0d043;
         font-size: 1.4rem;
       }
     }
@@ -172,7 +185,7 @@ body {
       color: #ffffff;
     }
     .link:hover {
-      color: #cdbd0e;
+      color: #f0d043;
       font-weight: 500;
     }
   }
@@ -195,6 +208,8 @@ body {
   transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
   transform: translateX(100%);
   right: 0%;
+  color: #3e3e3e;
+  z-index: 1;
 
   .toolbarMenu {
     height: calc(100%);
@@ -235,14 +250,32 @@ body {
         padding: 10px;
       }
     }
-    .toolBox:hover {
-      border-left: 2px solid #cdbd0e;
+    .toolBox.two:hover,
+    .toolBox.three:hover,
+    .toolBox.four:hover,
+    .toolBox.five:hover,
+    .toolBox.six:hover,
+    .toolBox.seven:hover,
+    .toolBox.eight:hover,
+    .toolBox.nine:hover,
+    .toolBox.ten:hover,
+    .toolBox.eleven:hover,
+    .toolBox.twelve:hover,
+    .toolBox.thirteen:hover {
+      border-left: 2px solid #f0d043;
       background-color: #f7f7f7;
+      img {
+        animation: bellshake 0.5s cubic-bezier(0.18, 0.04, 0.1, 0.5) both;
+        backface-visibility: hidden;
+        transform-origin: top right;
+      }
+
       div {
         padding: 5px;
         color: #3e3e3e;
       }
     }
+
     .toolBox.one {
       grid-column-start: 1;
       grid-column-end: 3;
@@ -425,27 +458,37 @@ body {
 
 // Main Body
 .bodyWrap {
-  font-size: 2rem;
+  font-size: 1.2rem;
   margin: 10px;
   width: calc(100% - 20px);
-  height: 100%;
   transition: position 0.66s ease-out;
   position: absolute;
-  top: 50px;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
-// .intro {
-//   font-family: "Roboto", sans-serif;
-// }
-// .daysBox {
-//   display: flex;
-//   flex-direction: row;
-//   padding: 10px;
-// }
-// .day {
-//   padding: 10px;
-// }
+// Overview Dashboard
+
+.multiColorHeader {
+  p {
+    span {
+      font-size: 15vw;
+      &:nth-child(4n) {
+        color: #c45fa0;
+      }
+      &:nth-child(4n-1) {
+        color: #4a5699;
+      }
+      &:nth-child(4n-2) {
+        color: #f39a2c;
+      }
+      &:nth-child(4n-3) {
+        color: #e6594e;
+      }
+    }
+  }
+}
 
 @media screen and (min-width: 300px) {
 }

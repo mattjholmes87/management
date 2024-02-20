@@ -1,36 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import target from "../images/icons/target-svgrepo-com.svg";
+import upload from "../images/icons/upload-svgrepo-com.svg";
 import settings from "../images/icons/set-up-svgrepo-com.svg";
-import list from "../images/icons/table-of-contents-svgrepo-com.svg";
+import time from "../images/icons/time-svgrepo-com.svg";
 import user from "../images/icons/user-svgrepo-com.svg";
-import browse from "../images/icons/browse-svgrepo-com.svg";
-import chart from "../images/icons/pie-chart-svgrepo-com.svg";
+import table from "../images/icons/table-of-contents-svgrepo-com.svg";
+import insipration from "../images/icons/inspiration-svgrepo-com.svg";
 
 const ToolBar = ({ hamburger, menuToggle }) => {
   return (
     <div className={`toolbarWrap ${hamburger ? "on" : "off"}`}>
       <div className="toolbarMenu">
-        <div className="toolBox one">Action 1</div>
+        <div className="toolBox one off">Tools</div>
         <div className="toolBox two">
-          <img src={target} className="logoImage" alt="targetIcon" />
-          <div>Targets</div>
+          <img src={upload} className="logoImage" alt="overviewIcon" />
+          <div>Overview</div>
         </div>
         <div className="toolBox three">
-          <img src={chart} className="logoImage" alt="chartIcon" />
-          <div>Charts</div>
+          <img src={user} className="logoImage" alt="reporteeIcon" />
+          <div>Reportee</div>
         </div>
         <div className="toolBox four">
-          <img src={browse} className="logoImage" alt="browseIcon" />
-          <div>Insights</div>
+          <img src={time} className="logoImage" alt="calendarIcon" />
+          <div>Calendar</div>
         </div>
         <div className="toolBox five">
-          <img src={list} className="logoImage" alt="listIcon" />
-          <div>Objectives</div>
+          <img src={table} className="logoImage" alt="meetingIcon" />
+          <div>Meetings</div>
         </div>
         <div className="toolBox six">
-          <img src={user} className="logoImage" alt="userIcon" />
-          <div>Reports</div>
+          <img src={insipration} className="logoImage" alt="hierachyIcon" />
+          <div>Hierachy</div>
         </div>
         <div className="toolBox seven">
           <img src={settings} className="logoImage" alt="settingsIcon" />

@@ -20,6 +20,11 @@ body {
   height: 100%;
 }
 
+.routesPosition {
+  position: absolute;
+  top: 50px;
+}
+
 .navBoxWrap {
   display: flex;
   flex-direction: row;
@@ -43,12 +48,21 @@ body {
   color: #616161;
 }
 .navBoxWrap .logoBox .logoImage {
-  width: 25px;
+  width: 45px;
   height: auto;
+  padding-right: 20px;
+}
+.navBoxWrap .logoBox a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #202020;
+  font-size: 2rem;
 }
 .navBoxWrap .menuBox:hover,
 .navBoxWrap .logoBox:hover {
-  color: #cdbd0e;
+  color: #f0d043;
 }
 .navBoxWrap .rightNavBox {
   display: flex;
@@ -78,7 +92,7 @@ body {
 .navBoxWrap .rightNavBox .menuBox .closeIcon .line {
   position: absolute;
   display: block;
-  background: #616161;
+  background: #4a5699;
   width: 10px;
   height: 0.15rem;
   border-radius: 0.2rem;
@@ -93,7 +107,7 @@ body {
   width: 18px;
   transform: translateX(0px);
   -webkit-transform: translateX(0px);
-  background-color: #cdbd0e;
+  background-color: #f0d043;
 }
 .navBoxWrap .rightNavBox .menuBox .closeIcon .line-3 {
   top: 14px;
@@ -102,7 +116,7 @@ body {
   top: 0px;
   width: 22px;
   transform: translateX(-11px) rotate(-45deg) translateY(12px);
-  background-color: #616161;
+  background-color: #e6594e;
 }
 .navBoxWrap .rightNavBox .menuBox .closeIcon .line-2.on {
   opacity: 0;
@@ -111,7 +125,7 @@ body {
   top: 14px;
   width: 22px;
   transform: translateX(-8px) rotate(45deg) translateY(-8px);
-  background-color: #cdbd0e;
+  background-color: #f0d043;
 }
 .navBoxWrap .rightNavBox .loginDropDown {
   background-color: inherit;
@@ -132,7 +146,7 @@ body {
 }
 .navBoxWrap .rightNavBox .loginDropDown .link.loggedIn {
   text-decoration: none;
-  color: #cdbd0e;
+  color: #f0d043;
   font-size: 1.4rem;
 }
 
@@ -159,7 +173,7 @@ body {
   color: #ffffff;
 }
 .hamburgerMenuWrap .hamburgerMenu .link:hover {
-  color: #cdbd0e;
+  color: #f0d043;
   font-weight: 500;
 }
 
@@ -179,6 +193,8 @@ body {
   transition: transform 1.2s cubic-bezier(0.325, 1, 0.22, 1);
   transform: translateX(100%);
   right: 0%;
+  color: #3e3e3e;
+  z-index: 1;
 }
 .toolbarWrap .toolbarMenu {
   height: 100%;
@@ -218,11 +234,49 @@ body {
   max-height: 10vh;
   padding: 10px;
 }
-.toolbarWrap .toolbarMenu .toolBox:hover {
-  border-left: 2px solid #cdbd0e;
+.toolbarWrap .toolbarMenu .toolBox.two:hover,
+.toolbarWrap .toolbarMenu .toolBox.three:hover,
+.toolbarWrap .toolbarMenu .toolBox.four:hover,
+.toolbarWrap .toolbarMenu .toolBox.five:hover,
+.toolbarWrap .toolbarMenu .toolBox.six:hover,
+.toolbarWrap .toolbarMenu .toolBox.seven:hover,
+.toolbarWrap .toolbarMenu .toolBox.eight:hover,
+.toolbarWrap .toolbarMenu .toolBox.nine:hover,
+.toolbarWrap .toolbarMenu .toolBox.ten:hover,
+.toolbarWrap .toolbarMenu .toolBox.eleven:hover,
+.toolbarWrap .toolbarMenu .toolBox.twelve:hover,
+.toolbarWrap .toolbarMenu .toolBox.thirteen:hover {
+  border-left: 2px solid #f0d043;
   background-color: #f7f7f7;
 }
-.toolbarWrap .toolbarMenu .toolBox:hover div {
+.toolbarWrap .toolbarMenu .toolBox.two:hover img,
+.toolbarWrap .toolbarMenu .toolBox.three:hover img,
+.toolbarWrap .toolbarMenu .toolBox.four:hover img,
+.toolbarWrap .toolbarMenu .toolBox.five:hover img,
+.toolbarWrap .toolbarMenu .toolBox.six:hover img,
+.toolbarWrap .toolbarMenu .toolBox.seven:hover img,
+.toolbarWrap .toolbarMenu .toolBox.eight:hover img,
+.toolbarWrap .toolbarMenu .toolBox.nine:hover img,
+.toolbarWrap .toolbarMenu .toolBox.ten:hover img,
+.toolbarWrap .toolbarMenu .toolBox.eleven:hover img,
+.toolbarWrap .toolbarMenu .toolBox.twelve:hover img,
+.toolbarWrap .toolbarMenu .toolBox.thirteen:hover img {
+  animation: bellshake 0.5s cubic-bezier(0.18, 0.04, 0.1, 0.5) both;
+  backface-visibility: hidden;
+  transform-origin: top right;
+}
+.toolbarWrap .toolbarMenu .toolBox.two:hover div,
+.toolbarWrap .toolbarMenu .toolBox.three:hover div,
+.toolbarWrap .toolbarMenu .toolBox.four:hover div,
+.toolbarWrap .toolbarMenu .toolBox.five:hover div,
+.toolbarWrap .toolbarMenu .toolBox.six:hover div,
+.toolbarWrap .toolbarMenu .toolBox.seven:hover div,
+.toolbarWrap .toolbarMenu .toolBox.eight:hover div,
+.toolbarWrap .toolbarMenu .toolBox.nine:hover div,
+.toolbarWrap .toolbarMenu .toolBox.ten:hover div,
+.toolbarWrap .toolbarMenu .toolBox.eleven:hover div,
+.toolbarWrap .toolbarMenu .toolBox.twelve:hover div,
+.toolbarWrap .toolbarMenu .toolBox.thirteen:hover div {
   padding: 5px;
   color: #3e3e3e;
 }
@@ -400,14 +454,30 @@ body {
 }
 
 .bodyWrap {
-  font-size: 2rem;
+  font-size: 1.2rem;
   margin: 10px;
   width: calc(100% - 20px);
-  height: 100%;
   transition: position 0.66s ease-out;
   position: absolute;
-  top: 50px;
+  top: 0;
+  left: 0;
   z-index: -1;
+}
+
+.multiColorHeader p span {
+  font-size: 15vw;
+}
+.multiColorHeader p span:nth-child(4n) {
+  color: #c45fa0;
+}
+.multiColorHeader p span:nth-child(4n-1) {
+  color: #4a5699;
+}
+.multiColorHeader p span:nth-child(4n-2) {
+  color: #f39a2c;
+}
+.multiColorHeader p span:nth-child(4n-3) {
+  color: #e6594e;
 }
 
 @media screen and (min-width: 600px) {

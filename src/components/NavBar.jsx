@@ -10,7 +10,10 @@ const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
     <>
       <div className="navBoxWrap">
         <div className="logoBox">
-          <img src={pencil} className="logoImage" alt="logo" />
+          <a href="/">
+            <img src={pencil} className="logoImage" alt="logo" />{" "}
+            <div>noTed</div>
+          </a>
         </div>
         <div className="rightNavBox">
           <Routes>

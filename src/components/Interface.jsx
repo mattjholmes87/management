@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NavBar from "./NavBar";
 import HomeBody from "./HomeBody";
+import OverviewDash from "./OverviewDash";
+import ReportDash from "./ReportDash";
+import CalendarDash from "./CalendarDash";
+import MeetingDash from "./MeetingDash";
+import HierachyDash from "./HierachyDash";
+import SettingsDash from "./SettingsDash";
+import { Routes, Route } from "react-router-dom";
 
 const Interface = () => {
-  const [scrollPosition, setScrollPosition] = useState();
   const [state, setState] = useState({
     hamburger: false,
     signUp: false,
@@ -13,26 +19,13 @@ const Interface = () => {
     let copyState = { ...state };
     copyState[input] = !copyState[input];
     setState(copyState);
-    console.log(state, scrollPosition);
+    console.log(state);
   };
 
   const getAddress = () => {
     let address = window.location.href;
     setState({ ...state, address });
   };
-
-  const handleScroll = () => {
-    const position = window.scrollY;
-    setScrollPosition(position);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  });
 
   return (
     <>
@@ -42,9 +35,18 @@ const Interface = () => {
         getAddress={getAddress}
         address={state.address}
         signUp={state.signUp}
-        scrollPosition={state.scrollPosition}
       />
-      <HomeBody />
+      <div className="routesPosition">
+        <Routes>
+          <Route path="/" element={<HomeBody />} />
+          <Route path="/login" element={<OverviewDash />} />
+          <Route path="/reportDash" element={<ReportDash />} />
+          <Route path="/calendarDash" element={<CalendarDash />} />
+          <Route path="/meetingDash" element={<MeetingDash />} />
+          <Route path="/hierachyDash" element={<HierachyDash />} />
+          <Route path="/settingsDash" element={<SettingsDash />} />
+        </Routes>
+      </div>
     </>
   );
 };

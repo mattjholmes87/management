@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { headerMaker } from "../tools/headerMaker";
 
 const Calendar = () => {
   const months = [
@@ -24,17 +25,21 @@ const Calendar = () => {
 
   return (
     <>
-      <div className="intro">{month}</div>
-      <div>{year}</div>
-      <div>{today}</div>
-      <div className="daysBox">
-        {days.map((day) => {
-          return (
-            <div className="day">
-              <p> </p>
-            </div>
-          );
-        })}
+      <div className="calendarWrap">
+        {headerMaker("calendar")}
+        {headerMaker("dash")}
+        <div className="intro">{month}</div>
+        <div>{year}</div>
+        <div>{today}</div>
+        <div className="daysBox">
+          {days.map((day) => {
+            return (
+              <div className="day">
+                <p> </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );
