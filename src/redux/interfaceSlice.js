@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import { initialState } from "./interfaceState";
 
 export const interfaceSlice = createSlice({
@@ -6,15 +6,21 @@ export const interfaceSlice = createSlice({
   initialState,
   reducers: {
     menuToggle: (state, { payload }) => {
-      console.log(payload);
-      state[payload] = !state[payload];
+      console.log(state.nav[payload]);
+      state.nav[payload] = !state.nav[payload];
+    },
+    buttonToggle: (state, { payload }) => {
+      Object.keys(state.button).forEach((item) => {
+        state.button[item] = false;
+      });
+      state.button[payload] = true;
     },
   },
 });
 
-export const { menuToggle } = interfaceSlice.actions;
+export const { menuToggle, buttonToggle } = interfaceSlice.actions;
 
-export const selectHamburger = (state) => state.interface.hamburger;
-export const selectSignUp = (state) => state.interface.signUp;
+export const selectHamburger = (state) => state.interface.nav.hamburger;
+export const selectSignUp = (state) => state.interface.nav.signUp;
 
 export default interfaceSlice.reducer;

@@ -9,7 +9,7 @@ const Login = () => {
 
   return (
     <>
-      <div className={`signupBoxWrap ${state.signUp ? "on" : "off"}`}>
+      <div className={`signupBoxWrap ${state.nav.signUp ? "on" : "off"}`}>
         <div className="loginBox">
           <div className="loginSection">
             <h2>Login</h2>

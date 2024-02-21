@@ -8,7 +8,7 @@ const NavLinks = () => {
   });
 
   return (
-    <div className={`hamburgerMenuWrap ${state.hamburger ? "on" : "off"}`}>
+    <div className={`hamburgerMenuWrap ${state.nav.hamburger ? "on" : "off"}`}>
       <div className={`hamburgerMenu`}>
         <div>
           <p>

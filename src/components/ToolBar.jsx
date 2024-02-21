@@ -18,7 +18,7 @@ const ToolBar = () => {
   });
 
   return (
-    <div className={`toolbarWrap ${state.hamburger ? "on" : "off"}`}>
+    <div className={`toolbarWrap ${state.nav.hamburger ? "on" : "off"}`}>
       <div className="toolbarMenu">
         <div className="toolBox one off">Tools</div>
         <div className="toolBox two">

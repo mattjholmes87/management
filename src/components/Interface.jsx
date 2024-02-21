@@ -8,9 +8,6 @@ import MeetingDash from "./MeetingDash";
 import HierachyDash from "./HierachyDash";
 import SettingsDash from "./SettingsDash";
 import { Routes, Route } from "react-router-dom";
-import interfaceSlice from "../redux/interfaceSlice";
-import { menuToggle } from "../redux/interfaceSlice";
-import { useDispatch, useSelector } from "react-redux";
 
 const Interface = () => {
   return (

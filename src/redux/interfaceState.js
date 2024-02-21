@@ -1,4 +1,4 @@
 export const initialState = {
-  hamburger: false,
-  signUp: false,
+  nav: { hamburger: false, signUp: false },
+  button: { home: true, addTodo: false, pushTodo: false, bulletin: false },
 };

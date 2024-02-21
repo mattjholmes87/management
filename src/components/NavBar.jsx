@@ -39,7 +39,7 @@ const Nav = () => {
               path="/"
               element={
                 <div
-                  className={`loginDropDown ${state.signUp ? "on" : "off"}`}
+                  className={`loginDropDown ${state.nav.signUp ? "on" : "off"}`}
                   onClick={() => {
                     dispatch(menuToggle("signUp"));
                   }}
@@ -59,13 +59,19 @@ const Nav = () => {
             <div className="closeIcon">
               <label htmlFor="checkbox_toggle1" className="hamburger">
                 <div
-                  className={`line line-1 ${state.hamburger ? "on" : "off"}`}
+                  className={`line line-1 ${
+                    state.nav.hamburger ? "on" : "off"
+                  }`}
                 ></div>
                 <div
-                  className={`line line-2 ${state.hamburger ? "on" : "off"}`}
+                  className={`line line-2 ${
+                    state.nav.hamburger ? "on" : "off"
+                  }`}
                 ></div>
                 <div
-                  className={`line line-3 ${state.hamburger ? "on" : "off"}`}
+                  className={`line line-3 ${
+                    state.nav.hamburger ? "on" : "off"
+                  }`}
                 ></div>
               </label>
             </div>
@@ -74,12 +80,12 @@ const Nav = () => {
       </div>
       <Routes>
         <Route path="/login" element={""} />
-        <Route path="/" element={<SignUp />} />
+        <Route exact path="/" element={<SignUp />} />
       </Routes>
 
       <Routes>
         <Route path="/login" element={<ToolBar />} />
-        <Route path="/" element={<NavLinks />} />
+        <Route exact path="/" element={<NavLinks />} />
       </Routes>
     </>
   );

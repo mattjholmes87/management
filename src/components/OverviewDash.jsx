@@ -1,9 +1,18 @@
 import React from "react";
 import { headerMaker } from "../tools/headerMaker";
 import UserCard from "./UserCard";
-import MyTodoList from "./MyTodoList";
+import MainWindowOverview from "./OverviewDash/MainWindowOverview";
+import AddTodoOverview from "./OverviewDash/AddTodoOverview";
+import OverviewButtons from "./OverviewDash/OverviewButtons";
+import BulletinOverview from "./OverviewDash/BulletinOverview";
+import PushTodoOverview from "./OverviewDash/PushTodoOverview";
+import { useSelector } from "react-redux";
 
 const OverviewDash = () => {
+  const state = useSelector((state) => {
+    return state.interface;
+  });
+
   return (
     <>
       {" "}
@@ -17,19 +26,16 @@ const OverviewDash = () => {
           <UserCard />
         </div>
         <div className="outerBox three">
-          <div className="innerBox one">Add a personal todo</div>
-          <div className="innerBox two">Push a todo to reportees</div>
-          <div className="innerBox three">Create a weekly 1 to 1</div>
-          <div className="innerBox four">Create a one off group meeting</div>
-          <div className="innerBox five">Create a rolling group meeting</div>
-          <div className="innerBox six">View latest bulletin</div>
-          {/* <div className="innerBox seven">sub box 7</div> */}
-          {/* <div className="innerBox eight"></div> */}
-          <div className="innerBox nine">
-            <MyTodoList />
-          </div>
-          <div className="innerBox ten">sub box 10</div>
-          <div className="innerBox eleven">sub box 11</div>
+          <OverviewButtons />
+          {state.button.addTodo ? (
+            <AddTodoOverview />
+          ) : state.button.pushTodo ? (
+            <PushTodoOverview />
+          ) : state.button.bulletin ? (
+            <BulletinOverview />
+          ) : (
+            <MainWindowOverview />
+          )}
         </div>
       </div>
     </>
