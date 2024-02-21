@@ -470,11 +470,31 @@ body {
 
 // Overview Dashboard
 
-.multiColorHeader {
+h1.multiColorHeader {
   max-height: 200px;
   p {
     span {
       font-size: clamp(1px, 8vw, 75px);
+      &:nth-child(4n) {
+        color: #c45fa0;
+      }
+      &:nth-child(4n-1) {
+        color: #4a5699;
+      }
+      &:nth-child(4n-2) {
+        color: #f39a2c;
+      }
+      &:nth-child(4n-3) {
+        color: #e6594e;
+      }
+    }
+  }
+}
+h2.multiColorHeader {
+  max-height: 200px;
+  p {
+    span {
+      font-size: 2rem;
       &:nth-child(4n) {
         color: #c45fa0;
       }

@@ -8,8 +8,13 @@ import MeetingDash from "./MeetingDash";
 import HierachyDash from "./HierachyDash";
 import SettingsDash from "./SettingsDash";
 import { Routes, Route } from "react-router-dom";
+import interfaceSlice from "../redux/interfaceSlice";
+import { menuToggle } from "../redux/interfaceSlice";
+import { useDispatch } from "react-redux";
 
 const Interface = () => {
+  // const dispatch = useDispatch();
+
   const [state, setState] = useState({
     hamburger: false,
     signUp: false,
@@ -38,6 +43,13 @@ const Interface = () => {
       />
       <div className="routesPosition">
         <Routes>
+          {/* <button
+            onClick={() => {
+              dispatch(menuToggle(hamburger));
+            }}
+          >
+            Click
+          </button> */}
           <Route path="/" element={<HomeBody />} />
           <Route exact path="/login" element={<OverviewDash />} />
           <Route path="/login/reportDash" element={<ReportDash />} />
