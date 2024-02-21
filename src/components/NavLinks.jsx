@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const NavLinks = ({ hamburger, menuToggle }) => {
+const NavLinks = () => {
+  const state = useSelector((state) => {
+    return state.interface;
+  });
+
   return (
-    <div className={`hamburgerMenuWrap ${hamburger ? "on" : "off"}`}>
+    <div className={`hamburgerMenuWrap ${state.hamburger ? "on" : "off"}`}>
       <div className={`hamburgerMenu`}>
         <div>
           <p>

@@ -8,7 +8,7 @@ import { menuToggle } from "../redux/interfaceSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
+const Nav = () => {
   const dispatch = useDispatch();
 
   const state = useSelector((state) => {
@@ -74,21 +74,12 @@ const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
       </div>
       <Routes>
         <Route path="/login" element={""} />
-        <Route
-          path="/"
-          element={<SignUp signUp={signUp} hamburger={hamburger} />}
-        />
+        <Route path="/" element={<SignUp />} />
       </Routes>
 
       <Routes>
-        <Route
-          path="/login"
-          element={<ToolBar hamburger={hamburger} menuToggle={menuToggle} />}
-        />
-        <Route
-          path="/"
-          element={<NavLinks hamburger={hamburger} getAddress={getAddress} />}
-        />
+        <Route path="/login" element={<ToolBar />} />
+        <Route path="/" element={<NavLinks />} />
       </Routes>
     </>
   );

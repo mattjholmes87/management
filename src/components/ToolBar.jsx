@@ -6,10 +6,19 @@ import time from "../images/icons/time-svgrepo-com.svg";
 import user from "../images/icons/user-svgrepo-com.svg";
 import table from "../images/icons/table-of-contents-svgrepo-com.svg";
 import insipration from "../images/icons/inspiration-svgrepo-com.svg";
+import { menuToggle } from "../redux/interfaceSlice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-const ToolBar = ({ hamburger, menuToggle }) => {
+const ToolBar = () => {
+  const dispatch = useDispatch();
+
+  const state = useSelector((state) => {
+    return state.interface;
+  });
+
   return (
-    <div className={`toolbarWrap ${hamburger ? "on" : "off"}`}>
+    <div className={`toolbarWrap ${state.hamburger ? "on" : "off"}`}>
       <div className="toolbarMenu">
         <div className="toolBox one off">Tools</div>
         <div className="toolBox two">
@@ -46,8 +55,7 @@ const ToolBar = ({ hamburger, menuToggle }) => {
             to="/"
             className="link"
             onClick={() => {
-              menuToggle("signUp");
-              menuToggle("hamburger");
+              dispatch(menuToggle("hamburger"));
             }}
           >
             Sign Out

@@ -1,10 +1,15 @@
 import React from "react";
 import Input from "./Input";
+import { useSelector } from "react-redux";
 
-const Login = ({ signUp }) => {
+const Login = () => {
+  const state = useSelector((state) => {
+    return state.interface;
+  });
+
   return (
     <>
-      <div className={`signupBoxWrap ${signUp ? "on" : "off"}`}>
+      <div className={`signupBoxWrap ${state.signUp ? "on" : "off"}`}>
         <div className="loginBox">
           <div className="loginSection">
             <h2>Login</h2>
