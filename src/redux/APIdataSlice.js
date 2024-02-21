@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { initialState } from "./state";
+import { initialState } from "./APIdataState";
 
 export const APIdataSlice = createSlice({
   name: "APIdata",
