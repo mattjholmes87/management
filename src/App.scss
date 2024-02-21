@@ -516,7 +516,7 @@ h2.multiColorHeader {
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: minmax(0, 200px) 1fr;
+  grid-template-rows: minmax(150px, 200px) 1fr;
   grid-gap: 5px;
   width: calc(100%);
   min-width: 700px;
@@ -573,8 +573,8 @@ h2.multiColorHeader {
     grid-row: 2 / span 1;
     grid-column: 1 / span 2;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: auto repeat(6, minmax(0, 50px)) auto;
+    grid-template-columns: minmax(0, 220px) repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(7, minmax(0, 50px)) auto;
     grid-gap: 10px;
     .innerBox {
       border: 1px solid;
@@ -629,6 +629,7 @@ h2.multiColorHeader {
       grid-row: 5 / span 4;
       grid-column: 3 / span 1;
     }
+    .innerBox.one:hover,
     .innerBox.two:hover,
     .innerBox.three:hover,
     .innerBox.four:hover,

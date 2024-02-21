@@ -4,8 +4,18 @@ import NavLinks from "./NavLinks";
 import ToolBar from "./ToolBar";
 import SignUp from "./SignUp";
 import pencil from "../images/icons/label-svgrepo-com.svg";
+import { menuToggle } from "../redux/interfaceSlice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
+  const dispatch = useDispatch();
+
+  const state = useSelector((state) => {
+    return state.interface;
+  });
+
+  console.log(state);
   return (
     <>
       <div className="navBoxWrap">
@@ -29,9 +39,9 @@ const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
               path="/"
               element={
                 <div
-                  className={`loginDropDown ${signUp ? "on" : "off"}`}
+                  className={`loginDropDown ${state.signUp ? "on" : "off"}`}
                   onClick={() => {
-                    menuToggle("signUp");
+                    dispatch(menuToggle("signUp"));
                   }}
                 >
                   <h2>Sign Up</h2>
@@ -43,19 +53,19 @@ const Nav = ({ menuToggle, hamburger, getAddress, signUp }) => {
           <div
             className="menuBox"
             onClick={() => {
-              menuToggle("hamburger");
+              dispatch(menuToggle("hamburger"));
             }}
           >
             <div className="closeIcon">
               <label htmlFor="checkbox_toggle1" className="hamburger">
                 <div
-                  className={`line line-1 ${hamburger ? "on" : "off"}`}
+                  className={`line line-1 ${state.hamburger ? "on" : "off"}`}
                 ></div>
                 <div
-                  className={`line line-2 ${hamburger ? "on" : "off"}`}
+                  className={`line line-2 ${state.hamburger ? "on" : "off"}`}
                 ></div>
                 <div
-                  className={`line line-3 ${hamburger ? "on" : "off"}`}
+                  className={`line line-3 ${state.hamburger ? "on" : "off"}`}
                 ></div>
               </label>
             </div>

@@ -17,8 +17,8 @@ const OverviewDash = () => {
           <UserCard />
         </div>
         <div className="outerBox three">
-          {/* <div className="innerBox one"></div> */}
-          <div className="innerBox two">Add a personal todo</div>
+          <div className="innerBox one">Add a personal todo</div>
+          <div className="innerBox two">Push a todo to reportees</div>
           <div className="innerBox three">Create a weekly 1 to 1</div>
           <div className="innerBox four">Create a one off group meeting</div>
           <div className="innerBox five">Create a rolling group meeting</div>
