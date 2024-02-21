@@ -1,4 +1,4 @@
-export const initialState = {
-  hamburger: false,
-  signUp: false,
-};
+// export const initialState = {
+//   hamburger: false,
+//   signUp: false,
+// };
