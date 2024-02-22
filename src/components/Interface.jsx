@@ -16,12 +16,12 @@ const Interface = () => {
       <div className="routesPosition">
         <Routes>
           <Route path="/" element={<HomeBody />} />
-          <Route exact path="/login" element={<OverviewDash />} />
-          <Route path="/login/reportDash" element={<ReportDash />} />
-          <Route path="/login/calendarDash" element={<CalendarDash />} />
-          <Route path="/login/meetingDash" element={<MeetingDash />} />
-          <Route path="/login/hierachyDash" element={<HierachyDash />} />
-          <Route path="/login/settingsDash" element={<SettingsDash />} />
+          <Route exact path="/overviewDash" element={<OverviewDash />} />
+          <Route path="/reportDash" element={<ReportDash />} />
+          <Route path="/calendarDash" element={<CalendarDash />} />
+          <Route path="/meetingDash" element={<MeetingDash />} />
+          <Route path="/hierachyDash" element={<HierachyDash />} />
+          <Route path="/settingsDash" element={<SettingsDash />} />
         </Routes>
       </div>
     </>

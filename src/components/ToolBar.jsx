@@ -6,7 +6,7 @@ import time from "../images/icons/time-svgrepo-com.svg";
 import user from "../images/icons/user-svgrepo-com.svg";
 import table from "../images/icons/table-of-contents-svgrepo-com.svg";
 import insipration from "../images/icons/inspiration-svgrepo-com.svg";
-import { menuToggle } from "../redux/interfaceSlice";
+import { menuToggle, loginToggle } from "../redux/interfaceSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -22,8 +22,10 @@ const ToolBar = () => {
       <div className="toolbarMenu">
         <div className="toolBox one off">Tools</div>
         <div className="toolBox two">
-          <img src={upload} className="logoImage" alt="overviewIcon" />
-          <div>Overview</div>
+          <Link to="/overviewdash" className="link">
+            <img src={upload} className="logoImage" alt="overviewIcon" />
+            <div>Overview</div>
+          </Link>
         </div>
         <div className="toolBox three">
           <img src={user} className="logoImage" alt="reporteeIcon" />
@@ -56,6 +58,7 @@ const ToolBar = () => {
             className="link"
             onClick={() => {
               dispatch(menuToggle("hamburger"));
+              dispatch(loginToggle("out"));
             }}
           >
             Sign Out

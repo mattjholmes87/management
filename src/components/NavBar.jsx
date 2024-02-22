@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import ToolBar from "./ToolBar";
 import SignUp from "./SignUp";
@@ -20,35 +20,31 @@ const Nav = () => {
     <>
       <div className="navBoxWrap">
         <div className="logoBox">
-          <a href="/">
+          <Link to="/" className="link">
             <img src={pencil} className="logoImage" alt="logo" />{" "}
             <div>noTed</div>
-          </a>
+          </Link>
         </div>
         <div className="rightNavBox">
-          <Routes>
-            <Route
-              path={"/login"}
-              element={
-                <div className="loginDropDown">
-                  <h2>Welcome back.</h2>
-                </div>
-              }
-            />
-            <Route
-              path="/"
-              element={
-                <div
-                  className={`loginDropDown ${state.nav.signUp ? "on" : "off"}`}
-                  onClick={() => {
-                    dispatch(menuToggle("signUp"));
-                  }}
-                >
-                  <h2>Sign Up</h2>
-                </div>
-              }
-            />
-          </Routes>
+          {state.loginStatus ? (
+            <div className="loginDropDown">
+              <h2>Welcome back.</h2>
+            </div>
+          ) : (
+            ""
+          )}
+          {state.loginStatus ? (
+            ""
+          ) : (
+            <div
+              className={`loginDropDown ${state.nav.signUp ? "on" : "off"}`}
+              onClick={() => {
+                dispatch(menuToggle("signUp"));
+              }}
+            >
+              <h2>Sign Up</h2>
+            </div>
+          )}
 
           <div
             className="menuBox"
@@ -78,15 +74,10 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      <Routes>
-        <Route path="/login" element={""} />
-        <Route exact path="/" element={<SignUp />} />
-      </Routes>
 
-      <Routes>
-        <Route path="/login" element={<ToolBar />} />
-        <Route exact path="/" element={<NavLinks />} />
-      </Routes>
+      {state.loginStatus ? "" : <SignUp />}
+      {state.loginStatus ? <ToolBar /> : ""}
+      {state.loginStatus ? "" : <NavLinks />}
     </>
   );
 };

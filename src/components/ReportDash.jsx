@@ -1,12 +1,18 @@
 import React from "react";
-import { headerMaker } from "../tools/headerMaker";
+import UserCard from "./UserCard";
 
 const ReportDash = () => {
   return (
     <>
       <div className="reportsWrap">
-        {headerMaker("reports")}
-        {headerMaker("dash")}
+        <div className="outerBox one">
+          <UserCard />
+        </div>
+        <div className="outerBox two"></div>
+        <div className="outerBox three"></div>
+        <div className="outerBox four"></div>
+        <div className="outerBox five"></div>
+        <div className="outerBox six"></div>
       </div>
     </>
   );

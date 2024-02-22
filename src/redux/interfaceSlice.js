@@ -15,10 +15,17 @@ export const interfaceSlice = createSlice({
       });
       state.button[payload] = true;
     },
+    loginToggle: (state, { payload }) => {
+      if (payload === "in") {
+        state.loginStatus = true;
+      } else {
+        state.loginStatus = false;
+      }
+    },
   },
 });
 
-export const { menuToggle, buttonToggle } = interfaceSlice.actions;
+export const { menuToggle, buttonToggle, loginToggle } = interfaceSlice.actions;
 
 export const selectHamburger = (state) => state.interface.nav.hamburger;
 export const selectSignUp = (state) => state.interface.nav.signUp;
