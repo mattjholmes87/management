@@ -1,5 +1,5 @@
 import React from "react";
-import { headerMaker } from "../tools/headerMaker";
+import { headerMaker } from "../tools/HeaderMaker";
 
 const MeetingDash = () => {
   return (

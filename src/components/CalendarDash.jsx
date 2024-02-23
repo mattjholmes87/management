@@ -1,48 +1,34 @@
 import React from "react";
 import moment from "moment";
-import { headerMaker } from "../tools/headerMaker";
+import { headerMaker } from "../tools/HeaderMaker";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 
-const Calendar = () => {
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const DnDCalendar = withDragAndDrop(Calendar);
 
-  let month = moment().format("MMMM");
-  let year = moment().format("YYYY");
-  let today = moment().format("dddd");
+const localizer = momentLocalizer(moment);
+const myEventsList = [
+  { start: new Date(), end: new Date(), title: "special event" },
+];
 
+const CalendarDash = () => {
   return (
     <>
       <div className="calendarWrap">
         {headerMaker("calendar")}
         {headerMaker("dash")}
-        <div className="intro">{month}</div>
-        <div>{year}</div>
-        <div>{today}</div>
-        <div className="daysBox">
-          {days.map((day) => {
-            return (
-              <div className="day">
-                <p> </p>
-              </div>
-            );
-          })}
+        <div>
+          <DnDCalendar
+            localizer={localizer}
+            events={myEventsList}
+            draggableAccessor={(event) => true}
+            style={{ width: "50vw", height: "50vh" }}
+          />
         </div>
       </div>
     </>
   );
 };
 
-export default Calendar;
+export default CalendarDash;

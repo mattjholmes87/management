@@ -543,7 +543,7 @@ h2.multiColorHeader p span:nth-child(4n-3) {
   display: flex;
   justify-content: end;
 }
-.overviewWrap .outerBox.two .userCardWrap {
+.overviewWrap .outerBox.two .IDCardWrap {
   position: static;
   height: 100%;
   width: 100%;
@@ -556,13 +556,13 @@ h2.multiColorHeader p span:nth-child(4n-3) {
   padding-right: 50px;
   background-color: #ffffff;
 }
-.overviewWrap .outerBox.two .userCardWrap .userCardDetails {
+.overviewWrap .outerBox.two .IDCardWrap .IDCardDetails {
   width: 100%;
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.overviewWrap .outerBox.two .userCardWrap .userCardPic {
+.overviewWrap .outerBox.two .IDCardWrap .IDCardPic {
   border-radius: 50%;
   min-width: 50px;
   max-width: 100px;
@@ -578,7 +578,7 @@ h2.multiColorHeader p span:nth-child(4n-3) {
   grid-column: 1/span 2;
   display: grid;
   grid-template-columns: minmax(0, 220px) repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(7, minmax(0, 50px)) auto;
+  grid-template-rows: repeat(7, minmax(0, 50px)) minmax(0, 200px);
   grid-gap: 10px;
 }
 .overviewWrap .outerBox.three .innerBox {
@@ -643,6 +643,47 @@ h2.multiColorHeader p span:nth-child(4n-3) {
 .overviewWrap .outerBox.three .innerBox.seven:hover {
   border-left: 2px solid #f0d043;
   background-color: #f7f7f7;
+}
+.overviewWrap .todoList {
+  max-height: 100%;
+  overflow-y: scroll;
+}
+.overviewWrap .todoList .todoCard {
+  padding: 10px;
+}
+.overviewWrap .todoList .todoCard:hover {
+  border-left: 2px solid #950d0d;
+  background-color: #eccece;
+  padding-left: 8px;
+}
+.overviewWrap .todoList .todoCard.done:hover {
+  border-left: 2px solid #035c1e;
+  background-color: #d3e4dd;
+}
+.overviewWrap .todoList h2 {
+  font-size: 1.2rem;
+}
+.overviewWrap .todoList div {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.overviewWrap .todoList div span {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.overviewWrap .userCardWrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.overviewWrap .userCardWrap h2 {
+  font-size: 1.2rem;
+  padding: 10px;
+}
+.overviewWrap .userCardWrap .userCard {
+  font-size: 1.6rem;
+  padding: 10px;
+  font-weight: 400;
 }
 
 @media screen and (min-width: 600px) {

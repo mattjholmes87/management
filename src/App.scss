@@ -481,7 +481,7 @@ body {
   z-index: -1;
 }
 
-// Overview Dashboard
+// Headers
 
 h1.multiColorHeader {
   max-height: 200px;
@@ -551,7 +551,7 @@ h2.multiColorHeader {
     grid-column: 2 / span 1;
     display: flex;
     justify-content: end;
-    .userCardWrap {
+    .IDCardWrap {
       position: static;
       height: 100%;
       width: 100%;
@@ -564,13 +564,13 @@ h2.multiColorHeader {
       padding-right: 50px;
       background-color: #ffffff;
 
-      .userCardDetails {
+      .IDCardDetails {
         width: 100%;
         padding-left: 10px;
         padding-top: 10px;
         padding-bottom: 10px;
       }
-      .userCardPic {
+      .IDCardPic {
         border-radius: 50%;
         min-width: 50px;
         max-width: 100px;
@@ -588,7 +588,7 @@ h2.multiColorHeader {
     grid-column: 1 / span 2;
     display: grid;
     grid-template-columns: minmax(0, 220px) repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(7, minmax(0, 50px)) auto;
+    grid-template-rows: repeat(7, minmax(0, 50px)) minmax(0, 200px);
     grid-gap: 10px;
     .innerBox {
       border: 1px solid;
@@ -652,6 +652,49 @@ h2.multiColorHeader {
     .innerBox.seven:hover {
       border-left: 2px solid #f0d043;
       background-color: #f7f7f7;
+    }
+  }
+
+  .todoList {
+    max-height: 100%;
+    overflow-y: scroll;
+    .todoCard {
+      padding: 10px;
+    }
+    .todoCard:hover {
+      border-left: 2px solid #950d0d;
+      background-color: #eccece;
+      padding-left: 8px;
+    }
+    .todoCard.done:hover {
+      border-left: 2px solid #035c1e;
+      background-color: #d3e4dd;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+    div {
+      font-size: 1.2rem;
+      font-weight: 400;
+      span {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    }
+  }
+  .userCardWrap {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    h2 {
+      font-size: 1.2rem;
+      padding: 10px;
+    }
+    .userCard {
+      font-size: 1.6rem;
+      padding: 10px;
+      font-weight: 400;
     }
   }
 }

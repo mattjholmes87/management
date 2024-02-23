@@ -5,10 +5,14 @@ export const APIdataSlice = createSlice({
   name: "APIdata",
   initialState,
   reducers: {
-    setAPIData: (state) => {},
+    setAPIData: (state, { payload }) => {
+      state.todoData = payload;
+    },
   },
 });
 
 export const { setAPIData } = APIdataSlice.actions;
+
+export const selectTodoData = (state) => state.APIdata.todoData;
 
 export default APIdataSlice.reducer;

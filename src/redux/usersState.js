@@ -1,0 +1,40 @@
+export const initialState = {
+  users: [
+    {
+      name: "Matt Holmes",
+      title: "Deputy Head",
+      userLevel: "Admin",
+      userGroups: ["SLT", "Maths Department", "SEN", "Teacher"],
+      id: "00000000001",
+      managedBy: "",
+      image: "../images/icons/user-svgrepo-com.svg",
+    },
+    {
+      name: "Alan Smithies",
+      title: "Teacher",
+      userLevel: "User",
+      userGroups: ["Maths Department", "Teacher"],
+      id: "00000000002",
+      managedBy: "Matt Holmes",
+      image: "../images/icons/user-svgrepo-com.svg",
+    },
+    {
+      name: "Ollie Holmes",
+      title: "Teaching Assistant",
+      userLevel: "User",
+      userGroups: ["TA"],
+      id: "00000000003",
+      managedBy: "Alan Smithies",
+      image: "../images/icons/user-svgrepo-com.svg",
+    },
+    {
+      name: "Jen Noble",
+      title: "Head of Department (English)",
+      userLevel: "User",
+      userGroups: ["HOD", "English Department", "Teacher"],
+      id: "00000000004",
+      managedBy: "Matt Holmes",
+      image: "../images/icons/user-svgrepo-com.svg",
+    },
+  ],
+};

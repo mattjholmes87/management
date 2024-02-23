@@ -1,5 +1,6 @@
 import React from "react";
-import MyTodoList from "../MyTodoList";
+import MyTodoList from "../Todos/MyTodoList";
+import UsersList from "../Users/UsersList";
 
 const MainWindowOverview = () => {
   return (
@@ -8,7 +9,9 @@ const MainWindowOverview = () => {
       <div className="innerBox nine">
         <MyTodoList />
       </div>
-      <div className="innerBox ten">sub box 10</div>
+      <div className="innerBox ten">
+        <UsersList />
+      </div>
       <div className="innerBox eleven">sub box 11</div>
     </>
   );

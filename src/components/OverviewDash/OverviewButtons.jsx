@@ -1,5 +1,5 @@
 import React from "react";
-import { menuToggle, buttonToggle } from "../../redux/interfaceSlice";
+import { setActiveButton } from "../../redux/interfaceSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -16,7 +16,7 @@ const OverviewButtons = () => {
       <div
         className="innerBox one"
         onClick={() => {
-          dispatch(buttonToggle("home"));
+          dispatch(setActiveButton("home"));
         }}
       >
         Overview
@@ -24,7 +24,7 @@ const OverviewButtons = () => {
       <div
         className="innerBox two"
         onClick={() => {
-          dispatch(buttonToggle("addTodo"));
+          dispatch(setActiveButton("addTodo"));
         }}
       >
         Add a personal todo
@@ -32,7 +32,7 @@ const OverviewButtons = () => {
       <div
         className="innerBox three"
         onClick={() => {
-          dispatch(buttonToggle("pushTodo"));
+          dispatch(setActiveButton("pushTodo"));
         }}
       >
         Push a todo to reportees
@@ -43,7 +43,7 @@ const OverviewButtons = () => {
       <div
         className="innerBox seven"
         onClick={() => {
-          dispatch(buttonToggle("bulletin"));
+          dispatch(setActiveButton("bulletin"));
         }}
       >
         View latest bulletin

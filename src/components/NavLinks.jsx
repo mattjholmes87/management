@@ -1,17 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { loginToggle } from "../redux/interfaceSlice";
+import {
+  loginToggle,
+  menuToggle,
+  selectHamburger,
+} from "../redux/interfaceSlice";
 
 const NavLinks = () => {
   const state = useSelector((state) => {
     return state.interface;
   });
 
+  const hamburgerToggle = useSelector(selectHamburger);
   const dispatch = useDispatch();
 
   return (
-    <div className={`hamburgerMenuWrap ${state.nav.hamburger ? "on" : "off"}`}>
+    <div className={`hamburgerMenuWrap ${hamburgerToggle ? "on" : "off"}`}>
       <div className={`hamburgerMenu`}>
         <div>
           <p>
@@ -41,6 +46,7 @@ const NavLinks = () => {
               className="link"
               onClick={() => {
                 dispatch(loginToggle("in"));
+                dispatch(menuToggle("hamburger"));
               }}
             >
               Login

@@ -4,7 +4,11 @@ import NavLinks from "./NavLinks";
 import ToolBar from "./ToolBar";
 import SignUp from "./SignUp";
 import pencil from "../images/icons/label-svgrepo-com.svg";
-import { menuToggle } from "../redux/interfaceSlice";
+import {
+  menuToggle,
+  selectHamburger,
+  selectSignUp,
+} from "../redux/interfaceSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -15,7 +19,9 @@ const Nav = () => {
     return state.interface;
   });
 
-  console.log(state);
+  const signUpToggle = useSelector(selectSignUp);
+  const hamburgerToggle = useSelector(selectHamburger);
+
   return (
     <>
       <div className="navBoxWrap">
@@ -37,7 +43,7 @@ const Nav = () => {
             ""
           ) : (
             <div
-              className={`loginDropDown ${state.nav.signUp ? "on" : "off"}`}
+              className={`loginDropDown ${signUpToggle ? "on" : "off"}`}
               onClick={() => {
                 dispatch(menuToggle("signUp"));
               }}
@@ -55,19 +61,13 @@ const Nav = () => {
             <div className="closeIcon">
               <label htmlFor="checkbox_toggle1" className="hamburger">
                 <div
-                  className={`line line-1 ${
-                    state.nav.hamburger ? "on" : "off"
-                  }`}
+                  className={`line line-1 ${hamburgerToggle ? "on" : "off"}`}
                 ></div>
                 <div
-                  className={`line line-2 ${
-                    state.nav.hamburger ? "on" : "off"
-                  }`}
+                  className={`line line-2 ${hamburgerToggle ? "on" : "off"}`}
                 ></div>
                 <div
-                  className={`line line-3 ${
-                    state.nav.hamburger ? "on" : "off"
-                  }`}
+                  className={`line line-3 ${hamburgerToggle ? "on" : "off"}`}
                 ></div>
               </label>
             </div>

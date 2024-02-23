@@ -1,17 +1,21 @@
 import React from "react";
-import { headerMaker } from "../tools/headerMaker";
-import UserCard from "./UserCard";
+import { headerMaker } from "../tools/HeaderMaker";
+import UserCard from "./Users/UserCard";
 import MainWindowOverview from "./OverviewDash/MainWindowOverview";
 import AddTodoOverview from "./OverviewDash/AddTodoOverview";
 import OverviewButtons from "./OverviewDash/OverviewButtons";
 import BulletinOverview from "./OverviewDash/BulletinOverview";
 import PushTodoOverview from "./OverviewDash/PushTodoOverview";
 import { useSelector } from "react-redux";
+import { selectActiveButton } from "../redux/interfaceSlice";
+import IDCard from "./Users/IDCards";
 
 const OverviewDash = () => {
   const state = useSelector((state) => {
     return state.interface;
   });
+
+  const activeButton = useSelector(selectActiveButton);
 
   return (
     <>
@@ -23,15 +27,18 @@ const OverviewDash = () => {
           {headerMaker("dashboard.")}
         </div>
         <div className="outerBox two">
-          <UserCard />
+          <IDCard />
         </div>
         <div className="outerBox three">
           <OverviewButtons />
-          {state.button.addTodo ? (
+
+          {activeButton === "home" ? (
+            <MainWindowOverview />
+          ) : activeButton === "addTodo" ? (
             <AddTodoOverview />
-          ) : state.button.pushTodo ? (
+          ) : activeButton === "pushTodo" ? (
             <PushTodoOverview />
-          ) : state.button.bulletin ? (
+          ) : activeButton === "bulletin" ? (
             <BulletinOverview />
           ) : (
             <MainWindowOverview />
