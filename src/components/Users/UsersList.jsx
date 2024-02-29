@@ -18,7 +18,6 @@ const UsersList = () => {
       <div className="userCardWrap">
         <h2>My Reportees</h2>
 
-        {}
         {filterUsers.map((user) => {
           return (
             <div className="userCard" key={user.id}>
