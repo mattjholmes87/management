@@ -4,11 +4,11 @@ import Todo from "./Todo";
 import { selectTodoData } from "../../redux/APIdataSlice";
 
 const MyTodoList = () => {
-  const state = useSelector((state) => {
-    return state.APIdata;
-  });
-
   const todoData = useSelector(selectTodoData);
+
+  if (!todoData) {
+    return <p>Loading</p>;
+  }
 
   return (
     <>

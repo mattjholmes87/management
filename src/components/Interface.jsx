@@ -8,11 +8,17 @@ import MeetingDash from "./MeetingDash";
 import HierachyDash from "./HierachyDash";
 import SettingsDash from "./SettingsDash";
 import { Routes, Route } from "react-router-dom";
+import Modal from "./Modal/Modal";
+import { selectModalToggle } from "../redux/interfaceSlice";
+import { useSelector } from "react-redux";
 
 const Interface = () => {
+  const modal = useSelector(selectModalToggle);
+
   return (
     <>
       <NavBar />
+      {modal ? <Modal /> : ""}
       <div className="routesPosition">
         <Routes>
           <Route path="/" element={<HomeBody />} />

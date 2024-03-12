@@ -1,18 +1,25 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectTodoData } from "../../redux/APIdataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { modalToggle } from "../../redux/interfaceSlice";
 
 const Todo = (props) => {
   const state = useSelector((state) => {
     return state.APIdata;
   });
   const { id, todo, userId, completed } = props;
-  const todoData = useSelector(selectTodoData);
+
+  const dispatch = useDispatch();
 
   return (
     <>
       <div>
-        <div className={`todoCard ${completed ? "done" : ""}`} key={id}>
+        <div
+          className={`todoCard ${completed ? "done" : ""}`}
+          key={id}
+          onClick={() => {
+            dispatch(modalToggle({ type: "TODOEDIT", id }));
+          }}
+        >
           <div className="todo">
             <span>Todo: </span> {todo}
           </div>
