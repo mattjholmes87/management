@@ -3,6 +3,7 @@ import { selectModalToggle, modalToggle } from "../../redux/interfaceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { gsap } from "gsap";
 import ModalContent from "./ModalContent";
+import { duration } from "moment";
 
 const Modal = () => {
   const dispatch = useDispatch();
@@ -12,12 +13,12 @@ const Modal = () => {
   let modalDialog = null;
   let modalContent = null;
 
-  const [modalTween] = useState(gsap.timeline({ paused: true }));
+  let masterTimeLine = gsap.timeline();
 
   useEffect(() => {
-    modalTween
-      .to(modalVeil, 0.25, { autoAlpha: 1 })
-      .to(modalDialog, 0.35, { y: 0, autoAlpha: 1 })
+    masterTimeLine.to(".modal-veil", 0.25, { autoAlpha: 1 });
+    masterTimeLine.to(".modal-dialog", 0.35, { y: 0, autoAlpha: 1 });
+    masterTimeLine
       .from(
         modalContent.children,
         0.35,
@@ -28,12 +29,14 @@ const Modal = () => {
   }, []);
 
   useEffect(() => {
-    modalTween.reversed(!modal);
+    masterTimeLine.reversed(!modal);
   }, [modal]);
 
   const closeModal = () => {
-    modalTween.reverse();
-    gsap.delayedCall(modalTween.duration(), dispatch(modalToggle()));
+    masterTimeLine.reverse();
+    setTimeout(() => {
+      dispatch(modalToggle());
+    }, 1000);
   };
 
   return (
