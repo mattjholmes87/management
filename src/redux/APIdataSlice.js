@@ -8,10 +8,18 @@ export const APIdataSlice = createSlice({
     setAPIData: (state, { payload }) => {
       state.todoData = payload;
     },
+    setLiked: (state, { payload }) => {
+      const chosenTodo = state.todoData.find((todo) => todo.id == payload.id);
+      if (!chosenTodo) {
+        console.log("Todo cannot be found");
+      } else {
+        chosenTodo.priority = !chosenTodo.priority;
+      }
+    },
   },
 });
 
-export const { setAPIData } = APIdataSlice.actions;
+export const { setAPIData, setLiked } = APIdataSlice.actions;
 
 export const selectTodoData = (state) => state.APIdata.todoData;
 

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { selectModalToggle, modalToggle } from "../../redux/interfaceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { gsap } from "gsap";
 import ModalContent from "./ModalContent";
-import { duration } from "moment";
 
 const Modal = () => {
   const dispatch = useDispatch();

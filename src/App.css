@@ -5,6 +5,17 @@
   width: 100%;
 }
 
+.Toastify__close-button {
+  display: flex;
+  justify-content: end;
+}
+
+.Toastify__toast-body {
+  font-size: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
 p {
   font: inherit;
 }
@@ -54,20 +65,21 @@ body .link {
 .navBoxWrap .logoBox .logoImage {
   width: 45px;
   height: auto;
-  padding-right: 20px;
+  padding-right: 10px;
+  color: #02484d;
 }
 .navBoxWrap .logoBox a {
   text-decoration: none;
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: #202020;
+  color: #02484d;
   font-size: 2rem;
   max-width: 100px;
 }
-.navBoxWrap .menuBox:hover,
-.navBoxWrap .logoBox:hover {
-  color: #f0d043;
+.navBoxWrap .logoBox a span {
+  color: #99cdd2;
+  font-size: inherit;
 }
 .navBoxWrap .rightNavBox {
   display: flex;
@@ -79,6 +91,7 @@ body .link {
   right: 5px;
   width: auto;
   height: 100%;
+  color: #02484d;
 }
 .navBoxWrap .rightNavBox .menuBox {
   background-color: inherit;
@@ -97,7 +110,7 @@ body .link {
 .navBoxWrap .rightNavBox .menuBox .closeIcon .line {
   position: absolute;
   display: block;
-  background: #4a5699;
+  background: #02484d;
   width: 10px;
   height: 0.15rem;
   border-radius: 0.2rem;
@@ -112,7 +125,7 @@ body .link {
   width: 18px;
   transform: translateX(0px);
   -webkit-transform: translateX(0px);
-  background-color: #f0d043;
+  background-color: #99cdd2;
 }
 .navBoxWrap .rightNavBox .menuBox .closeIcon .line-3 {
   top: 14px;
@@ -121,7 +134,7 @@ body .link {
   top: 0px;
   width: 22px;
   transform: translateX(-11px) rotate(-45deg) translateY(12px);
-  background-color: #e6594e;
+  background-color: #99cdd2;
 }
 .navBoxWrap .rightNavBox .menuBox .closeIcon .line-2.on {
   opacity: 0;
@@ -130,7 +143,7 @@ body .link {
   top: 14px;
   width: 22px;
   transform: translateX(-8px) rotate(45deg) translateY(-8px);
-  background-color: #f0d043;
+  background-color: #02484d;
 }
 .navBoxWrap .rightNavBox .loginDropDown {
   background-color: inherit;
@@ -178,8 +191,7 @@ body .link {
   color: #ffffff;
 }
 .hamburgerMenuWrap .hamburgerMenu .link:hover {
-  color: #f0d043;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .hamburgerMenuWrap.on {
@@ -243,9 +255,9 @@ body .link {
   text-align: center;
   width: 80%;
 }
-.toolbarWrap .toolbarMenu .toolBox img {
-  color: #ffffff;
-  max-height: 10vh;
+.toolbarWrap .toolbarMenu .toolBox svg {
+  color: #c5e4e7;
+  height: 10vh;
   padding: 10px;
 }
 .toolbarWrap .toolbarMenu .toolBox.two:hover,
@@ -260,24 +272,25 @@ body .link {
 .toolbarWrap .toolbarMenu .toolBox.eleven:hover,
 .toolbarWrap .toolbarMenu .toolBox.twelve:hover,
 .toolbarWrap .toolbarMenu .toolBox.thirteen:hover {
-  border-left: 2px solid #f0d043;
-  background-color: #f7f7f7;
+  border-left: 2px solid #c5e4e7;
+  background-color: #f4fafa;
 }
-.toolbarWrap .toolbarMenu .toolBox.two:hover img,
-.toolbarWrap .toolbarMenu .toolBox.three:hover img,
-.toolbarWrap .toolbarMenu .toolBox.four:hover img,
-.toolbarWrap .toolbarMenu .toolBox.five:hover img,
-.toolbarWrap .toolbarMenu .toolBox.six:hover img,
-.toolbarWrap .toolbarMenu .toolBox.seven:hover img,
-.toolbarWrap .toolbarMenu .toolBox.eight:hover img,
-.toolbarWrap .toolbarMenu .toolBox.nine:hover img,
-.toolbarWrap .toolbarMenu .toolBox.ten:hover img,
-.toolbarWrap .toolbarMenu .toolBox.eleven:hover img,
-.toolbarWrap .toolbarMenu .toolBox.twelve:hover img,
-.toolbarWrap .toolbarMenu .toolBox.thirteen:hover img {
+.toolbarWrap .toolbarMenu .toolBox.two:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.three:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.four:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.five:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.six:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.seven:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.eight:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.nine:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.ten:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.eleven:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.twelve:hover svg,
+.toolbarWrap .toolbarMenu .toolBox.thirteen:hover svg {
   animation: bellshake 0.5s cubic-bezier(0.18, 0.04, 0.1, 0.5) both;
   backface-visibility: hidden;
   transform-origin: top right;
+  color: #02484d;
 }
 .toolbarWrap .toolbarMenu .toolBox.two:hover div,
 .toolbarWrap .toolbarMenu .toolBox.three:hover div,
@@ -483,37 +496,15 @@ h1.multiColorHeader {
 }
 h1.multiColorHeader p span {
   font-size: 60px;
-}
-h1.multiColorHeader p span:nth-child(4n) {
-  color: #c45fa0;
-}
-h1.multiColorHeader p span:nth-child(4n-1) {
-  color: #4a5699;
-}
-h1.multiColorHeader p span:nth-child(4n-2) {
-  color: #f39a2c;
-}
-h1.multiColorHeader p span:nth-child(4n-3) {
-  color: #e6594e;
+  color: #02484d;
 }
 
 h2.multiColorHeader {
   max-height: 200px;
 }
-h2.multiColorHeader p span {
-  font-size: 2rem;
-}
-h2.multiColorHeader p span:nth-child(4n) {
-  color: #c45fa0;
-}
-h2.multiColorHeader p span:nth-child(4n-1) {
-  color: #4a5699;
-}
-h2.multiColorHeader p span:nth-child(4n-2) {
-  color: #f39a2c;
-}
-h2.multiColorHeader p span:nth-child(4n-3) {
-  color: #e6594e;
+h2.multiColorHeader p {
+  font-size: 60px;
+  color: #02484d;
 }
 
 .overviewWrap {
@@ -555,6 +546,8 @@ h2.multiColorHeader p span:nth-child(4n-3) {
   align-items: center;
   padding-right: 50px;
   background-color: #ffffff;
+  border-radius: 8px;
+  border: solid 1px #eeeeee;
 }
 .overviewWrap .outerBox.two .IDCardWrap .IDCardDetails {
   width: 100%;
@@ -570,7 +563,7 @@ h2.multiColorHeader p span:nth-child(4n-3) {
   height: 100px;
   border: 1px solid;
   border-color: #eeeeee;
-  background: linear-gradient(to top, #f39a2c 50%, #ffffff 50%);
+  background: linear-gradient(to top, #99cdd2 50%, #ffffff 50%);
 }
 .overviewWrap .outerBox.three {
   padding-top: 20px;
@@ -589,6 +582,15 @@ h2.multiColorHeader p span:nth-child(4n-3) {
   align-items: center;
   font-size: 1.2rem;
   font-weight: 600;
+  border-radius: 8px;
+}
+.overviewWrap .outerBox.three .innerBox svg {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+.overviewWrap .outerBox.three .innerBox div {
+  font-size: inherit;
 }
 .overviewWrap .outerBox.three .innerBox.one {
   grid-row: 1/span 1;
@@ -641,8 +643,18 @@ h2.multiColorHeader p span:nth-child(4n-3) {
 .overviewWrap .outerBox.three .innerBox.five:hover,
 .overviewWrap .outerBox.three .innerBox.six:hover,
 .overviewWrap .outerBox.three .innerBox.seven:hover {
-  border-left: 2px solid #f0d043;
-  background-color: #f7f7f7;
+  border-left: 2px solid #c5e4e7;
+  border-right: 2px solid #c5e4e7;
+  background-color: #f4fafa;
+}
+.overviewWrap .outerBox.three .innerBox.one:hover svg,
+.overviewWrap .outerBox.three .innerBox.two:hover svg,
+.overviewWrap .outerBox.three .innerBox.three:hover svg,
+.overviewWrap .outerBox.three .innerBox.four:hover svg,
+.overviewWrap .outerBox.three .innerBox.five:hover svg,
+.overviewWrap .outerBox.three .innerBox.six:hover svg,
+.overviewWrap .outerBox.three .innerBox.seven:hover svg {
+  color: #26bfab;
 }
 .overviewWrap .todoList {
   max-height: 100%;
@@ -650,15 +662,45 @@ h2.multiColorHeader p span:nth-child(4n-3) {
 }
 .overviewWrap .todoList .todoCard {
   padding: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 97%;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.overviewWrap .todoList .todoCard .todoIcon {
+  width: auto;
+  align-self: center;
+}
+.overviewWrap .todoList .todoCard .todoIcon .svg {
+  color: #eeeeee;
+}
+.overviewWrap .todoList .todoCard .todoIcon .svg.priority {
+  color: #f0d043;
+}
+.overviewWrap .todoList .todoCard.priority {
+  border-left: 2px solid #f0d043;
+  border-right: 2px solid #f0d043;
+  padding-left: 8px;
+  border-top: 0px;
+  border-bottom: 0px;
+}
+.overviewWrap .todoList .todoCard.priority:hover {
+  border-left: 2px solid #f0d043;
+  border-right: 2px solid #f0d043;
+  background-color: #f4fafa;
+  padding-left: 8px;
+  border-top: 0px;
+  border-bottom: 0px;
 }
 .overviewWrap .todoList .todoCard:hover {
-  border-left: 2px solid #950d0d;
-  background-color: #eccece;
+  border-left: 2px solid #c5e4e7;
+  border-right: 2px solid #c5e4e7;
+  background-color: #f4fafa;
   padding-left: 8px;
-}
-.overviewWrap .todoList .todoCard.done:hover {
-  border-left: 2px solid #035c1e;
-  background-color: #d3e4dd;
+  border-top: 0px;
+  border-bottom: 0px;
 }
 .overviewWrap .todoList h2 {
   font-size: 1.2rem;
@@ -698,6 +740,10 @@ h2.multiColorHeader p span:nth-child(4n-3) {
   bottom: 0;
   display: none;
 }
+.modal-container .bold {
+  font-weight: 600;
+  font-size: inherit;
+}
 .modal-container h2 {
   font-size: 1.2rem;
 }
@@ -727,6 +773,29 @@ h2.multiColorHeader p span:nth-child(4n-3) {
 .modal-container .modal-dialog .modal-content-container {
   color: black;
   text-align: left;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+  align-items: center;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .test {
+  color: red;
+  text-align: right;
+  font-size: inherit;
+  padding-right: 10px;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg {
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg:hover {
+  color: #26bfab;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg:hover ~ .test {
+  visibility: visible;
 }
 
 @media screen and (min-width: 600px) {

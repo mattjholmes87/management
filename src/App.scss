@@ -9,6 +9,16 @@
   box-sizing: border-box;
   width: 100%;
 }
+.Toastify__close-button {
+  display: flex;
+  justify-content: end;
+}
+.Toastify__toast-body {
+  font-size: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
 p {
   font: inherit;
 }
@@ -56,23 +66,24 @@ body {
     .logoImage {
       width: 45px;
       height: auto;
-      padding-right: 20px;
+      padding-right: 10px;
+      color: #02484d;
     }
     a {
       text-decoration: none;
       display: flex;
       flex-direction: row;
       align-items: center;
-      color: #202020;
+      color: #02484d;
       font-size: 2rem;
       max-width: 100px;
+      span {
+        color: #99cdd2;
+        font-size: inherit;
+      }
     }
   }
 
-  .menuBox:hover,
-  .logoBox:hover {
-    color: #f0d043;
-  }
   .rightNavBox {
     display: flex;
     flex-direction: row;
@@ -83,6 +94,7 @@ body {
     right: 5px;
     width: auto;
     height: 100%;
+    color: #02484d;
     .menuBox {
       background-color: inherit;
       font-family: "Roboto", sans-serif;
@@ -99,7 +111,7 @@ body {
         .line {
           position: absolute;
           display: block;
-          background: #4a5699;
+          background: #02484d;
           width: 10px;
           height: 0.15rem;
           border-radius: 0.2rem;
@@ -116,7 +128,7 @@ body {
           width: 18px;
           transform: translateX(0px);
           -webkit-transform: translateX(0px);
-          background-color: #f0d043;
+          background-color: #99cdd2;
         }
 
         .line-3 {
@@ -127,7 +139,7 @@ body {
           top: 0px;
           width: 22px;
           transform: translateX(-11px) rotate(-45deg) translateY(12px);
-          background-color: #e6594e;
+          background-color: #99cdd2;
         }
 
         .line-2.on {
@@ -138,7 +150,7 @@ body {
           top: 14px;
           width: 22px;
           transform: translateX(-8px) rotate(45deg) translateY(-8px);
-          background-color: #f0d043;
+          background-color: #02484d;
         }
       }
     }
@@ -190,8 +202,7 @@ body {
       color: #ffffff;
     }
     .link:hover {
-      color: #f0d043;
-      font-weight: 500;
+      font-weight: 800;
     }
   }
 }
@@ -257,9 +268,9 @@ body {
         text-align: center;
         width: 80%;
       }
-      img {
-        color: #ffffff;
-        max-height: 10vh;
+      svg {
+        color: #c5e4e7;
+        height: 10vh;
         padding: 10px;
       }
     }
@@ -275,12 +286,13 @@ body {
     .toolBox.eleven:hover,
     .toolBox.twelve:hover,
     .toolBox.thirteen:hover {
-      border-left: 2px solid #f0d043;
-      background-color: #f7f7f7;
-      img {
+      border-left: 2px solid #c5e4e7;
+      background-color: #f4fafa;
+      svg {
         animation: bellshake 0.5s cubic-bezier(0.18, 0.04, 0.1, 0.5) both;
         backface-visibility: hidden;
         transform-origin: top right;
+        color: #02484d;
       }
 
       div {
@@ -488,39 +500,15 @@ h1.multiColorHeader {
   p {
     span {
       font-size: 60px;
-      &:nth-child(4n) {
-        color: #c45fa0;
-      }
-      &:nth-child(4n-1) {
-        color: #4a5699;
-      }
-      &:nth-child(4n-2) {
-        color: #f39a2c;
-      }
-      &:nth-child(4n-3) {
-        color: #e6594e;
-      }
+      color: #02484d;
     }
   }
 }
 h2.multiColorHeader {
   max-height: 200px;
   p {
-    span {
-      font-size: 2rem;
-      &:nth-child(4n) {
-        color: #c45fa0;
-      }
-      &:nth-child(4n-1) {
-        color: #4a5699;
-      }
-      &:nth-child(4n-2) {
-        color: #f39a2c;
-      }
-      &:nth-child(4n-3) {
-        color: #e6594e;
-      }
-    }
+    font-size: 60px;
+    color: #02484d;
   }
 }
 
@@ -563,6 +551,8 @@ h2.multiColorHeader {
       align-items: center;
       padding-right: 50px;
       background-color: #ffffff;
+      border-radius: 8px;
+      border: solid 1px #eeeeee;
 
       .IDCardDetails {
         width: 100%;
@@ -578,7 +568,7 @@ h2.multiColorHeader {
         height: 100px;
         border: 1px solid;
         @include standardBorder();
-        background: linear-gradient(to top, #f39a2c 50%, #ffffff 50%);
+        background: linear-gradient(to top, #99cdd2 50%, #ffffff 50%);
       }
     }
   }
@@ -598,6 +588,15 @@ h2.multiColorHeader {
       align-items: center;
       font-size: 1.2rem;
       font-weight: 600;
+      border-radius: 8px;
+      svg {
+        height: 20px;
+        width: 20px;
+        margin-right: 10px;
+      }
+      div {
+        font-size: inherit;
+      }
     }
     .innerBox.one {
       grid-row: 1 / span 1;
@@ -650,8 +649,12 @@ h2.multiColorHeader {
     .innerBox.five:hover,
     .innerBox.six:hover,
     .innerBox.seven:hover {
-      border-left: 2px solid #f0d043;
-      background-color: #f7f7f7;
+      border-left: 2px solid #c5e4e7;
+      border-right: 2px solid #c5e4e7;
+      background-color: #f4fafa;
+      svg {
+        color: #26bfab;
+      }
     }
   }
 
@@ -660,15 +663,45 @@ h2.multiColorHeader {
     overflow-y: scroll;
     .todoCard {
       padding: 10px;
+      display: flex;
+      flex-direction: row;
+      width: 97%;
+      border-radius: 8px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      .todoIcon {
+        width: auto;
+        align-self: center;
+        .svg {
+          color: #eeeeee;
+        }
+        .svg.priority {
+          color: #f0d043;
+        }
+      }
+    }
+    .todoCard.priority {
+      border-left: 2px solid #f0d043;
+      border-right: 2px solid #f0d043;
+      padding-left: 8px;
+      border-top: 0px;
+      border-bottom: 0px;
+    }
+    .todoCard.priority:hover {
+      border-left: 2px solid #f0d043;
+      border-right: 2px solid #f0d043;
+      background-color: #f4fafa;
+      padding-left: 8px;
+      border-top: 0px;
+      border-bottom: 0px;
     }
     .todoCard:hover {
-      border-left: 2px solid #950d0d;
-      background-color: #eccece;
+      border-left: 2px solid #c5e4e7;
+      border-right: 2px solid #c5e4e7;
+      background-color: #f4fafa;
       padding-left: 8px;
-    }
-    .todoCard.done:hover {
-      border-left: 2px solid #035c1e;
-      background-color: #d3e4dd;
+      border-top: 0px;
+      border-bottom: 0px;
     }
 
     h2 {
@@ -711,7 +744,10 @@ h2.multiColorHeader {
   right: 0;
   bottom: 0;
   display: none;
-
+  .bold {
+    font-weight: 600;
+    font-size: inherit;
+  }
   h2 {
     font-size: 1.2rem;
   }
@@ -744,6 +780,30 @@ h2.multiColorHeader {
     .modal-content-container {
       color: black;
       text-align: left;
+      .modal.toolbar.todo {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: end;
+        align-items: center;
+        .test {
+          color: red;
+          text-align: right;
+          font-size: inherit;
+          padding-right: 10px;
+          // visibility: hidden;
+        }
+        svg {
+          width: 20px;
+          height: 20px;
+          margin: 2px;
+        }
+        svg:hover {
+          color: #26bfab;
+        }
+        svg:hover ~ .test {
+          visibility: visible;
+        }
+      }
     }
   }
 }

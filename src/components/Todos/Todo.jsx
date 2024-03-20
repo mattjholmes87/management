@@ -1,25 +1,39 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { modalToggle } from "../../redux/interfaceSlice";
+import {
+  IoNotificationsCircleOutline,
+  IoNotificationsOffCircleOutline,
+} from "react-icons/io5";
+import { setLiked } from "../../redux/APIdataSlice";
 
 const Todo = (props) => {
   const state = useSelector((state) => {
     return state.APIdata;
   });
-  const { id, todo, userId, completed } = props;
+  const { id, todo, userId, completed, priority } = props;
 
   const dispatch = useDispatch();
 
   return (
     <>
-      <div>
-        <div
-          className={`todoCard ${completed ? "done" : ""}`}
-          key={id}
-          onClick={() => {
-            dispatch(modalToggle({ type: "TODOEDIT", id }));
-          }}
-        >
+      <div
+        className={`todoCard ${completed ? "done" : ""} ${
+          priority ? "priority" : ""
+        }`}
+        key={id}
+        onClick={() => {
+          dispatch(modalToggle({ type: "TODOEDIT", id }));
+        }}
+      >
+        <div className="todoIcon">
+          {priority ? (
+            <IoNotificationsCircleOutline className="svg priority" />
+          ) : (
+            <IoNotificationsOffCircleOutline className="svg notPriority" />
+          )}
+        </div>
+        <div className="todoText">
           <div className="todo">
             <span>Todo: </span> {todo}
           </div>
@@ -32,7 +46,7 @@ const Todo = (props) => {
             {userId}
           </div>
           <div className="status">
-            <span>Completed: </span>
+            <span>Status: </span>
             {completed ? "Task Completed" : "Task Incomplete"}
           </div>
         </div>

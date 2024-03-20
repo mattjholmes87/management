@@ -16,11 +16,7 @@ const MyTodoList = () => {
         <h2>My Todos:</h2>
 
         {todoData.map((todo) => {
-          return (
-            <div key={todo.id}>
-              <Todo {...todo} />
-            </div>
-          );
+          return <Todo {...todo} key={todo.id} />;
         })}
       </div>
     </>

@@ -11,6 +11,7 @@ import {
 } from "../redux/interfaceSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { IoFileTrayStackedOutline } from "react-icons/io5";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -27,8 +28,10 @@ const Nav = () => {
       <div className="navBoxWrap">
         <div className="logoBox">
           <Link to="/" className="link">
-            <img src={pencil} className="logoImage" alt="logo" />{" "}
-            <div>noTed</div>
+            <IoFileTrayStackedOutline className="logoImage" />
+            <div>
+              <span>in</span>Tray
+            </div>
           </Link>
         </div>
         <div className="rightNavBox">

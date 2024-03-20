@@ -2,6 +2,15 @@ import React from "react";
 import { setActiveButton } from "../../redux/interfaceSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import {
+  IoAnalytics,
+  IoAddCircleOutline,
+  IoArrowDownCircleOutline,
+  IoBodyOutline,
+  IoReturnDownBack,
+  IoRepeat,
+  IoBarcodeOutline,
+} from "react-icons/io5";
 
 const OverviewButtons = () => {
   const dispatch = useDispatch();
@@ -19,7 +28,7 @@ const OverviewButtons = () => {
           dispatch(setActiveButton("home"));
         }}
       >
-        Overview
+        <IoAnalytics /> Overview
       </div>
       <div
         className="innerBox two"
@@ -27,7 +36,7 @@ const OverviewButtons = () => {
           dispatch(setActiveButton("addTodo"));
         }}
       >
-        Add a personal todo
+        <IoAddCircleOutline /> Add a personal todo
       </div>
       <div
         className="innerBox three"
@@ -35,18 +44,24 @@ const OverviewButtons = () => {
           dispatch(setActiveButton("pushTodo"));
         }}
       >
-        Push a todo to reportees
+        <IoArrowDownCircleOutline /> Push a todo to reportees
       </div>
-      <div className="innerBox four">Create a weekly 1 to 1</div>
-      <div className="innerBox five">Create a one off group meeting</div>
-      <div className="innerBox six">Create a rolling group meeting</div>
+      <div className="innerBox four">
+        <IoBodyOutline /> Create a weekly 1 to 1
+      </div>
+      <div className="innerBox five">
+        <IoReturnDownBack /> Create one off group meeting
+      </div>
+      <div className="innerBox six">
+        <IoRepeat /> Create a rolling group meeting
+      </div>
       <div
         className="innerBox seven"
         onClick={() => {
           dispatch(setActiveButton("bulletin"));
         }}
       >
-        View latest bulletin
+        <IoBarcodeOutline /> View latest bulletin
       </div>
       {/* <div className="innerBox eight"></div> */}
     </>

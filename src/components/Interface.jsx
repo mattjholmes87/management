@@ -11,6 +11,8 @@ import { Routes, Route } from "react-router-dom";
 import Modal from "./Modal/Modal";
 import { selectModalToggle } from "../redux/interfaceSlice";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Interface = () => {
   const modal = useSelector(selectModalToggle);
@@ -20,6 +22,7 @@ const Interface = () => {
       <NavBar />
       {modal ? <Modal /> : ""}
       <div className="routesPosition">
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<HomeBody />} />
           <Route exact path="/overviewDash" element={<OverviewDash />} />
