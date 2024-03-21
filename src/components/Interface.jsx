@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavBar from "./NavBar";
 import HomeBody from "./HomeBody";
 import OverviewDash from "./OverviewDash";
@@ -19,10 +19,10 @@ const Interface = () => {
 
   return (
     <>
+      <ToastContainer />
       <NavBar />
       {modal ? <Modal /> : ""}
       <div className="routesPosition">
-        <ToastContainer />
         <Routes>
           <Route path="/" element={<HomeBody />} />
           <Route exact path="/overviewDash" element={<OverviewDash />} />

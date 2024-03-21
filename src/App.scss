@@ -18,7 +18,6 @@
   font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
-
 p {
   font: inherit;
 }
@@ -669,14 +668,21 @@ h2.multiColorHeader {
       border-radius: 8px;
       margin-top: 10px;
       margin-bottom: 10px;
+
       .todoIcon {
         width: auto;
         align-self: center;
+        margin-left: 10px;
         .svg {
           color: #eeeeee;
         }
         .svg.priority {
           color: #f0d043;
+        }
+        .svg.category {
+          margin-top: 4px;
+          color: #02484d;
+          // need to add if statement to these
         }
       }
     }
@@ -785,22 +791,40 @@ h2.multiColorHeader {
         flex-direction: row-reverse;
         justify-content: end;
         align-items: center;
-        .test {
+        .descript {
           color: red;
           text-align: right;
           font-size: inherit;
           padding-right: 10px;
-          // visibility: hidden;
+          visibility: hidden;
         }
         svg {
-          width: 20px;
-          height: 20px;
+          min-width: 20px;
+          min-height: 20px;
           margin: 2px;
         }
         svg:hover {
           color: #26bfab;
         }
-        svg:hover ~ .test {
+        svg.complete:hover ~ .descript.complete {
+          visibility: visible;
+        }
+        svg.incomplete:hover ~ .descript.incomplete {
+          visibility: visible;
+        }
+        svg.priority:hover ~ .descript.priority {
+          visibility: visible;
+        }
+        svg.notPriority:hover ~ .descript.notPriority {
+          visibility: visible;
+        }
+        .svg.svg.category:hover ~ .descript.category {
+          visibility: visible;
+        }
+        .svg.edit:hover ~ .descript.edit {
+          visibility: visible;
+        }
+        svg.delete:hover ~ .descript.delete {
           visibility: visible;
         }
       }

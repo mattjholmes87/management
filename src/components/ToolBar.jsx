@@ -1,11 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import upload from "../images/icons/upload-svgrepo-com.svg";
-import settings from "../images/icons/set-up-svgrepo-com.svg";
-import time from "../images/icons/time-svgrepo-com.svg";
-import user from "../images/icons/user-svgrepo-com.svg";
-import table from "../images/icons/table-of-contents-svgrepo-com.svg";
-import insipration from "../images/icons/inspiration-svgrepo-com.svg";
 import { menuToggle, loginToggle } from "../redux/interfaceSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";

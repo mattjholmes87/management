@@ -3,7 +3,6 @@ import { Link, Route, Routes } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import ToolBar from "./ToolBar";
 import SignUp from "./SignUp";
-import pencil from "../images/icons/label-svgrepo-com.svg";
 import {
   menuToggle,
   selectHamburger,

@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTodoData, setLiked } from "../../redux/APIdataSlice";
-import { selectModalPayload } from "../../redux/interfaceSlice";
+import { selectTodoData, setLiked, deleteTodo } from "../../redux/APIdataSlice";
+import { modalToggle, selectModalPayload } from "../../redux/interfaceSlice";
 import { selectUsers } from "../../redux/usersSlice";
 import {
   IoCheckmarkCircleOutline,
@@ -12,6 +12,7 @@ import {
   IoTrashOutline,
 } from "react-icons/io5";
 import { toast } from "react-toastify";
+import { MdOutlineCategory } from "react-icons/md";
 
 const ModalContent = forwardRef((props, ref) => {
   const users = useSelector(selectUsers);
@@ -56,7 +57,6 @@ const ModalContent = forwardRef((props, ref) => {
               className="svg priority"
               onClick={() => {
                 dispatch(setLiked(modalPayload));
-
                 toast.success(" Set as a Priority!", {
                   position: "top-right",
                   autoClose: 2000,
@@ -70,9 +70,22 @@ const ModalContent = forwardRef((props, ref) => {
               }}
             />
           )}
+          <MdOutlineCategory className="svg category" />
           <IoHammerOutline className="svg edit" />
-          <IoTrashOutline className="svg delete" />
-          <div className="test">On</div>
+          <IoTrashOutline
+            className="svg delete"
+            onClick={() => {
+              dispatch(modalToggle({ type: "TODOEDIT" }));
+              dispatch(deleteTodo({ modalPayload }));
+            }}
+          />
+          <div className="descript complete">Mark as complete</div>
+          <div className="descript incomplete">Mark as incomplete</div>
+          <div className="descript priority">Mark as priority</div>
+          <div className="descript notPriority">Unmark as priority</div>
+          <div className="descript category">Assign category</div>
+          <div className="descript edit">Edit Todo</div>
+          <div className="descript delete">Delete Todo</div>
         </div>
         <p>
           <span className="bold">ID: </span> {chosenTodo.id}

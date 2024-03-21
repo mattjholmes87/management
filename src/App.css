@@ -672,12 +672,17 @@ h2.multiColorHeader p {
 .overviewWrap .todoList .todoCard .todoIcon {
   width: auto;
   align-self: center;
+  margin-left: 10px;
 }
 .overviewWrap .todoList .todoCard .todoIcon .svg {
   color: #eeeeee;
 }
 .overviewWrap .todoList .todoCard .todoIcon .svg.priority {
   color: #f0d043;
+}
+.overviewWrap .todoList .todoCard .todoIcon .svg.category {
+  margin-top: 4px;
+  color: #02484d;
 }
 .overviewWrap .todoList .todoCard.priority {
   border-left: 2px solid #f0d043;
@@ -780,21 +785,40 @@ h2.multiColorHeader p {
   justify-content: end;
   align-items: center;
 }
-.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .test {
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .descript {
   color: red;
   text-align: right;
   font-size: inherit;
   padding-right: 10px;
+  visibility: hidden;
 }
 .modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg {
-  width: 20px;
-  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
   margin: 2px;
 }
 .modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg:hover {
   color: #26bfab;
 }
-.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg:hover ~ .test {
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg.complete:hover ~ .descript.complete {
+  visibility: visible;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg.incomplete:hover ~ .descript.incomplete {
+  visibility: visible;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg.priority:hover ~ .descript.priority {
+  visibility: visible;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg.notPriority:hover ~ .descript.notPriority {
+  visibility: visible;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.svg.category:hover ~ .descript.category {
+  visibility: visible;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.edit:hover ~ .descript.edit {
+  visibility: visible;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg.delete:hover ~ .descript.delete {
   visibility: visible;
 }
 

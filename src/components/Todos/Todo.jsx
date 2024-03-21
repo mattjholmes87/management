@@ -5,13 +5,13 @@ import {
   IoNotificationsCircleOutline,
   IoNotificationsOffCircleOutline,
 } from "react-icons/io5";
-import { setLiked } from "../../redux/APIdataSlice";
+import { MdOutlineCategory } from "react-icons/md";
 
 const Todo = (props) => {
   const state = useSelector((state) => {
     return state.APIdata;
   });
-  const { id, todo, userId, completed, priority } = props;
+  const { id, todo, userId, completed, priority, category } = props;
 
   const dispatch = useDispatch();
 
@@ -26,13 +26,6 @@ const Todo = (props) => {
           dispatch(modalToggle({ type: "TODOEDIT", id }));
         }}
       >
-        <div className="todoIcon">
-          {priority ? (
-            <IoNotificationsCircleOutline className="svg priority" />
-          ) : (
-            <IoNotificationsOffCircleOutline className="svg notPriority" />
-          )}
-        </div>
         <div className="todoText">
           <div className="todo">
             <span>Todo: </span> {todo}
@@ -48,6 +41,18 @@ const Todo = (props) => {
           <div className="status">
             <span>Status: </span>
             {completed ? "Task Completed" : "Task Incomplete"}
+          </div>
+        </div>
+        <div className="todoIcon">
+          <div>
+            {priority ? (
+              <IoNotificationsCircleOutline className="svg priority" />
+            ) : (
+              <IoNotificationsOffCircleOutline className="svg notPriority" />
+            )}
+          </div>
+          <div>
+            <MdOutlineCategory className={`svg category ${category}`} />
           </div>
         </div>
       </div>
