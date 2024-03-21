@@ -11,7 +11,7 @@ const Todo = (props) => {
   const state = useSelector((state) => {
     return state.APIdata;
   });
-  const { id, todo, userId, completed, priority, category } = props;
+  const { id, todo, userId, completed, priority, cat } = props;
 
   const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ const Todo = (props) => {
             )}
           </div>
           <div>
-            <MdOutlineCategory className={`svg category ${category}`} />
+            <MdOutlineCategory className={`svg category${cat}`} />
           </div>
         </div>
       </div>

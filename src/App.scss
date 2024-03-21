@@ -660,6 +660,11 @@ h2.multiColorHeader {
   .todoList {
     max-height: 100%;
     overflow-y: scroll;
+    .todoListHeading {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
     .todoCard {
       padding: 10px;
       display: flex;
@@ -679,10 +684,29 @@ h2.multiColorHeader {
         .svg.priority {
           color: #f0d043;
         }
-        .svg.category {
-          margin-top: 4px;
-          color: #02484d;
-          // need to add if statement to these
+        .svg.category1 {
+          color: #d29999;
+        }
+        .svg.category2 {
+          color: #d2d299;
+        }
+        .svg.category3 {
+          color: #a9d299;
+        }
+        .svg.category4 {
+          color: #99d2c2;
+        }
+        .svg.category5 {
+          color: #99aad2;
+        }
+        .svg.category6 {
+          color: #c699d2;
+        }
+        .svg.category7 {
+          color: #99c2d2;
+        }
+        .svg.category8 {
+          color: #d299bd;
         }
       }
     }
@@ -696,7 +720,7 @@ h2.multiColorHeader {
     .todoCard.priority:hover {
       border-left: 2px solid #f0d043;
       border-right: 2px solid #f0d043;
-      background-color: #f4fafa;
+      background-color: #f7f7f7;
       padding-left: 8px;
       border-top: 0px;
       border-bottom: 0px;
@@ -704,7 +728,7 @@ h2.multiColorHeader {
     .todoCard:hover {
       border-left: 2px solid #c5e4e7;
       border-right: 2px solid #c5e4e7;
-      background-color: #f4fafa;
+      background-color: #f7f7f7;
       padding-left: 8px;
       border-top: 0px;
       border-bottom: 0px;
@@ -778,7 +802,7 @@ h2.multiColorHeader {
     width: 75%;
     background-color: #fff;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
     transform: translateY(50px);
     opacity: 0;
     visibility: hidden;
@@ -786,46 +810,70 @@ h2.multiColorHeader {
     .modal-content-container {
       color: black;
       text-align: left;
+
+      .todoText {
+        background-color: #ffffff;
+        font-size: inherit;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      p {
+        margin-top: 0px;
+      }
       .modal.toolbar.todo {
         display: flex;
         flex-direction: row-reverse;
         justify-content: end;
         align-items: center;
-        .descript {
-          color: red;
+        background-color: #ffffff;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        .toolbar.descript {
+          color: #02484d;
           text-align: right;
-          font-size: inherit;
+          font-family: inherit;
+          font-size: 1.1rem;
+          font-weight: 600;
           padding-right: 10px;
-          visibility: hidden;
         }
         svg {
-          min-width: 20px;
-          min-height: 20px;
-          margin: 2px;
+          min-width: 22px;
+          max-width: 22px;
+          height: 22px;
+          margin: 5px;
+          color: #c5e4e7;
         }
+        .svg.category1 {
+          color: #d29999;
+        }
+        .svg.category2 {
+          color: #d2d299;
+        }
+        .svg.category3 {
+          color: #a9d299;
+        }
+        .svg.category4 {
+          color: #99d2c2;
+        }
+        .svg.category5 {
+          color: #99aad2;
+        }
+        .svg.category6 {
+          color: #c699d2;
+        }
+        .svg.category7 {
+          color: #99c2d2;
+        }
+        .svg.category8 {
+          color: #d299bd;
+        }
+
+        .svg.notPriority {
+          color: #f0d043;
+        }
+
         svg:hover {
-          color: #26bfab;
-        }
-        svg.complete:hover ~ .descript.complete {
-          visibility: visible;
-        }
-        svg.incomplete:hover ~ .descript.incomplete {
-          visibility: visible;
-        }
-        svg.priority:hover ~ .descript.priority {
-          visibility: visible;
-        }
-        svg.notPriority:hover ~ .descript.notPriority {
-          visibility: visible;
-        }
-        .svg.svg.category:hover ~ .descript.category {
-          visibility: visible;
-        }
-        .svg.edit:hover ~ .descript.edit {
-          visibility: visible;
-        }
-        svg.delete:hover ~ .descript.delete {
-          visibility: visible;
+          color: #02484d;
         }
       }
     }

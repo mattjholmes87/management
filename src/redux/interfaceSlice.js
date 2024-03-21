@@ -22,11 +22,19 @@ export const interfaceSlice = createSlice({
         state.loginStatus = false;
       }
     },
+    toolbarToggle: (state, { payload }) => {
+      state.toolbar = payload;
+    },
   },
 });
 
-export const { menuToggle, loginToggle, setActiveButton, modalToggle } =
-  interfaceSlice.actions;
+export const {
+  menuToggle,
+  loginToggle,
+  setActiveButton,
+  modalToggle,
+  toolbarToggle,
+} = interfaceSlice.actions;
 
 export const selectHamburger = (state) => state.interface.nav.hamburger;
 export const selectSignUp = (state) => state.interface.nav.signUp;
@@ -34,5 +42,7 @@ export const selectActiveButton = (state) => state.interface.activeButton;
 export const selectModalToggle = (state) => state.interface.modal;
 export const selectModalPayload = (state) => state.interface.modalPayload;
 export const selectLoginStatus = (state) => state.interface.loginStatus;
+export const selectToolbarOptions = (state) => state.interface.toolbarOptions;
+export const selectToolbar = (state) => state.interface.toolbar;
 
 export default interfaceSlice.reducer;

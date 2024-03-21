@@ -660,6 +660,11 @@ h2.multiColorHeader p {
   max-height: 100%;
   overflow-y: scroll;
 }
+.overviewWrap .todoList .todoListHeading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .overviewWrap .todoList .todoCard {
   padding: 10px;
   display: flex;
@@ -680,9 +685,29 @@ h2.multiColorHeader p {
 .overviewWrap .todoList .todoCard .todoIcon .svg.priority {
   color: #f0d043;
 }
-.overviewWrap .todoList .todoCard .todoIcon .svg.category {
-  margin-top: 4px;
-  color: #02484d;
+.overviewWrap .todoList .todoCard .todoIcon .svg.category1 {
+  color: #d29999;
+}
+.overviewWrap .todoList .todoCard .todoIcon .svg.category2 {
+  color: #d2d299;
+}
+.overviewWrap .todoList .todoCard .todoIcon .svg.category3 {
+  color: #a9d299;
+}
+.overviewWrap .todoList .todoCard .todoIcon .svg.category4 {
+  color: #99d2c2;
+}
+.overviewWrap .todoList .todoCard .todoIcon .svg.category5 {
+  color: #99aad2;
+}
+.overviewWrap .todoList .todoCard .todoIcon .svg.category6 {
+  color: #c699d2;
+}
+.overviewWrap .todoList .todoCard .todoIcon .svg.category7 {
+  color: #99c2d2;
+}
+.overviewWrap .todoList .todoCard .todoIcon .svg.category8 {
+  color: #d299bd;
 }
 .overviewWrap .todoList .todoCard.priority {
   border-left: 2px solid #f0d043;
@@ -694,7 +719,7 @@ h2.multiColorHeader p {
 .overviewWrap .todoList .todoCard.priority:hover {
   border-left: 2px solid #f0d043;
   border-right: 2px solid #f0d043;
-  background-color: #f4fafa;
+  background-color: #f7f7f7;
   padding-left: 8px;
   border-top: 0px;
   border-bottom: 0px;
@@ -702,7 +727,7 @@ h2.multiColorHeader p {
 .overviewWrap .todoList .todoCard:hover {
   border-left: 2px solid #c5e4e7;
   border-right: 2px solid #c5e4e7;
-  background-color: #f4fafa;
+  background-color: #f7f7f7;
   padding-left: 8px;
   border-top: 0px;
   border-bottom: 0px;
@@ -770,7 +795,7 @@ h2.multiColorHeader p {
   width: 75%;
   background-color: #fff;
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
   transform: translateY(50px);
   opacity: 0;
   visibility: hidden;
@@ -779,47 +804,68 @@ h2.multiColorHeader p {
   color: black;
   text-align: left;
 }
+.modal-container .modal-dialog .modal-content-container .todoText {
+  background-color: #ffffff;
+  font-size: inherit;
+  padding: 10px;
+  border-radius: 8px;
+}
+.modal-container .modal-dialog .modal-content-container p {
+  margin-top: 0px;
+}
 .modal-container .modal-dialog .modal-content-container .modal.toolbar.todo {
   display: flex;
   flex-direction: row-reverse;
   justify-content: end;
   align-items: center;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  border-radius: 8px;
 }
-.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .descript {
-  color: red;
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .toolbar.descript {
+  color: #02484d;
   text-align: right;
-  font-size: inherit;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
   padding-right: 10px;
-  visibility: hidden;
 }
 .modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg {
-  min-width: 20px;
-  min-height: 20px;
-  margin: 2px;
+  min-width: 22px;
+  max-width: 22px;
+  height: 22px;
+  margin: 5px;
+  color: #c5e4e7;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.category1 {
+  color: #d29999;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.category2 {
+  color: #d2d299;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.category3 {
+  color: #a9d299;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.category4 {
+  color: #99d2c2;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.category5 {
+  color: #99aad2;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.category6 {
+  color: #c699d2;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.category7 {
+  color: #99c2d2;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.category8 {
+  color: #d299bd;
+}
+.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.notPriority {
+  color: #f0d043;
 }
 .modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg:hover {
-  color: #26bfab;
-}
-.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg.complete:hover ~ .descript.complete {
-  visibility: visible;
-}
-.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg.incomplete:hover ~ .descript.incomplete {
-  visibility: visible;
-}
-.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg.priority:hover ~ .descript.priority {
-  visibility: visible;
-}
-.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg.notPriority:hover ~ .descript.notPriority {
-  visibility: visible;
-}
-.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.svg.category:hover ~ .descript.category {
-  visibility: visible;
-}
-.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo .svg.edit:hover ~ .descript.edit {
-  visibility: visible;
-}
-.modal-container .modal-dialog .modal-content-container .modal.toolbar.todo svg.delete:hover ~ .descript.delete {
-  visibility: visible;
+  color: #02484d;
 }
 
 @media screen and (min-width: 600px) {
