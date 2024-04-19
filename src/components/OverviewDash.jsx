@@ -9,44 +9,50 @@ import PushTodoOverview from "./OverviewDash/PushTodoOverview";
 import { useSelector } from "react-redux";
 import { selectActiveButton } from "../redux/interfaceSlice";
 import IDCard from "./Users/IDCards";
+import { Navigate } from "react-router-dom";
 
 const OverviewDash = () => {
   const state = useSelector((state) => {
     return state.interface;
   });
 
+  const token = localStorage.getItem("token");
   const activeButton = useSelector(selectActiveButton);
 
-  return (
-    <>
-      {" "}
-      <div className="overviewWrap">
-        <div className="outerBox one">
-          {" "}
-          {headerMaker("the")}
-          {headerMaker("dashboard.")}
-        </div>
-        <div className="outerBox two">
-          <IDCard />
-        </div>
-        <div className="outerBox three">
-          <OverviewButtons />
+  if (!token) {
+    return <Navigate replace to="/login" />;
+  } else {
+    return (
+      <>
+        {" "}
+        <div className="overviewWrap">
+          <div className="outerBox one">
+            {" "}
+            {headerMaker("the")}
+            {headerMaker("dashboard.")}
+          </div>
+          <div className="outerBox two">
+            <IDCard />
+          </div>
+          <div className="outerBox three">
+            <OverviewButtons />
 
-          {activeButton === "home" ? (
-            <MainWindowOverview />
-          ) : activeButton === "addTodo" ? (
-            <AddTodoOverview />
-          ) : activeButton === "pushTodo" ? (
-            <PushTodoOverview />
-          ) : activeButton === "bulletin" ? (
-            <BulletinOverview />
-          ) : (
-            <MainWindowOverview />
-          )}
+            {activeButton === "home" ? (
+              <MainWindowOverview />
+            ) : activeButton === "addTodo" ? (
+              <AddTodoOverview />
+            ) : activeButton === "pushTodo" ? (
+              <PushTodoOverview />
+            ) : activeButton === "bulletin" ? (
+              <BulletinOverview />
+            ) : (
+              <MainWindowOverview />
+            )}
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 };
 
 export default OverviewDash;

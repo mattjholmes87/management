@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Input from "../Input";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 
-const Login = () => {
+const SignUpFullPage = () => {
   const [userInput, setUserInput] = useState({});
 
   const onInput = (e) => {
@@ -51,4 +50,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUpFullPage;

@@ -781,12 +781,23 @@ h2.multiColorHeader p {
 .loginBackground .loginCase .formBox div label {
   width: 100px;
 }
+.loginBackground .loginCase div {
+  font-size: 1.2rem;
+}
 .loginBackground .loginCase form div {
-  font-size: inherit;
+  font-size: 1.2rem;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.loginBackground .loginCase form .loginButton {
+.loginBackground .loginCase .loginFooter {
+  font-size: 1rem;
+  text-align: center;
+}
+.loginBackground .loginCase .loginFooter.Error {
+  color: #f32626;
+  font-weight: 500;
+}
+.loginBackground .loginCase .loginButton {
   width: 20%;
   min-width: 50px;
   font-size: 1.2rem;
@@ -794,10 +805,6 @@ h2.multiColorHeader p {
   border-radius: 3px;
   border: 0px;
   margin: 5px;
-}
-.loginBackground .loginCase .loginFooter {
-  font-size: 1rem;
-  text-align: center;
 }
 
 .modal-container {

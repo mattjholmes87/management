@@ -15,12 +15,8 @@ export const interfaceSlice = createSlice({
       state.modal = !state.modal;
       state.modalPayload = payload;
     },
-    loginToggle: (state, { payload }) => {
-      if (payload === "in") {
-        state.loginStatus = true;
-      } else {
-        state.loginStatus = false;
-      }
+    storeToken: (state, { payload }) => {
+      state.token = payload;
     },
     toolbarToggle: (state, { payload }) => {
       state.toolbar = payload;
@@ -30,7 +26,7 @@ export const interfaceSlice = createSlice({
 
 export const {
   menuToggle,
-  loginToggle,
+  storeToken,
   setActiveButton,
   modalToggle,
   toolbarToggle,
@@ -41,7 +37,7 @@ export const selectSignUp = (state) => state.interface.nav.signUp;
 export const selectActiveButton = (state) => state.interface.activeButton;
 export const selectModalToggle = (state) => state.interface.modal;
 export const selectModalPayload = (state) => state.interface.modalPayload;
-export const selectLoginStatus = (state) => state.interface.loginStatus;
+export const selectToken = (state) => state.interface.token;
 export const selectToolbarOptions = (state) => state.interface.toolbarOptions;
 export const selectToolbar = (state) => state.interface.toolbar;
 
