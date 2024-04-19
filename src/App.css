@@ -758,6 +758,48 @@ h2.multiColorHeader p {
   font-weight: 400;
 }
 
+.loginBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 50px);
+}
+.loginBackground .loginCase {
+  font-size: 1.2rem;
+  width: 50vw;
+  height: 50vh;
+  background-color: #b8d4de;
+  border-radius: 10px;
+  padding: 20px;
+  color: #ffffff;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginBackground .loginCase .formBox div label {
+  width: 100px;
+}
+.loginBackground .loginCase form div {
+  font-size: inherit;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.loginBackground .loginCase form .loginButton {
+  width: 20%;
+  min-width: 50px;
+  font-size: 1.2rem;
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: 0px;
+  margin: 5px;
+}
+.loginBackground .loginCase .loginFooter {
+  font-size: 1rem;
+  text-align: center;
+}
+
 .modal-container {
   height: 100vh;
   width: 100%;

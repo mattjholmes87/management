@@ -762,6 +762,55 @@ h2.multiColorHeader {
   }
 }
 
+//Login Page
+.loginBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 50px);
+  .loginCase {
+    font-size: 1.2rem;
+    width: 50vw;
+    height: 50vh;
+    background-color: #b8d4de;
+    border-radius: 10px;
+    padding: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .formBox {
+      div {
+        label {
+          width: 100px;
+        }
+      }
+    }
+    form {
+      div {
+        font-size: inherit;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      .loginButton {
+        width: 20%;
+        min-width: 50px;
+        font-size: 1.2rem;
+        background-color: #ffffff;
+        border-radius: 3px;
+        border: 0px;
+        margin: 5px;
+      }
+    }
+    .loginFooter {
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+}
+
 //Modals
 .modal-container {
   height: 100vh;
