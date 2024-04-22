@@ -37,4 +37,5 @@ export const initialState = {
       image: "../images/icons/user-svgrepo-com.svg",
     },
   ],
+  schools: [],
 };

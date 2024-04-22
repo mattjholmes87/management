@@ -442,7 +442,19 @@ body {
   z-index: 1;
   border-bottom: 1px solid;
   @include standardBorder();
-
+  span {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-left: 8px;
+    padding-right: 10px;
+  }
+  select {
+    border: 0px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
   .loginBox {
     h2 {
       font-size: 1.2rem;
@@ -453,6 +465,17 @@ body {
     grid-row-start: 1;
     grid-row-end: 2;
     margin-top: 20px;
+    .loginButton {
+      width: 80px;
+      font-size: 1.2rem;
+      background-color: #b8d4de;
+      color: #ffffff;
+      font-weight: 600;
+      border-radius: 3px;
+      border: 0px;
+      margin: 5px;
+      height: 20px;
+    }
   }
   .signUpBox {
     h2 {
@@ -464,6 +487,11 @@ body {
     grid-row-end: 3;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+  .schoolsDropDown {
+    max-width: 350px;
+    min-width: 250px;
+    width: 25%;
   }
 }
 

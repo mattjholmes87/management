@@ -1,6 +1,6 @@
 export const initialState = {
   nav: { hamburger: false, signUp: false },
-  loginStatus: false,
+  token: false,
   modal: false,
   toolbarOptions: [
     "Mark as complete",
