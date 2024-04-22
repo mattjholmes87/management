@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { headerMaker } from "../tools/HeaderMaker";
 import UserCard from "./Users/UserCard";
 import MainWindowOverview from "./OverviewDash/MainWindowOverview";
@@ -10,14 +10,19 @@ import { useSelector } from "react-redux";
 import { selectActiveButton } from "../redux/interfaceSlice";
 import IDCard from "./Users/IDCards";
 import { Navigate } from "react-router-dom";
+import { getTodos, getReportees } from "../dataController/fetching";
 
 const OverviewDash = () => {
   const state = useSelector((state) => {
     return state.interface;
   });
-
   const token = localStorage.getItem("token");
   const activeButton = useSelector(selectActiveButton);
+
+  useEffect(() => {
+    getTodos(token);
+    getReportees(token);
+  }, []);
 
   if (!token) {
     return <Navigate replace to="/login" />;

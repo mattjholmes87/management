@@ -1,12 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Todo from "./Todo";
-import { selectTodoData } from "../../redux/APIdataSlice";
+import { selectTodoData } from "../../redux/todosSlice";
 import { BsFilterRight } from "react-icons/bs";
 
 const MyTodoList = () => {
   const todoData = useSelector(selectTodoData);
-
   if (!todoData) {
     return <p>Loading</p>;
   }
@@ -21,7 +20,7 @@ const MyTodoList = () => {
         </div>
 
         {todoData.map((todo) => {
-          return <Todo {...todo} key={todo.id} />;
+          return <Todo {...todo} key={todo.todoId} />;
         })}
       </div>
     </>

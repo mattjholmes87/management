@@ -1,14 +1,33 @@
 import axios from "axios";
 import { store } from "../redux/store";
-import { setAPIData } from "../redux/APIdataSlice";
-import { setSchools } from "../redux/usersSlice";
+import { setTodoData } from "../redux/todosSlice";
+import { setReportees, setSchools } from "../redux/usersSlice";
 
-export const getTodos = async () => {
-  const { data } = await axios.get("https://dummyjson.com/todos/");
-  store.dispatch(setAPIData(data.todos));
+export const getTodos = async (token) => {
+  if (token) {
+    const { data } = await axios.get(
+      "http://localhost:6001/todos/get/todoData",
+      {
+        headers: { token: token },
+      }
+    );
+    store.dispatch(setTodoData(data));
+  } else console.log("User not logged in");
 };
 
 export const getSchools = async () => {
   const { data } = await axios.get("http://localhost:6001/user/get/schools");
   store.dispatch(setSchools(data));
+};
+
+export const getReportees = async (token) => {
+  if (token) {
+    const { data } = await axios.get(
+      "http://localhost:6001/user/get/reportees",
+      {
+        headers: { token: token },
+      }
+    );
+    store.dispatch(setReportees(data));
+  } else console.log("User not logged in");
 };

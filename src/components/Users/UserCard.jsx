@@ -3,19 +3,34 @@ import { useDispatch } from "react-redux";
 import { modalToggle } from "../../redux/interfaceSlice";
 
 const UserCard = (props) => {
-  const { name, title, userLevel, id, managedBy, image } = props;
+  const {
+    userId,
+    firstname,
+    surname,
+    school,
+    schoolId,
+    staffcode,
+    groupId,
+    groupName,
+    userLevel,
+  } = props;
   const dispatch = useDispatch();
 
   return (
     <>
       <div
         onClick={() => {
-          dispatch(modalToggle({ type: "REPORTEEEDIT", id }));
+          dispatch(modalToggle({ type: "REPORTEEEDIT", userId }));
         }}
       >
-        <div className={`userLevel ${userLevel}`}> Name: {name}</div>
-        <div>Title: {title}</div>
-        <div>ID: {id}</div>
+        <div className={`userLevel ${userLevel}`}>
+          {" "}
+          Name: {firstname} {surname}
+        </div>
+        <div>Groups: {groupName}</div>
+        <div>School: {school}</div>
+        <div>Staffcode: {staffcode}</div>
+        <div>User ID: {userId}</div>
       </div>
     </>
   );

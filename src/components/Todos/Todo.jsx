@@ -11,7 +11,23 @@ const Todo = (props) => {
   const state = useSelector((state) => {
     return state.APIdata;
   });
-  const { id, todo, userId, completed, priority, cat } = props;
+  const {
+    body,
+    category,
+    completed,
+    createdBy,
+    createdOn,
+    displayOn,
+    dueDate,
+    managedBy,
+    meetingId,
+    name,
+    priority,
+    signedOff,
+    signedOffOn,
+    todoId,
+    userId,
+  } = props;
 
   const dispatch = useDispatch();
 
@@ -21,18 +37,18 @@ const Todo = (props) => {
         className={`todoCard ${completed ? "done" : ""} ${
           priority ? "priority" : ""
         }`}
-        key={id}
+        key={todoId}
         onClick={() => {
-          dispatch(modalToggle({ type: "TODOEDIT", id }));
+          dispatch(modalToggle({ type: "TODOEDIT", todoId }));
         }}
       >
         <div className="todoText">
           <div className="todo">
-            <span>Todo: </span> {todo}
+            <span>Todo: </span> {name}
           </div>
           <div className="id">
             <span>Rank: </span>
-            {id}
+            {todoId}
           </div>
           <div className="usedId">
             <span>ID: </span>
@@ -52,7 +68,7 @@ const Todo = (props) => {
             )}
           </div>
           <div>
-            <MdOutlineCategory className={`svg category${cat}`} />
+            <MdOutlineCategory className={`svg category${category}`} />
           </div>
         </div>
       </div>

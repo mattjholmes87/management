@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "./NavBar";
 import HomeBody from "./HomeBody";
 import OverviewDash from "./OverviewDash";
@@ -17,7 +17,6 @@ import LoginFullPage from "./Login/LoginFullPage";
 
 const Interface = () => {
   const modal = useSelector(selectModalToggle);
-
   const token = useSelector(selectToken);
 
   return (

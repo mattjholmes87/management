@@ -5,9 +5,9 @@ const ModalUser = forwardRef((props, ref) => {
 
   return (
     <div className="modal-content-container" ref={ref}>
-      <h2>Name: {chosenUser.name}</h2>
-      <p>Title: {chosenUser.title}</p>
-      <p>UserID: {chosenUser.id}</p>
+      <h2>First Name: {chosenUser.firstname}</h2>
+      <p>Surname: {chosenUser.surname}</p>
+      <p>UserID: {chosenUser.userId}</p>
     </div>
   );
 });

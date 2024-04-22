@@ -1,25 +1,27 @@
 import React, { forwardRef } from "react";
 import { useSelector } from "react-redux";
-import { selectTodoData } from "../../redux/APIdataSlice";
+import { selectTodoData } from "../../redux/todosSlice";
 import { selectModalPayload } from "../../redux/interfaceSlice";
-import { selectUsers } from "../../redux/usersSlice";
+import { selectReportees } from "../../redux/usersSlice";
 import ModalViewTodo from "./ModalViewTodo";
 import ModalUser from "./ModalUser";
 
 const ModalContent = forwardRef((props, ref) => {
-  const users = useSelector(selectUsers);
+  const reportees = useSelector(selectReportees);
   const todos = useSelector(selectTodoData);
   const modalPayload = useSelector(selectModalPayload);
 
   if (modalPayload.type === "TODOEDIT") {
-    const chosenTodo = todos.find((todo) => todo.id == modalPayload.id);
+    const chosenTodo = todos.find((todo) => todo.todoId == modalPayload.todoId);
     if (!chosenTodo) {
       console.log("Todo is not in the array.");
     }
     return <ModalViewTodo chosenTodo={chosenTodo} ref={ref} />;
   }
   if (modalPayload.type === "REPORTEEEDIT") {
-    const chosenUser = users.find((user) => user.id == modalPayload.id);
+    const chosenUser = reportees.find(
+      (reportee) => reportee.userId == modalPayload.userId
+    );
     if (!chosenUser) {
       console.log("Todo is not in the array.");
     }

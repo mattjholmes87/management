@@ -5,7 +5,7 @@ import {
   deleteTodo,
   completeTodo,
   changeTodoCat,
-} from "../../redux/APIdataSlice";
+} from "../../redux/todosSlice";
 import {
   modalToggle,
   selectModalPayload,

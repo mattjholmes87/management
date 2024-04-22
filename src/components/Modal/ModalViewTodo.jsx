@@ -9,10 +9,10 @@ const ModalEditTodo = forwardRef((props, ref) => {
       <EditTodoToolbar chosenTodo={chosenTodo} />
       <div className="todoText">
         <p>
-          <span className="bold">ID: </span> {chosenTodo.id}
+          <span className="bold">ID: </span> {chosenTodo.userId}
         </p>
         <p>
-          <span className="bold">Todo: </span> {chosenTodo.todo}
+          <span className="bold">Todo: </span> {chosenTodo.body}
         </p>
         <p>
           <span className="bold">Priority: </span>

@@ -655,15 +655,28 @@ h2.multiColorHeader p {
 }
 .overviewWrap .outerBox.three .innerBox.nine {
   grid-row: 1/span 8;
+  grid-column: 2/span 2;
+}
+.overviewWrap .outerBox.three .innerBox.nine .mainWindow.wrapper {
+  max-width: 100%;
+  max-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, auto));
+  grid-gap: 10px;
+}
+.overviewWrap .outerBox.three .innerBox.nine .mainWindow.wrapper .mainWindow.inner.one {
+  grid-row: 1/span 3;
+  grid-column: 1/span 1;
+}
+.overviewWrap .outerBox.three .innerBox.nine .mainWindow.wrapper .mainWindow.inner.two {
+  grid-row: 1/span 1;
   grid-column: 2/span 1;
 }
-.overviewWrap .outerBox.three .innerBox.ten {
-  grid-row: 1/span 4;
-  grid-column: 3/span 1;
-}
-.overviewWrap .outerBox.three .innerBox.eleven {
-  grid-row: 5/span 4;
-  grid-column: 3/span 1;
+.overviewWrap .outerBox.three .innerBox.nine .mainWindow.wrapper .mainWindow.inner.three {
+  grid-row: 2/span 2;
+  grid-column: 2/span 1;
+  padding: 10px;
 }
 .overviewWrap .outerBox.three .innerBox.one:hover,
 .overviewWrap .outerBox.three .innerBox.two:hover,

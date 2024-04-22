@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { initialState } from "./APIdataState";
+import { initialState } from "./todosState";
 
-export const APIdataSlice = createSlice({
-  name: "APIdata",
+export const todosSlice = createSlice({
+  name: "todos",
   initialState,
   reducers: {
-    setAPIData: (state, { payload }) => {
-      state.todoData = payload;
+    setTodoData: (state, { payload }) => {
+      state.userTodos = payload;
     },
     setLiked: (state, { payload }) => {
       const chosenTodo = state.todoData.find((todo) => todo.id === payload.id);
@@ -49,9 +49,14 @@ export const APIdataSlice = createSlice({
   },
 });
 
-export const { setAPIData, setLiked, deleteTodo, completeTodo, changeTodoCat } =
-  APIdataSlice.actions;
+export const {
+  setTodoData,
+  setLiked,
+  deleteTodo,
+  completeTodo,
+  changeTodoCat,
+} = todosSlice.actions;
 
-export const selectTodoData = (state) => state.APIdata.todoData;
+export const selectTodoData = (state) => state.todos.userTodos;
 
-export default APIdataSlice.reducer;
+export default todosSlice.reducer;

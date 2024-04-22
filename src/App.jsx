@@ -9,7 +9,6 @@ import { storeToken } from "./redux/interfaceSlice";
 
 const App = () => {
   useEffect(() => {
-    getTodos();
     getTokenFromStorage();
     getSchools();
   }, []);
