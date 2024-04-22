@@ -20,7 +20,6 @@ class Input extends Component {
             <input
               placeholder={placeholder ? placeholder : ""}
               type={type ? type : "text"}
-              id={name}
               name={name}
               style={{
                 border: "solid 0px ",

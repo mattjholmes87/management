@@ -16,10 +16,11 @@ const OverviewDash = () => {
   const state = useSelector((state) => {
     return state.interface;
   });
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token"); //use Selector
   const activeButton = useSelector(selectActiveButton);
 
   useEffect(() => {
+    if (!token) return; //check other useage
     getTodos(token);
     getReportees(token);
   }, []);
@@ -29,10 +30,8 @@ const OverviewDash = () => {
   } else {
     return (
       <>
-        {" "}
         <div className="overviewWrap">
           <div className="outerBox one">
-            {" "}
             {headerMaker("the")}
             {headerMaker("dashboard.")}
           </div>

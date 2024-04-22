@@ -25,10 +25,11 @@ import { toast } from "react-toastify";
 import { MdOutlineCategory } from "react-icons/md";
 
 const EditTodoToolbar = (props) => {
+  const dispatch = useDispatch();
   const modalPayload = useSelector(selectModalPayload);
   const toolbarOptions = useSelector(selectToolbarOptions);
   const toolbar = useSelector(selectToolbar);
-  const dispatch = useDispatch();
+
   const { chosenTodo } = props;
 
   return (

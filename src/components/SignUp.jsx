@@ -67,7 +67,7 @@ const Login = () => {
 
   const onSignUpSubmit = async (e) => {
     e.preventDefault();
-
+    // delete from object before submission
     //Send to API
     const { data } = await axios.post(
       "http://localhost:6001/user/post/new",

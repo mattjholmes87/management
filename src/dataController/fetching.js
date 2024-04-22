@@ -8,7 +8,7 @@ export const getTodos = async (token) => {
     const { data } = await axios.get(
       "http://localhost:6001/todos/get/todoData",
       {
-        headers: { token: token },
+        headers: { token },
       }
     );
     store.dispatch(setTodoData(data));
