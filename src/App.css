@@ -678,6 +678,9 @@ h2.multiColorHeader p {
   grid-column: 2/span 1;
   padding: 10px;
 }
+.overviewWrap .outerBox.three .innerBox.nine .addTodoWindow.wrapper #calendarWrap {
+  width: 200px;
+}
 .overviewWrap .outerBox.three .innerBox.one:hover,
 .overviewWrap .outerBox.three .innerBox.two:hover,
 .overviewWrap .outerBox.three .innerBox.three:hover,

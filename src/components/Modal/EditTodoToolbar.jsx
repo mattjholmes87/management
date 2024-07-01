@@ -9,6 +9,7 @@ import {
 import {
   modalToggle,
   selectModalPayload,
+  selectToken,
   selectToolbar,
   selectToolbarOptions,
   toolbarToggle,
@@ -23,12 +24,14 @@ import {
 } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { MdOutlineCategory } from "react-icons/md";
+import { updateTodo } from "../../dataController/fetching";
 
 const EditTodoToolbar = (props) => {
   const dispatch = useDispatch();
   const modalPayload = useSelector(selectModalPayload);
   const toolbarOptions = useSelector(selectToolbarOptions);
   const toolbar = useSelector(selectToolbar);
+  const token = useSelector(selectToken);
 
   const { chosenTodo } = props;
 
@@ -67,7 +70,7 @@ const EditTodoToolbar = (props) => {
         }}
       />
       <MdOutlineCategory
-        className={`svg category${chosenTodo.cat}`}
+        className={`svg category${chosenTodo.category}`}
         onMouseOver={() => {
           dispatch(toolbarToggle(toolbarOptions[4]));
         }}
@@ -89,6 +92,7 @@ const EditTodoToolbar = (props) => {
           className="svg notPriority"
           onClick={() => {
             dispatch(setLiked(modalPayload));
+            updateTodo(token, chosenTodo);
             toast.error(" No longer a Priority!", {
               position: "top-right",
               autoClose: 2000,
@@ -112,6 +116,7 @@ const EditTodoToolbar = (props) => {
           className="svg priority"
           onClick={() => {
             dispatch(setLiked(modalPayload));
+            updateTodo(token, chosenTodo);
             toast.success(" Set as a Priority!", {
               position: "top-right",
               autoClose: 2000,

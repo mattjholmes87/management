@@ -17,8 +17,7 @@ const ModalContent = forwardRef((props, ref) => {
       console.log("Todo is not in the array.");
     }
     return <ModalViewTodo chosenTodo={chosenTodo} ref={ref} />;
-  }
-  if (modalPayload.type === "REPORTEEEDIT") {
+  } else if (modalPayload.type === "REPORTEEEDIT") {
     const chosenUser = reportees.find(
       (reportee) => reportee.userId == modalPayload.userId
     );

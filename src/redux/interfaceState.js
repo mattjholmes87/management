@@ -13,4 +13,5 @@ export const initialState = {
     "",
   ],
   toolbar: [""],
+  loading: false,
 };

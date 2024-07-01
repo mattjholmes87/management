@@ -33,9 +33,7 @@ const Modal = () => {
 
   const closeModal = () => {
     masterTimeLine.reverse();
-    setTimeout(() => {
-      dispatch(modalToggle());
-    }, 1000);
+    dispatch(modalToggle()); //set timeout will case animation to have time to run but will case crash/loop
   };
 
   return (

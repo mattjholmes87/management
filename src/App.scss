@@ -681,6 +681,11 @@ h2.multiColorHeader {
           padding: 10px;
         }
       }
+      .addTodoWindow.wrapper {
+        #calendarWrap {
+          width: 200px;
+        }
+      }
     }
     .innerBox.one:hover,
     .innerBox.two:hover,

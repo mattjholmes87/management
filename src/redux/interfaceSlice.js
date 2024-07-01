@@ -21,6 +21,9 @@ export const interfaceSlice = createSlice({
     toolbarToggle: (state, { payload }) => {
       state.toolbar = payload;
     },
+    setLoading: (state, { payload }) => {
+      state.loading = payload;
+    },
   },
 });
 
@@ -30,6 +33,7 @@ export const {
   setActiveButton,
   modalToggle,
   toolbarToggle,
+  setLoading,
 } = interfaceSlice.actions;
 
 export const selectHamburger = (state) => state.interface.nav.hamburger;
@@ -40,5 +44,6 @@ export const selectModalPayload = (state) => state.interface.modalPayload;
 export const selectToken = (state) => state.interface.token;
 export const selectToolbarOptions = (state) => state.interface.toolbarOptions;
 export const selectToolbar = (state) => state.interface.toolbar;
+export const selectLoading = (state) => state.interface.loading;
 
 export default interfaceSlice.reducer;

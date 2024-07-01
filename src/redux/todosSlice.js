@@ -9,7 +9,9 @@ export const todosSlice = createSlice({
       state.userTodos = payload;
     },
     setLiked: (state, { payload }) => {
-      const chosenTodo = state.todoData.find((todo) => todo.id === payload.id);
+      const chosenTodo = state.userTodos.find(
+        (todo) => todo.todoId === payload.todoId
+      );
       if (!chosenTodo) {
         console.log("Todo cannot be found to like");
       } else {
@@ -17,17 +19,19 @@ export const todosSlice = createSlice({
       }
     },
     deleteTodo: (state, { payload }) => {
-      const index = state.todoData.findIndex((todo) => {
-        return todo.id === payload.modalPayload.id;
+      const index = state.userTodos.findIndex((todo) => {
+        return todo.todoId === payload.modalPayload.todoId;
       });
       if (index === -1) {
         console.log("Todo cannot be found to delete");
       } else {
-        state.todoData.splice(index, 1);
+        state.userTodos.splice(index, 1);
       }
     },
     completeTodo: (state, { payload }) => {
-      const chosenTodo = state.todoData.find((todo) => todo.id === payload.id);
+      const chosenTodo = state.userTodos.find(
+        (todo) => todo.todoId === payload.todoId
+      );
       if (!chosenTodo) {
         console.log("Todo cannot be found to complete");
       } else {
@@ -35,14 +39,18 @@ export const todosSlice = createSlice({
       }
     },
     changeTodoCat: (state, { payload }) => {
-      const chosenTodo = state.todoData.find((todo) => todo.id === payload.id);
+      console.log(payload);
+      const chosenTodo = state.userTodos.find(
+        (todo) => todo.todoId === payload.todoId
+      );
       if (!chosenTodo) {
         console.log("Todo cannot be found to put in category");
       } else {
-        if (chosenTodo.cat === 8) {
-          chosenTodo.cat = 0;
+        console.log(chosenTodo.category);
+        if (chosenTodo.category === 8) {
+          chosenTodo.category = 0;
         } else {
-          chosenTodo.cat = (chosenTodo.cat || 0) + 1;
+          chosenTodo.category = Number(chosenTodo.category || 0) + 1;
         }
       }
     },

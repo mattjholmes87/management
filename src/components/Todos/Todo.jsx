@@ -15,6 +15,7 @@ const Todo = (props) => {
     body,
     category,
     completed,
+    completeBy,
     createdBy,
     createdOn,
     displayOn,
@@ -47,12 +48,12 @@ const Todo = (props) => {
             <span>Todo: </span> {name}
           </div>
           <div className="id">
-            <span>Rank: </span>
+            <span>Todo ID: </span>
             {todoId}
           </div>
           <div className="usedId">
-            <span>ID: </span>
-            {userId}
+            <span>User ID: </span>
+            {completeBy}
           </div>
           <div className="status">
             <span>Status: </span>
