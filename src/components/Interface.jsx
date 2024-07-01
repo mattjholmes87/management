@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import NavBar from "./NavBar";
 import HomeBody from "./HomeBody";
 import OverviewDash from "./OverviewDash";
@@ -8,15 +8,27 @@ import MeetingDash from "./MeetingDash";
 import HierachyDash from "./HierachyDash";
 import SettingsDash from "./SettingsDash";
 import { Routes, Route } from "react-router-dom";
+import Modal from "./Modal/Modal";
+import { selectModalToggle, selectToken } from "../redux/interfaceSlice";
+import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import LoginFullPage from "./Login/LoginFullPage";
 
 const Interface = () => {
+  const modal = useSelector(selectModalToggle);
+  const token = useSelector(selectToken);
+
   return (
     <>
+      <ToastContainer />
       <NavBar />
+      {modal ? <Modal /> : ""}
       <div className="routesPosition">
         <Routes>
-          <Route path="/" element={<HomeBody />} />
+          <Route path="/" element={token ? <OverviewDash /> : <HomeBody />} />
           <Route exact path="/overviewDash" element={<OverviewDash />} />
+          <Route path="/login" element={<LoginFullPage />} />
           <Route path="/reportDash" element={<ReportDash />} />
           <Route path="/calendarDash" element={<CalendarDash />} />
           <Route path="/meetingDash" element={<MeetingDash />} />

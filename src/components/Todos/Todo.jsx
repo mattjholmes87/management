@@ -1,32 +1,75 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectTodoData } from "../../redux/APIdataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { modalToggle } from "../../redux/interfaceSlice";
+import {
+  IoNotificationsCircleOutline,
+  IoNotificationsOffCircleOutline,
+} from "react-icons/io5";
+import { MdOutlineCategory } from "react-icons/md";
 
 const Todo = (props) => {
   const state = useSelector((state) => {
     return state.APIdata;
   });
-  const { id, todo, userId, completed } = props;
-  const todoData = useSelector(selectTodoData);
+  const {
+    body,
+    category,
+    completed,
+    completeBy,
+    createdBy,
+    createdOn,
+    displayOn,
+    dueDate,
+    managedBy,
+    meetingId,
+    name,
+    priority,
+    signedOff,
+    signedOffOn,
+    todoId,
+    userId,
+  } = props;
+
+  const dispatch = useDispatch();
 
   return (
     <>
-      <div>
-        <div className={`todoCard ${completed ? "done" : ""}`} key={id}>
+      <div
+        className={`todoCard ${completed ? "done" : ""} ${
+          priority ? "priority" : ""
+        }`}
+        key={todoId}
+        onClick={() => {
+          dispatch(modalToggle({ type: "TODOEDIT", todoId }));
+        }}
+      >
+        <div className="todoText">
           <div className="todo">
-            <span>Todo: </span> {todo}
+            <span>Todo: </span> {name}
           </div>
           <div className="id">
-            <span>Rank: </span>
-            {id}
+            <span>Todo ID: </span>
+            {todoId}
           </div>
           <div className="usedId">
-            <span>ID: </span>
-            {userId}
+            <span>User ID: </span>
+            {completeBy}
           </div>
           <div className="status">
-            <span>Completed: </span>
+            <span>Status: </span>
             {completed ? "Task Completed" : "Task Incomplete"}
+          </div>
+        </div>
+        <div className="todoIcon">
+          <div>
+            {priority ? (
+              <IoNotificationsCircleOutline className="svg priority" />
+            ) : (
+              <IoNotificationsOffCircleOutline className="svg notPriority" />
+            )}
+          </div>
+          <div>
+            <MdOutlineCategory className={`svg category${category}`} />
           </div>
         </div>
       </div>

@@ -3,10 +3,10 @@
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(
     315deg,
-    #c45fa0 3%,
-    #e6594e 38%,
-    #f39a2c 68%,
-    #4a5699 98%
+    #f4fafa 3%,
+    #26bfab 38%,
+    #02484d 68%,
+    #c5e4e7 98%
   );
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;

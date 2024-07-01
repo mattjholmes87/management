@@ -9,6 +9,15 @@
   box-sizing: border-box;
   width: 100%;
 }
+.Toastify__close-button {
+  display: flex;
+  justify-content: end;
+}
+.Toastify__toast-body {
+  font-size: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
 p {
   font: inherit;
 }
@@ -56,23 +65,24 @@ body {
     .logoImage {
       width: 45px;
       height: auto;
-      padding-right: 20px;
+      padding-right: 10px;
+      color: #02484d;
     }
     a {
       text-decoration: none;
       display: flex;
       flex-direction: row;
       align-items: center;
-      color: #202020;
+      color: #02484d;
       font-size: 2rem;
       max-width: 100px;
+      span {
+        color: #99cdd2;
+        font-size: inherit;
+      }
     }
   }
 
-  .menuBox:hover,
-  .logoBox:hover {
-    color: #f0d043;
-  }
   .rightNavBox {
     display: flex;
     flex-direction: row;
@@ -83,6 +93,7 @@ body {
     right: 5px;
     width: auto;
     height: 100%;
+    color: #02484d;
     .menuBox {
       background-color: inherit;
       font-family: "Roboto", sans-serif;
@@ -99,7 +110,7 @@ body {
         .line {
           position: absolute;
           display: block;
-          background: #4a5699;
+          background: #02484d;
           width: 10px;
           height: 0.15rem;
           border-radius: 0.2rem;
@@ -116,7 +127,7 @@ body {
           width: 18px;
           transform: translateX(0px);
           -webkit-transform: translateX(0px);
-          background-color: #f0d043;
+          background-color: #99cdd2;
         }
 
         .line-3 {
@@ -127,7 +138,7 @@ body {
           top: 0px;
           width: 22px;
           transform: translateX(-11px) rotate(-45deg) translateY(12px);
-          background-color: #e6594e;
+          background-color: #99cdd2;
         }
 
         .line-2.on {
@@ -138,7 +149,7 @@ body {
           top: 14px;
           width: 22px;
           transform: translateX(-8px) rotate(45deg) translateY(-8px);
-          background-color: #f0d043;
+          background-color: #02484d;
         }
       }
     }
@@ -190,8 +201,7 @@ body {
       color: #ffffff;
     }
     .link:hover {
-      color: #f0d043;
-      font-weight: 500;
+      font-weight: 800;
     }
   }
 }
@@ -257,9 +267,9 @@ body {
         text-align: center;
         width: 80%;
       }
-      img {
-        color: #ffffff;
-        max-height: 10vh;
+      svg {
+        color: #c5e4e7;
+        height: 10vh;
         padding: 10px;
       }
     }
@@ -275,12 +285,13 @@ body {
     .toolBox.eleven:hover,
     .toolBox.twelve:hover,
     .toolBox.thirteen:hover {
-      border-left: 2px solid #f0d043;
-      background-color: #f7f7f7;
-      img {
+      border-left: 2px solid #c5e4e7;
+      background-color: #f4fafa;
+      svg {
         animation: bellshake 0.5s cubic-bezier(0.18, 0.04, 0.1, 0.5) both;
         backface-visibility: hidden;
         transform-origin: top right;
+        color: #02484d;
       }
 
       div {
@@ -431,7 +442,19 @@ body {
   z-index: 1;
   border-bottom: 1px solid;
   @include standardBorder();
-
+  span {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-left: 8px;
+    padding-right: 10px;
+  }
+  select {
+    border: 0px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
   .loginBox {
     h2 {
       font-size: 1.2rem;
@@ -442,6 +465,17 @@ body {
     grid-row-start: 1;
     grid-row-end: 2;
     margin-top: 20px;
+    .loginButton {
+      width: 80px;
+      font-size: 1.2rem;
+      background-color: #b8d4de;
+      color: #ffffff;
+      font-weight: 600;
+      border-radius: 3px;
+      border: 0px;
+      margin: 5px;
+      height: 20px;
+    }
   }
   .signUpBox {
     h2 {
@@ -453,6 +487,11 @@ body {
     grid-row-end: 3;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+  .schoolsDropDown {
+    max-width: 350px;
+    min-width: 250px;
+    width: 25%;
   }
 }
 
@@ -488,39 +527,15 @@ h1.multiColorHeader {
   p {
     span {
       font-size: 60px;
-      &:nth-child(4n) {
-        color: #c45fa0;
-      }
-      &:nth-child(4n-1) {
-        color: #4a5699;
-      }
-      &:nth-child(4n-2) {
-        color: #f39a2c;
-      }
-      &:nth-child(4n-3) {
-        color: #e6594e;
-      }
+      color: #02484d;
     }
   }
 }
 h2.multiColorHeader {
   max-height: 200px;
   p {
-    span {
-      font-size: 2rem;
-      &:nth-child(4n) {
-        color: #c45fa0;
-      }
-      &:nth-child(4n-1) {
-        color: #4a5699;
-      }
-      &:nth-child(4n-2) {
-        color: #f39a2c;
-      }
-      &:nth-child(4n-3) {
-        color: #e6594e;
-      }
-    }
+    font-size: 60px;
+    color: #02484d;
   }
 }
 
@@ -563,6 +578,8 @@ h2.multiColorHeader {
       align-items: center;
       padding-right: 50px;
       background-color: #ffffff;
+      border-radius: 8px;
+      border: solid 1px #eeeeee;
 
       .IDCardDetails {
         width: 100%;
@@ -578,7 +595,7 @@ h2.multiColorHeader {
         height: 100px;
         border: 1px solid;
         @include standardBorder();
-        background: linear-gradient(to top, #f39a2c 50%, #ffffff 50%);
+        background: linear-gradient(to top, #99cdd2 50%, #ffffff 50%);
       }
     }
   }
@@ -598,6 +615,15 @@ h2.multiColorHeader {
       align-items: center;
       font-size: 1.2rem;
       font-weight: 600;
+      border-radius: 8px;
+      svg {
+        height: 20px;
+        width: 20px;
+        margin-right: 10px;
+      }
+      div {
+        font-size: inherit;
+      }
     }
     .innerBox.one {
       grid-row: 1 / span 1;
@@ -633,15 +659,33 @@ h2.multiColorHeader {
     }
     .innerBox.nine {
       grid-row: 1 / span 8;
-      grid-column: 2 / span 1;
-    }
-    .innerBox.ten {
-      grid-row: 1 / span 4;
-      grid-column: 3 / span 1;
-    }
-    .innerBox.eleven {
-      grid-row: 5 / span 4;
-      grid-column: 3 / span 1;
+      grid-column: 2 / span 2;
+      .mainWindow.wrapper {
+        max-width: 100%;
+        max-height: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, auto));
+        grid-gap: 10px;
+        .mainWindow.inner.one {
+          grid-row: 1 / span 3;
+          grid-column: 1 / span 1;
+        }
+        .mainWindow.inner.two {
+          grid-row: 1 / span 1;
+          grid-column: 2 / span 1;
+        }
+        .mainWindow.inner.three {
+          grid-row: 2 / span 2;
+          grid-column: 2 / span 1;
+          padding: 10px;
+        }
+      }
+      .addTodoWindow.wrapper {
+        #calendarWrap {
+          width: 200px;
+        }
+      }
     }
     .innerBox.one:hover,
     .innerBox.two:hover,
@@ -650,25 +694,91 @@ h2.multiColorHeader {
     .innerBox.five:hover,
     .innerBox.six:hover,
     .innerBox.seven:hover {
-      border-left: 2px solid #f0d043;
-      background-color: #f7f7f7;
+      border-left: 2px solid #c5e4e7;
+      border-right: 2px solid #c5e4e7;
+      background-color: #f4fafa;
+      svg {
+        color: #26bfab;
+      }
     }
   }
 
   .todoList {
     max-height: 100%;
     overflow-y: scroll;
+    .todoListHeading {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
     .todoCard {
       padding: 10px;
+      display: flex;
+      flex-direction: row;
+      width: 97%;
+      border-radius: 8px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      .todoIcon {
+        width: auto;
+        align-self: center;
+        margin-left: 10px;
+        .svg {
+          color: #eeeeee;
+        }
+        .svg.priority {
+          color: #f0d043;
+        }
+
+        .svg.category1 {
+          color: #d29999;
+        }
+        .svg.category2 {
+          color: #d2d299;
+        }
+        .svg.category3 {
+          color: #a9d299;
+        }
+        .svg.category4 {
+          color: #99d2c2;
+        }
+        .svg.category5 {
+          color: #99aad2;
+        }
+        .svg.category6 {
+          color: #c699d2;
+        }
+        .svg.category7 {
+          color: #99c2d2;
+        }
+        .svg.category8 {
+          color: #d299bd;
+        }
+      }
+    }
+    .todoCard.priority {
+      border-left: 2px solid #f0d043;
+      border-right: 2px solid #f0d043;
+      padding-left: 8px;
+      border-top: 0px;
+      border-bottom: 0px;
+    }
+    .todoCard.priority:hover {
+      border-left: 2px solid #f0d043;
+      border-right: 2px solid #f0d043;
+      background-color: #f7f7f7;
+      padding-left: 8px;
+      border-top: 0px;
+      border-bottom: 0px;
     }
     .todoCard:hover {
-      border-left: 2px solid #950d0d;
-      background-color: #eccece;
+      border-left: 2px solid #c5e4e7;
+      border-right: 2px solid #c5e4e7;
+      background-color: #f7f7f7;
       padding-left: 8px;
-    }
-    .todoCard.done:hover {
-      border-left: 2px solid #035c1e;
-      background-color: #d3e4dd;
+      border-top: 0px;
+      border-bottom: 0px;
     }
 
     h2 {
@@ -695,6 +805,180 @@ h2.multiColorHeader {
       font-size: 1.6rem;
       padding: 10px;
       font-weight: 400;
+    }
+  }
+}
+
+//Login Page
+.loginBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 50px);
+  .loginCase {
+    font-size: 1.2rem;
+    width: 50vw;
+    height: 50vh;
+    background-color: #b8d4de;
+    border-radius: 10px;
+    padding: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .formBox {
+      div {
+        label {
+          width: 100px;
+        }
+      }
+    }
+    div {
+      font-size: 1.2rem;
+    }
+    form {
+      div {
+        font-size: 1.2rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+    .loginFooter {
+      font-size: 1rem;
+      text-align: center;
+    }
+    .loginFooter.Error {
+      color: #f32626;
+      font-weight: 500;
+    }
+    .loginButton {
+      width: 20%;
+      min-width: 50px;
+      font-size: 1.2rem;
+      background-color: #ffffff;
+      border-radius: 3px;
+      border: 0px;
+      margin: 5px;
+    }
+  }
+}
+
+//Modals
+.modal-container {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 500;
+  font-size: 3rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  .bold {
+    font-weight: 600;
+    font-size: inherit;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  &.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-veil {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba($color: #333, $alpha: 0.85);
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+
+  .modal-dialog {
+    position: relative;
+    width: 75%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    transform: translateY(50px);
+    opacity: 0;
+    visibility: hidden;
+
+    .modal-content-container {
+      color: black;
+      text-align: left;
+
+      .todoText {
+        background-color: #ffffff;
+        font-size: inherit;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      p {
+        margin-top: 0px;
+      }
+      .modal.toolbar.todo {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: end;
+        align-items: center;
+        background-color: #ffffff;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        .toolbar.descript {
+          color: #02484d;
+          text-align: right;
+          font-family: inherit;
+          font-size: 1.1rem;
+          font-weight: 600;
+          padding-right: 10px;
+        }
+        svg {
+          min-width: 22px;
+          max-width: 22px;
+          height: 22px;
+          margin: 5px;
+          color: #c5e4e7;
+        }
+        .svg.category1 {
+          color: #d29999;
+        }
+        .svg.category2 {
+          color: #d2d299;
+        }
+        .svg.category3 {
+          color: #a9d299;
+        }
+        .svg.category4 {
+          color: #99d2c2;
+        }
+        .svg.category5 {
+          color: #99aad2;
+        }
+        .svg.category6 {
+          color: #c699d2;
+        }
+        .svg.category7 {
+          color: #99c2d2;
+        }
+        .svg.category8 {
+          color: #d299bd;
+        }
+
+        .svg.notPriority {
+          color: #f0d043;
+        }
+
+        svg:hover {
+          color: #02484d;
+        }
+      }
     }
   }
 }

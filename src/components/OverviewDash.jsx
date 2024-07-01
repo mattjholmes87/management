@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { headerMaker } from "../tools/HeaderMaker";
 import UserCard from "./Users/UserCard";
 import MainWindowOverview from "./OverviewDash/MainWindowOverview";
@@ -9,44 +9,54 @@ import PushTodoOverview from "./OverviewDash/PushTodoOverview";
 import { useSelector } from "react-redux";
 import { selectActiveButton } from "../redux/interfaceSlice";
 import IDCard from "./Users/IDCards";
+import { Navigate } from "react-router-dom";
+import { getTodos, getReportees } from "../dataController/fetching";
 
 const OverviewDash = () => {
   const state = useSelector((state) => {
     return state.interface;
   });
-
+  const token = localStorage.getItem("token"); //use Selector
   const activeButton = useSelector(selectActiveButton);
 
-  return (
-    <>
-      {" "}
-      <div className="overviewWrap">
-        <div className="outerBox one">
-          {" "}
-          {headerMaker("the")}
-          {headerMaker("dashboard.")}
-        </div>
-        <div className="outerBox two">
-          <IDCard />
-        </div>
-        <div className="outerBox three">
-          <OverviewButtons />
+  useEffect(() => {
+    if (!token) return; //check other useage
+    getTodos(token);
+    getReportees(token);
+  }, []);
 
-          {activeButton === "home" ? (
-            <MainWindowOverview />
-          ) : activeButton === "addTodo" ? (
-            <AddTodoOverview />
-          ) : activeButton === "pushTodo" ? (
-            <PushTodoOverview />
-          ) : activeButton === "bulletin" ? (
-            <BulletinOverview />
-          ) : (
-            <MainWindowOverview />
-          )}
+  if (!token) {
+    return <Navigate replace to="/login" />;
+  } else {
+    return (
+      <>
+        <div className="overviewWrap">
+          <div className="outerBox one">
+            {headerMaker("the")}
+            {headerMaker("dashboard.")}
+          </div>
+          <div className="outerBox two">
+            <IDCard />
+          </div>
+          <div className="outerBox three">
+            <OverviewButtons />
+
+            {activeButton === "home" ? (
+              <MainWindowOverview />
+            ) : activeButton === "addTodo" ? (
+              <AddTodoOverview />
+            ) : activeButton === "pushTodo" ? (
+              <PushTodoOverview />
+            ) : activeButton === "bulletin" ? (
+              <BulletinOverview />
+            ) : (
+              <MainWindowOverview />
+            )}
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 };
 
 export default OverviewDash;

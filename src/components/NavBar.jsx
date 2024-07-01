@@ -1,16 +1,18 @@
 import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import ToolBar from "./ToolBar";
 import SignUp from "./SignUp";
-import pencil from "../images/icons/label-svgrepo-com.svg";
 import {
+  storeToken,
   menuToggle,
   selectHamburger,
   selectSignUp,
 } from "../redux/interfaceSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { IoFileTrayStackedOutline } from "react-icons/io5";
+import axios from "axios";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -22,24 +24,34 @@ const Nav = () => {
   const signUpToggle = useSelector(selectSignUp);
   const hamburgerToggle = useSelector(selectHamburger);
 
+  const logout = async () => {
+    await axios.delete("http://localhost:6001/user/login", {
+      headers: { token: localStorage.getItem("token") },
+    });
+    localStorage.removeItem("token");
+    dispatch(storeToken(null));
+  };
+
   return (
     <>
       <div className="navBoxWrap">
         <div className="logoBox">
           <Link to="/" className="link">
-            <img src={pencil} className="logoImage" alt="logo" />{" "}
-            <div>noTed</div>
+            <IoFileTrayStackedOutline className="logoImage" />
+            <div>
+              <span>in</span>Tray
+            </div>
           </Link>
         </div>
         <div className="rightNavBox">
-          {state.loginStatus ? (
-            <div className="loginDropDown">
-              <h2>Welcome back.</h2>
+          {state.token ? (
+            <div className="loginDropDown" onClick={logout}>
+              <h2>Logout.</h2>
             </div>
           ) : (
             ""
           )}
-          {state.loginStatus ? (
+          {state.token ? (
             ""
           ) : (
             <div
@@ -75,9 +87,9 @@ const Nav = () => {
         </div>
       </div>
 
-      {state.loginStatus ? "" : <SignUp />}
-      {state.loginStatus ? <ToolBar /> : ""}
-      {state.loginStatus ? "" : <NavLinks />}
+      {state.token ? "" : <SignUp />}
+      {state.token ? <ToolBar /> : ""}
+      {state.token ? "" : <NavLinks />}
     </>
   );
 };

@@ -1,17 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import upload from "../images/icons/upload-svgrepo-com.svg";
-import settings from "../images/icons/set-up-svgrepo-com.svg";
-import time from "../images/icons/time-svgrepo-com.svg";
-import user from "../images/icons/user-svgrepo-com.svg";
-import table from "../images/icons/table-of-contents-svgrepo-com.svg";
-import insipration from "../images/icons/inspiration-svgrepo-com.svg";
-import { menuToggle, loginToggle } from "../redux/interfaceSlice";
+import { menuToggle, storeToken } from "../redux/interfaceSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { IoEarth, IoSettingsOutline } from "react-icons/io5";
+import { PiCalendarDuotone } from "react-icons/pi";
+import {
+  FaArrowsDownToPeople,
+  FaPeopleLine,
+  FaSlideshare,
+} from "react-icons/fa6";
+import axios from "axios";
 
 const ToolBar = () => {
   const dispatch = useDispatch();
+
+  const logout = async () => {
+    await axios.delete("http://localhost:6001/user/login", {
+      headers: { token: localStorage.getItem("token") },
+    });
+    localStorage.removeItem("token");
+    dispatch(storeToken(null));
+  };
 
   const state = useSelector((state) => {
     return state.interface;
@@ -23,28 +33,28 @@ const ToolBar = () => {
         <div className="toolBox one off">Tools</div>
         <div className="toolBox two">
           <Link to="/overviewdash" className="link">
-            <img src={upload} className="logoImage" alt="overviewIcon" />
+            <IoEarth />
             <div>Overview</div>
           </Link>
         </div>
         <div className="toolBox three">
-          <img src={user} className="logoImage" alt="reporteeIcon" />
+          <FaArrowsDownToPeople />
           <div>Reportee</div>
         </div>
         <div className="toolBox four">
-          <img src={time} className="logoImage" alt="calendarIcon" />
+          <PiCalendarDuotone />
           <div>Calendar</div>
         </div>
         <div className="toolBox five">
-          <img src={table} className="logoImage" alt="meetingIcon" />
+          <FaSlideshare />
           <div>Meetings</div>
         </div>
         <div className="toolBox six">
-          <img src={insipration} className="logoImage" alt="hierachyIcon" />
+          <FaPeopleLine />
           <div>Hierachy</div>
         </div>
         <div className="toolBox seven">
-          <img src={settings} className="logoImage" alt="settingsIcon" />
+          <IoSettingsOutline />
           <div>Settings</div>
         </div>
         <div className="toolBox eight">Action 8</div>
@@ -58,7 +68,7 @@ const ToolBar = () => {
             className="link"
             onClick={() => {
               dispatch(menuToggle("hamburger"));
-              dispatch(loginToggle("out"));
+              logout();
             }}
           >
             Sign Out

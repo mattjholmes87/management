@@ -8,11 +8,19 @@ export const usersSlice = createSlice({
     setUsers: (state) => {
       console.log(current(state));
     },
+    setSchools: (state, { payload }) => {
+      state.schools = payload;
+    },
+    setReportees: (state, { payload }) => {
+      state.reportees = payload;
+    },
   },
 });
 
-export const { setUsers } = usersSlice.actions;
+export const { setUsers, setSchools, setReportees } = usersSlice.actions;
 
 export const selectUsers = (state) => state.userAccounts.users;
+export const selectSchools = (state) => state.userAccounts.schools;
+export const selectReportees = (state) => state.userAccounts.reportees;
 
 export default usersSlice.reducer;

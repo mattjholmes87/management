@@ -11,22 +11,39 @@ export const interfaceSlice = createSlice({
     setActiveButton: (state, { payload }) => {
       state.activeButton = payload;
     },
-    loginToggle: (state, { payload }) => {
-      if (payload === "in") {
-        state.loginStatus = true;
-      } else {
-        state.loginStatus = false;
-      }
+    modalToggle: (state, { payload }) => {
+      state.modal = !state.modal;
+      state.modalPayload = payload;
+    },
+    storeToken: (state, { payload }) => {
+      state.token = payload;
+    },
+    toolbarToggle: (state, { payload }) => {
+      state.toolbar = payload;
+    },
+    setLoading: (state, { payload }) => {
+      state.loading = payload;
     },
   },
 });
 
-export const { menuToggle, loginToggle, setActiveButton } =
-  interfaceSlice.actions;
+export const {
+  menuToggle,
+  storeToken,
+  setActiveButton,
+  modalToggle,
+  toolbarToggle,
+  setLoading,
+} = interfaceSlice.actions;
 
 export const selectHamburger = (state) => state.interface.nav.hamburger;
 export const selectSignUp = (state) => state.interface.nav.signUp;
 export const selectActiveButton = (state) => state.interface.activeButton;
-export const selectLoginStatus = (state) => state.interface.loginStatus;
+export const selectModalToggle = (state) => state.interface.modal;
+export const selectModalPayload = (state) => state.interface.modalPayload;
+export const selectToken = (state) => state.interface.token;
+export const selectToolbarOptions = (state) => state.interface.toolbarOptions;
+export const selectToolbar = (state) => state.interface.toolbar;
+export const selectLoading = (state) => state.interface.loading;
 
 export default interfaceSlice.reducer;
